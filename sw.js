@@ -1,8 +1,8 @@
 /* DreamOS SW v0.1.0 — app-shell precache + NetworkFirst navigations con fallback offline. */
-const VERSION = "dreamos-v0.2.0";
+const VERSION = "dreamos-v0.3.0";
 const SHELL = ["./", "./index.html", "./offline.html", "./manifest.webmanifest",
   "./css/tokens.css", "./css/app.css", "./js/db.js", "./js/knowledge.js",
-  "./js/interpret.js", "./js/app.js",
+  "./js/interpret.js", "./js/stars.js", "./js/app.js",
   "./data/knowledge_base.json", "./data/synonyms.json",
   "./assets/icons/icon.svg", "./assets/icons/maskable.svg"];
 self.addEventListener("install", (e) => {

@@ -15,7 +15,7 @@ function applyTheme() {
   document.documentElement.dataset.theme = t;
   document.querySelector('meta[name="theme-color"]').content = t === "dark" ? "#101321" : "#f5f5fa";
 }
-function online() { const off = !navigator.onLine; $("#offline").classList.toggle("show", off); $("#statOffline").textContent = off ? "Offline" : "En línea"; }
+function online() { $("#offline").classList.toggle("show", !navigator.onLine); }
 let installPrompt = null;
 
 /* ---------- navegación ---------- */
@@ -36,11 +36,16 @@ function nav(view) {
 /* ---------- sueños ---------- */
 async function refresh() { dreams = await DB.allDreams().catch(() => []); stats(); }
 function stats() {
-  $("#statDreams").textContent = dreams.length;
   $("#navDreamCount").textContent = dreams.length;
-  $("#statSymbols").textContent = KB.symbols().length;
-  $("#statEntries").textContent = KB.entries.length;
-  $("#navKnowCount").textContent = KB.entries.length;
+  const iso = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  const days = new Set(dreams.map((d) => (d.date || "").slice(0, 10)).filter(Boolean));
+  let streak = 0; const cur = new Date();
+  if (!days.has(iso(cur))) cur.setDate(cur.getDate() - 1);
+  while (days.has(iso(cur))) { streak++; cur.setDate(cur.getDate() - 1); }
+  const month = dreams.filter((d) => (d.date || "").startsWith(today().slice(0, 7))).length;
+  const last = [...dreams].sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || ""))[0];
+  const set = (id, v) => { const el = $(id); if (el) el.textContent = v; };
+  set("#statStreak", streak); set("#statMonth", month); set("#statEmotion", last?.emotion || "—");
   const recent = [...dreams].sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || "")).slice(0, 2);
   $("#recentDreams").innerHTML = recent.length ? recent.map((d) => dreamCard(d, true)).join("") : '<div class="empty">Todavía no hay sueños guardados. <button class="small" data-new>Registrar el primero</button></div>';
   const hasDemo = dreams.some((d) => d.synthetic);
@@ -68,11 +73,11 @@ function renderDreams() {
 function renderInterp(box, d) {
   const r = Interpret.run(d);
   if (r.type === "unavailable") {
-    box.innerHTML = `<div class="interp"><h4>Datos insuficientes <span class="tag">reglas v0.1.0</span></h4><p class="muted">${esc(r.summary)}</p><ul>${r.limitations.map((l) => `<li>${esc(l)}</li>`).join("")}</ul><p><b>Preguntas para completarlo:</b></p><ul>${r.questions.map((q) => `<li>${esc(q)}</li>`).join("")}</ul></div>`;
+    box.innerHTML = `<div class="interp"><h4>Aún hay poco material <span class="tag">lectura local</span></h4><p class="muted">${esc(r.summary)}</p><ul>${r.limitations.map((l) => `<li>${esc(l)}</li>`).join("")}</ul><p><b>Preguntas para completarlo:</b></p><ul>${r.questions.map((q) => `<li>${esc(q)}</li>`).join("")}</ul></div>`;
     return;
   }
   const schoolName = { cientifica: "Científica", freudiana: "Freudiana", junguiana: "Junguiana", historica: "Histórica", personal: "Personal" };
-  box.innerHTML = `<div class="interp"><h4>Lecturas posibles <span class="tag">reglas v0.1.0 · sin IA</span></h4><p class="muted">${esc(r.summary)}</p>
+  box.innerHTML = `<div class="interp"><h4>Lecturas posibles <span class="tag">lectura local</span></h4><p class="muted">${esc(r.summary)}</p>
   ${r.perspectives.map((p) => `<div style="margin:8px 0"><span class="tag">${esc(schoolName[p.school] || p.school)}</span> <b>${esc(p.term)}</b><br><span class="muted">${esc(p.claim)}</span></div>`).join("")}
   <p class="muted">Fuentes: ${r.sourceIds.map(esc).join(", ") || "—"}</p>
   <ul>${r.limitations.map((l) => `<li>${esc(l)}</li>`).join("")}</ul>
@@ -84,7 +89,7 @@ function renderKnowledge() {
   const q = ($("#globalSearch").value || "").trim(), cat = $("#categoryFilter").value;
   const list = KB.search(q, cat);
   $("#knowledgeCount").textContent = list.length + " entradas";
-  $("#kbMeta").textContent = `Base local v1.0: ${KB.entries.length} entradas, ${KB.symbols().length} símbolos, 267 sinónimos. Síntesis propia trazable.`;
+  $("#kbMeta").textContent = `Diccionario vivo: ${KB.symbols().length} símbolos con lecturas de varias escuelas.`;
   $("#knowledgeGrid").innerHTML = list.length ? list.map((e) => `<article class="entry"><span class="tag">${esc(e.category)}</span>${(e.tags || []).slice(0, 3).map((t) => `<span class="tag">${esc(t)}</span>`).join("")}<h3>${esc(e.term)}</h3><p>${esc(e.summary)}</p><details><summary>Contexto, escuelas y límites</summary><p>${esc(e.detail)}</p>${(e.interpretations || []).map((i) => `<p><span class="tag">${esc(i.school)}</span> <span class="muted">${esc(i.text)}</span></p>`).join("")}<p class="muted">Fuentes: ${(e.sourceIds || []).map(esc).join(", ")} · Evidencia ${esc(e.evidence)}</p>${(e.questions || []).map((qq) => `<p>✦ ${esc(qq)}</p>`).join("")}</details></article>`).join("") : '<div class="empty">Sin coincidencias en la base local.</div>';
 }
 

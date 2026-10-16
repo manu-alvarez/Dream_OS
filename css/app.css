@@ -100,3 +100,33 @@ details{margin-top:8px}summary{cursor:pointer;font-weight:650}
 @media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:static}.label,.note{display:none}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap}.grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.grid,.formgrid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.top-in{flex-wrap:wrap}.search{order:3;flex-basis:100%}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== ONEIRIC NEON v0.3.0 — hero inmersivo, cero jerga, neón con respeto ===== */
+#knowledgeCount,#navKnowCount{display:none}
+.hero-neon{min-height:min(78vh,620px);display:flex;align-items:center;background:radial-gradient(120% 130% at 85% -10%,#3b2a6e 0%,#171031 45%,#070512 100%);border:1px solid #ffffff1f}
+.hero-neon .hero-in{position:relative;z-index:2;max-width:640px}
+#stars{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero-neon .aurora{opacity:.8}
+.hero-neon .moon{position:absolute;right:8%;top:12%;width:110px;height:110px;border-radius:50%;z-index:1;
+background:radial-gradient(circle at 35% 35%,#fffbe8,#f4d068 55%,#b98a1f 100%);
+box-shadow:0 0 40px #f4d06888,0 0 120px #f4d06844,0 0 220px #b7a9ff33;animation:moonfloat 9s ease-in-out infinite alternate}
+@keyframes moonfloat{from{transform:translateY(-8px)}to{transform:translateY(10px)}}
+.hero-neon h1{font-size:clamp(2.6rem,7vw,4.6rem);line-height:1.02;
+background:linear-gradient(100deg,#fff 20%,var(--neon) 55%,var(--neon3) 95%);-webkit-background-clip:text;background-clip:text;color:transparent;
+filter:drop-shadow(0 0 22px #b7a9ff55)}
+.hero-neon h1 em{font-style:italic}
+.hero-neon p{font-size:1.06rem;color:#d9d4ff}
+.btn-neon{box-shadow:0 0 0 1px #ffffff55,0 0 28px #b7a9ff66;font-size:1.05rem;padding:13px 22px}
+.btn-ghost{background:#ffffff0d;color:#fff;border-color:#ffffff38;backdrop-filter:blur(8px)}
+.demo-link{background:none;border:none;color:var(--neon2);font-size:.9rem;margin-top:14px;padding:10px 4px;text-decoration:underline;text-underline-offset:4px;position:relative;z-index:2}
+.hero-neon:after{background:radial-gradient(circle,transparent 60%,#07051266);box-shadow:none;border:none;width:100%;height:100%;right:0;top:0;border-radius:0}
+.grain:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.07;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E")}
+.stats-neon .stat{background:linear-gradient(160deg,#ffffff10,#ffffff04);border:1px solid #ffffff22;backdrop-filter:blur(10px);border-radius:16px}
+.stats-neon .stat b{font-family:var(--font-display);font-size:1.7rem;background:linear-gradient(100deg,#fff,var(--neon2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.dream{position:relative;overflow:hidden}
+.dream:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--neon),var(--neon2));opacity:.8}
+.tag{box-shadow:0 0 12px #b7a9ff33}
+.nav button.active{box-shadow:inset 0 0 18px #b7a9ff22,0 0 14px #b7a9ff22}
+.logo{box-shadow:0 0 18px #8473e4aa}
+@media(max-width:600px){.hero-neon{min-height:82vh}.hero-neon .moon{width:74px;height:74px;right:6%;top:8%}}

@@ -15,8 +15,9 @@
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #101321; --panel: #191d30; --panel2: #252940; --text: #f2f0ff; --muted: #b0b3c9;
-  --line: #343950; --accent: #b7a9ff; --accent-ink: #1a1330; --soft: #302b4e;
-  --shadow: 0 12px 32px rgba(0, 0, 0, .35);
+  --bg: #070512; --panel: #141021; --panel2: #1e1836; --text: #f4f1ff; --muted: #b6aee0;
+  --line: #2e2654; --accent: #c4a7ff; --accent-ink: #150f2e; --soft: #2b2352;
+  --shadow: 0 12px 32px rgba(0, 0, 0, .5);
+  --neon: #c4a7ff; --neon2: #67e8f9; --neon3: #f4d068;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: dark; } }

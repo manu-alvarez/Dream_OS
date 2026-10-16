@@ -12,7 +12,7 @@ const Interpret = {
         type: "unavailable", method: "rule", engineVersion: "0.1.0",
         summary: "Datos insuficientes para una lectura con base.",
         limitations: [words.length < 20 ? `Relato breve (${words.length} palabras, mínimo orientativo 20).` : "Menos de 2 símbolos reconocidos en la base local.",
-          "El motor v0.1.0 solo usa reglas léxicas y la base local; no hay IA."],
+          "Leo solo con la biblioteca de tu dispositivo, sin IA remota."],
         questions: [
           "¿Quiénes aparecen y dónde ocurre?",
           "¿Qué emoción nombra literalmente el relato?",
@@ -38,7 +38,7 @@ const Interpret = {
       emotions: emo,
       perspectives,
       sourceIds: [...new Set(perspectives.map((p) => p.sourceId))],
-      limitations: ["Motor de reglas léxicas v0.1.0: no comprende contexto, ironía ni metáforas nuevas.", "Toda lectura es hipótesis a contrastar con tus asociaciones; correlación con tu semana no es causalidad.", "Nada de esto es diagnóstico ni presagio."],
+      limitations: ["Leo palabras y símbolos, no ironías ni metáforas nuevas.", "Toda lectura es hipótesis para contrastar con lo que te evoca a ti; que algo coincida con tu semana no prueba la causa.", "Nada de esto es diagnóstico ni presagio."],
       questions: [
         hits[0] ? `«${hits[0].term}»: ¿qué representa para ti en este momento de tu vida?` : "¿Qué elemento te llevas al despertar?",
         dream.emotion ? `Registraste «${dream.emotion}»: ¿dónde la sentías en el cuerpo del sueño?` : "¿Qué emoción pondrías hoy al releerlo?",
