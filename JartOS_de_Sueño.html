@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090614">
+<meta name="description" content="DreamOS: Laboratorio Onírico Avanzado">
+<title>DreamOS · Laboratorio Onírico</title>
+<!-- 
+  Nota sobre PWA: El manifest está embebido vía Data URI.
+  Para que la instalación como PWA (Añadir a pantalla de inicio) sea 100% funcional en todos los navegadores,
+  este archivo debe ser servido a través de HTTPS (o localhost) y, preferiblemente, requeriría registrar un 
+  archivo 'service-worker.js' real en una implementación de producción. 
+  Esta es una demo offline self-contained (todo en uno).
+-->
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22DreamOS%20Laboratorio%20On%C3%ADrico%22%2C%22short_name%22%3A%22DreamOS%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23090614%22%2C%22theme_color%22%3A%22%23090614%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20100%27%253E%253Ccircle%20cx%3D%2750%27%20cy%3D%2750%27%20r%3D%2750%27%20fill%3D%27%231A1A2E%27%2F%253E%253Ccircle%20cx%3D%2750%27%20cy%3D%2750%27%20r%3D%2730%27%20fill%3D%27%23c4a7ff%27%2F%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%7D%5D%7D">
+<style>
+/* Variables CSS (Paleta de colores etérea y Glassmorphism inspirada en las imágenes de referencia) */
+:root {
+    color-scheme: light dark;
+    /* Modo Oscuro por defecto (Surreal Dreamlike & Aurora Glassmorphism) */
+    --bg-grad: radial-gradient(circle at 15% 0%, #20163b 0%, #090614 60%);
+    --surface: rgba(30, 24, 52, 0.45);
+    --surface-hover: rgba(50, 40, 80, 0.6);
+    --border: rgba(196, 167, 255, 0.15);
+    --text: #e8e3f5;
+    --text-muted: #9f96b9;
+    --accent: #c4a7ff; 
+    --accent-glow: 0 0 20px rgba(196, 167, 255, 0.3);
+    --gold: #f4d068;
+    --glass-blur: blur(16px);
+    --radius: 28px;
+    --shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme="light"] {
+    --bg-grad: radial-gradient(circle at 15% 0%, #f4eaff 0%, #e8e2f0 60%);
+    --surface: rgba(255, 255, 255, 0.6);
+    --surface-hover: rgba(255, 255, 255, 0.9);
+    --border: rgba(138, 43, 226, 0.15);
+    --text: #1d162a;
+    --text-muted: #5e5473;
+    --accent: #794bd0;
+    --accent-glow: 0 0 20px rgba(121, 75, 208, 0.2);
+    --gold: #d4a017;
+    --shadow: 0 16px 40px rgba(30, 20, 50, 0.1);
+}
+
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    background: #090614;
+    background-image: var(--bg-grad);
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Tipografía y Reseteos */
+h1, h2, h3, h4 { font-weight: 400; margin: 0 0 10px 0; }
+h1 { font-size: 2.5rem; letter-spacing: -0.02em; }
+h2 { font-size: 1.5rem; color: var(--accent); }
+p { margin: 0 0 15px 0; }
+button, input, textarea, select { font: inherit; background: none; border: none; color: inherit; outline: none; }
+button { cursor: pointer; transition: all 0.3s ease; }
+a { color: var(--accent); text-decoration: none; }
+.text-muted { color: var(--text-muted); font-size: 0.9rem; }
+
+/* Accesibilidad */
+.skip-link { position: absolute; left: -9999px; top: -9999px; background: var(--accent); color: #000; padding: 10px; z-index: 1000; }
+.skip-link:focus { left: 10px; top: 10px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+
+/* Contenedor Principal */
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 30px;
+}
+
+/* Barra Lateral / Navegación (Estilo Glassmorphism) */
+aside {
+    position: sticky;
+    top: 20px;
+    height: calc(100vh - 40px);
+    background: var(--surface);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+.brand svg { width: 36px; height: 36px; fill: var(--accent); filter: drop-shadow(0 0 8px var(--accent)); }
+.brand h2 { margin: 0; font-size: 1.2rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
+
+nav { display: flex; flex-direction: column; gap: 10px; flex: 1; }
+nav button {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 16px;
+    border-radius: 16px;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-align: left;
+    width: 100%;
+}
+nav button svg { width: 20px; height: 20px; fill: currentColor; }
+nav button:hover { background: var(--surface-hover); color: var(--text); }
+nav button.active {
+    background: rgba(196, 167, 255, 0.15);
+    color: var(--accent);
+    box-shadow: inset 0 0 0 1px var(--border);
+}
+
+.nav-stats {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+/* Vistas */
+main { min-width: 0; }
+.view { display: none; animation: fadeIn 0.4s ease forwards; }
+.view.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Cabecera Superior (Móvil y Búsqueda) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 15px;
+}
+.search-bar {
+    flex: 1;
+    position: relative;
+    max-width: 400px;
+}
+.search-bar input {
+    width: 100%;
+    background: var(--surface);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--border);
+    padding: 12px 20px 12px 45px;
+    border-radius: 99px;
+    color: var(--text);
+    box-shadow: var(--shadow);
+}
+.search-bar svg { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); width: 18px; fill: var(--text-muted); }
+.header-actions { display: flex; gap: 10px; }
+.icon-btn {
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: grid; place-items: center;
+    backdrop-filter: var(--glass-blur);
+}
+.icon-btn svg { width: 20px; fill: var(--text); }
+.icon-btn:hover { background: var(--surface-hover); }
+
+/* UI Específica: Hero Círculos Concéntricos (Referencia Imagen 1) */
+.hero-dashboard {
+    background: var(--surface);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.concentric-circles {
+    position: relative;
+    width: 200px; height: 200px;
+    margin: 20px auto;
+    display: grid;
+    place-items: center;
+}
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+}
+.circle-1 { width: 200px; height: 200px; animation: pulse 6s infinite ease-in-out; }
+.circle-2 { width: 140px; height: 140px; background: rgba(196, 167, 255, 0.05); }
+.circle-3 { 
+    width: 80px; height: 80px; 
+    background: var(--accent); 
+    box-shadow: var(--accent-glow);
+    display: grid; place-items: center;
+}
+.circle-3::after { content: ''; width: 20px; height: 20px; background: #090614; border-radius: 50%; }
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.05); opacity: 1; } }
+
+.btn-primary {
+    background: var(--accent);
+    color: #090614;
+    padding: 14px 28px;
+    border-radius: 99px;
+    font-weight: 600;
+    box-shadow: var(--accent-glow);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(196, 167, 255, 0.6); }
+
+/* Tarjetas y Rejillas (Glassmorphism) */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.card {
+    background: var(--surface);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+}
+.card:hover { transform: translateY(-5px); border-color: var(--accent); }
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+.tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background: rgba(196, 167, 255, 0.15);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.tag.gold { color: var(--gold); background: rgba(244, 208, 104, 0.15); }
+
+/* Formulario de Diario (Basado en la Plantilla de Investigación) */
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem; color: var(--text-muted); }
+.form-control {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border);
+    padding: 14px;
+    border-radius: 12px;
+    color: var(--text);
+}
+.form-control:focus { border-color: var(--accent); background: rgba(0, 0, 0, 0.4); }
+textarea.form-control { min-height: 120px; resize: vertical; }
+
+.slider-group { display: flex; align-items: center; gap: 15px; }
+input[type=range] { flex: 1; accent-color: var(--accent); }
+.slider-val { background: var(--surface-hover); padding: 5px 12px; border-radius: 8px; font-weight: bold; min-width: 45px; text-align: center; }
+
+.checkbox-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+.checkbox-lbl {
+    display: flex; align-items: center; gap: 8px; cursor: pointer;
+    background: rgba(0,0,0,0.15); padding: 10px; border-radius: 10px; border: 1px solid transparent;
+}
+.checkbox-lbl:hover { border-color: var(--border); }
+.checkbox-lbl input { accent-color: var(--accent); width: 18px; height: 18px; }
+
+/* Componentes Útiles */
+.empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+.empty-state svg { width: 60px; fill: var(--border); margin-bottom: 20px; }
+.toast {
+    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
+    background: var(--accent); color: #000; padding: 12px 24px; border-radius: 99px;
+    font-weight: 600; box-shadow: var(--shadow); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* Responsive */
+.mobile-nav-toggle { display: none; }
+@media (max-width: 900px) {
+    .app-container { grid-template-columns: 1fr; padding: 10px; }
+    aside { 
+        position: fixed; bottom: 0; left: 0; right: 0; top: auto; height: auto; z-index: 100;
+        flex-direction: row; padding: 10px; border-radius: 20px 20px 0 0;
+        background: rgba(15, 12, 25, 0.9);
+    }
+    .brand, .nav-stats { display: none; }
+    nav { flex-direction: row; justify-content: space-around; }
+    nav button { flex-direction: column; padding: 8px; gap: 4px; font-size: 0.7rem; justify-content: center; text-align: center; }
+    main { padding-bottom: 80px; }
+    .hero-dashboard { padding: 30px 20px; }
+}
+
+/* Indicador Offline */
+#offline-banner {
+    display: none; background: var(--gold); color: #000; text-align: center; padding: 8px; font-size: 0.85rem; font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+<div id="offline-banner">Modo sin conexión activo. Los datos se guardarán localmente.</div>
+
+<div class="app-container">
+    <!-- Barra Lateral -->
+    <aside>
+        <div class="brand">
+            <svg viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-11v6h2v-6h-2zm0-4v2h2V7h-2z"/></svg>
+            <h2>DreamOS</h2>
+        </div>
+        <nav aria-label="Navegación principal">
+            <button class="active" data-target="view-dashboard">
+                <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+                Panel Central
+            </button>
+            <button data-target="view-journal">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                Diario Onírico
+            </button>
+            <button data-target="view-knowledge">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h2v-6h-2v6zm0-8h2V7h-2v2z"/></svg>
+                Base de Conocimiento
+            </button>
+            <button data-target="view-project">
+                <svg viewBox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+                Arquitectura PWA
+            </button>
+        </nav>
+        <div class="nav-stats" id="db-stats">0 Registros Locales</div>
+    </aside>
+
+    <!-- Contenido Principal -->
+    <main id="main-content">
+        <header>
+            <div class="search-bar">
+                <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                <input type="search" id="globalSearch" placeholder="Buscar sueños, símbolos o teorías..." aria-label="Buscador global">
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" id="theme-toggle" aria-label="Cambiar tema">
+                    <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
+                </button>
+                <button class="icon-btn" id="install-btn" style="display: none;" aria-label="Instalar App">
+                    <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Vista: Panel Central -->
+        <section id="view-dashboard" class="view active">
+            <div class="hero-dashboard">
+                <p class="text-muted" style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">Modo de preservación</p>
+                <h1 style="margin-bottom: 5px;">Mente Despierta</h1>
+                <div class="concentric-circles">
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                </div>
+                <button class="btn-primary" onclick="switchView('view-journal'); document.getElementById('btn-new-dream').click();">
+                    <svg style="width:20px; fill:currentColor;" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    Capturar Sueño Ahora
+                </button>
+            </div>
+
+            <h2>Registros Recientes</h2>
+            <div class="grid" id="recent-dreams-grid">
+                <!-- Populado por JS -->
+            </div>
+        </section>
+
+        <!-- Vista: Diario Onírico (Plantilla Estructurada) -->
+        <section id="view-journal" class="view">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>Diario Estructurado</h2>
+                <button class="btn-primary" id="btn-new-dream" style="padding: 8px 16px; font-size: 0.9rem;">+ Nuevo Registro</button>
+            </div>
+
+            <!-- Formulario de Ingreso (Oculto por defecto) -->
+            <div class="card" id="dream-form-container" style="display: none; margin-bottom: 30px; border-color: var(--accent);">
+                <h3 style="margin-top:0;">Formulario de Registro Onírico v1.0</h3>
+                <p class="text-muted">Basado en el estándar cuantitativo y empírico.</p>
+                <form id="dream-form">
+                    <div class="form-group">
+                        <label for="d-date">Fecha y Hora de Despertar</label>
+                        <input type="datetime-local" id="d-date" class="form-control" required>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="form-group">
+                            <label for="d-quality">Calidad del Sueño (1-10)</label>
+                            <div class="slider-group">
+                                <input type="range" id="d-quality" min="1" max="10" value="7" oninput="this.nextElementSibling.textContent=this.value">
+                                <span class="slider-val">7</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="d-stress">Nivel de Estrés Previo (1-10)</label>
+                            <div class="slider-group">
+                                <input type="range" id="d-stress" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value">
+                                <span class="slider-val">5</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="d-narrative">1. Registro Narrativo Semántico (Contenido Manifiesto)</label>
+                        <textarea id="d-narrative" class="form-control" placeholder="Describe la secuencia cronológica, quién estaba, escenarios..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>2. Variables de Simbología y Arquetipos (Filtros)</label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-lbl"><input type="checkbox" name="d-symbol" value="Agua"> Agua</label>
+                            <label class="checkbox-lbl"><input type="checkbox" name="d-symbol" value="Caída/Vuelo"> Caída / Vuelo</label>
+                            <label class="checkbox-lbl"><input type="checkbox" name="d-symbol" value="Animales"> Animales</label>
+                            <label class="checkbox-lbl"><input type="checkbox" name="d-symbol" value="Persecución"> Persecución</label>
+                            <label class="checkbox-lbl"><input type="checkbox" name="d-symbol" value="Muerte/Nacimiento"> Muerte / Vida</label>
+                            <label class="checkbox-lbl"><input type="checkbox" name="d-symbol" value="Tecnología"> Tecnología</label>
+                            <label class="checkbox-lbl"><input type="checkbox" name="d-symbol" value="Familia"> Familia</label>
+                            <label class="checkbox-lbl"><input type="checkbox" name="d-symbol" value="Extraños"> Extraños</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="d-emotion">3. Núcleo Emocional Dominante (Hall y Van de Castle)</label>
+                        <select id="d-emotion" class="form-control">
+                            <option value="Aprensión/Miedo">Aprensión / Miedo (Ansiedad)</option>
+                            <option value="Felicidad">Felicidad / Alegría</option>
+                            <option value="Ira">Ira / Frustración / Agresión</option>
+                            <option value="Tristeza">Tristeza</option>
+                            <option value="Confusión">Confusión</option>
+                            <option value="Neutro">Neutro / Observador</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="d-analysis">4. Mapeo Analítico / Asociaciones Personales (Opcional)</label>
+                        <textarea id="d-analysis" class="form-control" style="min-height: 80px;" placeholder="Asociaciones libres, conexión con mitos (Jung) o eventos diurnos (Continuidad)..."></textarea>
+                    </div>
+
+                    <div style="display: flex; gap: 10px;">
+                        <button type="submit" class="btn-primary">Guardar en LocalStorage</button>
+                        <button type="button" class="btn-primary" style="background:transparent; border: 1px solid var(--border); color: var(--text);" onclick="document.getElementById('dream-form-container').style.display='none'">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="grid" id="all-dreams-grid">
+                <!-- Populado por JS -->
+            </div>
+        </section>
+
+        <!-- Vista: Base de Conocimiento (Investigación Inyectada) -->
+        <section id="view-knowledge" class="view">
+            <div style="margin-bottom: 20px;">
+                <h2>Base de Conocimiento Total</h2>
+                <p class="text-muted">Corpus extraído de la investigación avanzada (Freud, Jung, Hall, Repositorios).</p>
+            </div>
+            
+            <div class="grid" id="knowledge-grid">
+                <!-- Populado por JS con los datos de la investigación -->
+            </div>
+        </section>
+
+        <!-- Vista: Arquitectura de Proyecto -->
+        <section id="view-project" class="view">
+            <h2>Arquitectura PWA y Laboratorio</h2>
+            <p class="text-muted">Especificaciones técnicas derivadas del estudio teórico.</p>
+
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header"><span class="tag gold">Infraestructura</span></div>
+                    <h3>PWA Local-First</h3>
+                    <p>Diseño orientado a priorizar la computación local para garantizar inmediatez y privacidad (cero latencia de red al despertar).</p>
+                    <p class="text-muted">Nota: Esta demo implementa <code>localStorage</code>. El producto final usará <code>IndexedDB</code>.</p>
+                </div>
+                <div class="card">
+                    <div class="card-header"><span class="tag gold">Seguridad</span></div>
+                    <h3>Privacidad por Diseño</h3>
+                    <p>Integración futura de Web Crypto API (AES-GCM) para encriptación a nivel de bits de los textos íntimos antes de su almacenamiento.</p>
+                </div>
+                <div class="card">
+                    <div class="card-header"><span class="tag gold">IA / NLP</span></div>
+                    <h3>Modelos Especializados</h3>
+                    <p>Uso de Transformadores (BERT, T5) ajustados para extraer entidades (Sistema Hall y Van de Castle) y BERTopic para agrupamiento no supervisado.</p>
+                </div>
+                <div class="card">
+                    <div class="card-header"><span class="tag gold">Captura</span></div>
+                    <h3>Interfaz Acústica Local</h3>
+                    <p>Para evitar la fricción visual y preservar el estado hipnopómpico, se prevé el uso de WebAssembly (WASM) para modelos de voz a texto offline.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<div id="toast" class="toast">Acción completada</div>
+
+<script>
+/**
+ * DreamOS PWA Demo Logic
+ * Arquitectura: Vainilla JS, LocalStorage, Single File.
+ * Basado estrictamente en la investigación proporcionada.
+ */
+
+// --- Base de Datos de Conocimiento (De la investigación) ---
+const knowledgeBase = [
+    {
+        title: "Psicoanálisis Clásico (Sigmund Freud)",
+        category: "Teoría Psicológica",
+        tags: ["Deseo Reprimido", "Contenido Latente", "1899"],
+        content: "Postula que el sueño es la realización disfrazada de un deseo reprimido mediante mecanismos de condensación y desplazamiento. El texto manifiesto oculta el contenido latente."
+    },
+    {
+        title: "Psicología Analítica (Carl Gustav Jung)",
+        category: "Teoría Psicológica",
+        tags: ["Inconsciente Colectivo", "Arquetipos", "Amplificación"],
+        content: "Los sueños manifiestan arquetipos del inconsciente colectivo (Sombra, Ánima, Viejo Sabio). Requiere el proceso metodológico de 'amplificación' conectando motivos oníricos con metanarrativas mitológicas."
+    },
+    {
+        title: "Oniromancia Histórica (Artemidoro)",
+        category: "Tradición y Simbología",
+        tags: ["Grecorromana", "Contexto", "Insomnia/Oneiroi"],
+        content: "La obra 'La Clave de los Sueños' del Siglo II d.C. cataloga símbolos. Su aportación crítica: el significado de un símbolo depende estrictamente de las circunstancias demográficas, sociales y profesión del soñador."
+    },
+    {
+        title: "Hipótesis de Continuidad",
+        category: "Ciencia Cognitiva",
+        tags: ["Vigilia", "Estrés", "Neurociencia"],
+        content: "Consenso actual: los sueños son una continuación directa de las preocupaciones y el estado emocional de la vida de vigilia. El trauma o estrés severo deja una firma inconfundible en las simulaciones oníricas."
+    },
+    {
+        title: "Sistema Hall y Van de Castle",
+        category: "Cuantificación Empírica",
+        tags: ["Métricas", "Personajes", "Afecto"],
+        content: "Estándar de oro que descompone narrativas en categorías discretas: Personajes (ratio de familiaridad), Interacciones Sociales (agresión, amistad, sexualidad) y Emociones (ira, tristeza, aprensión, confusión, felicidad)."
+    },
+    {
+        title: "Repositorios: DreamBank.net",
+        category: "Corpus de Datos",
+        tags: ["UCSC", "Minería de Texto", "20k+ Informes"],
+        content: "La base de datos pública cuantitativa más grande del mundo, ideal para entrenar modelos NLP. Contiene informes reales codificados mediante el sistema Hall/Van de Castle."
+    },
+    {
+        title: "Archivos Históricos y Dominio Público",
+        category: "Corpus de Datos",
+        tags: ["Internet Archive", "Elejandría", "Academia.edu"],
+        content: "Plataformas vitales para la extracción de diccionarios de símbolos crudos (A-Z) y obras clásicas gratuitas de Freud y manuales medievales para alimentar bases de datos vectoriales (RAG)."
+    }
+];
+
+// --- Lógica del Estado y Persistencia ---
+const STORAGE_KEY = 'dreamos_data_v1';
+let appData = { dreams: [] };
+
+function initApp() {
+    // Cargar datos
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) appData = JSON.parse(saved);
+    
+    // Renderizar
+    renderKnowledgeBase();
+    renderDreams();
+    updateStats();
+    
+    // Set fecha actual en el formulario
+    const now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    document.getElementById('d-date').value = now.toISOString().slice(0, 16);
+
+    // Event Listeners
+    setupNavigation();
+    setupForm();
+    setupSearch();
+    setupThemeToggle();
+    setupPWA();
+}
+
+function saveData() {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+        updateStats();
+    } catch (e) {
+        showToast("Error al guardar (almacenamiento lleno)");
+    }
+}
+
+// --- Interfaz de Usuario ---
+function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+function updateStats() {
+    document.getElementById('db-stats').textContent = `${appData.dreams.length} Registros Locales`;
+}
+
+function setupNavigation() {
+    const navBtns = document.querySelectorAll('nav button');
+    navBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const target = e.currentTarget.dataset.target;
+            switchView(target);
+            navBtns.forEach(b => b.classList.remove('active'));
+            e.currentTarget.classList.add('active');
+        });
+    });
+}
+
+function switchView(viewId) {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.getElementById(viewId).classList.add('active');
+    window.scrollTo(0, 0);
+}
+
+function setupThemeToggle() {
+    const btn = document.getElementById('theme-toggle');
+    btn.addEventListener('click', () => {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    });
+}
+
+// --- Lógica del Diario ---
+function setupForm() {
+    const btnNew = document.getElementById('btn-new-dream');
+    const container = document.getElementById('dream-form-container');
+    const form = document.getElementById('dream-form');
+
+    btnNew.addEventListener('click', () => {
+        container.style.display = 'block';
+        document.getElementById('d-narrative').focus();
+    });
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Recoger símbolos seleccionados
+        const symbols = Array.from(document.querySelectorAll('input[name="d-symbol"]:checked')).map(cb => cb.value);
+        
+        const newDream = {
+            id: Date.now().toString(),
+            date: document.getElementById('d-date').value,
+            quality: document.getElementById('d-quality').value,
+            stress: document.getElementById('d-stress').value,
+            narrative: document.getElementById('d-narrative').value,
+            symbols: symbols,
+            emotion: document.getElementById('d-emotion').value,
+            analysis: document.getElementById('d-analysis').value
+        };
+
+        appData.dreams.unshift(newDream); // Añadir al principio
+        saveData();
+        renderDreams();
+        
+        form.reset();
+        container.style.display = 'none';
+        showToast('Sueño registrado localmente');
+    });
+}
+
+function renderDreams(filterText = '') {
+    const recentGrid = document.getElementById('recent-dreams-grid');
+    const allGrid = document.getElementById('all-dreams-grid');
+    
+    recentGrid.innerHTML = '';
+    allGrid.innerHTML = '';
+
+    const filtered = filterText ? 
+        appData.dreams.filter(d => 
+            d.narrative.toLowerCase().includes(filterText) || 
+            d.emotion.toLowerCase().includes(filterText) ||
+            d.symbols.join(' ').toLowerCase().includes(filterText)
+        ) : appData.dreams;
+
+    if (filtered.length === 0) {
+        const empty = `<div class="empty-state" style="grid-column: 1 / -1;"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><p>No hay registros oníricos.</p></div>`;
+        recentGrid.innerHTML = empty;
+        allGrid.innerHTML = empty;
+        return;
+    }
+
+    const createCard = (dream) => {
+        const d = new Date(dream.date);
+        const fDate = `${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`;
+        const symTags = dream.symbols.map(s => `<span class="tag">${s}</span>`).join('');
+        
+        return `
+            <div class="card">
+                <div class="card-header">
+                    <span class="tag gold">${fDate}</span>
+                    <span class="tag">${dream.emotion}</span>
+                </div>
+                <p style="font-size:0.95rem;">${dream.narrative.substring(0, 150)}${dream.narrative.length > 150 ? '...' : ''}</p>
+                <div style="margin-top:10px;">${symTags}</div>
+                <div style="margin-top:15px; border-top: 1px solid var(--border); padding-top: 10px; display: flex; gap: 15px; font-size: 0.8rem; color: var(--text-muted);">
+                    <span>Calidad: ${dream.quality}/10</span>
+                    <span>Estrés: ${dream.stress}/10</span>
+                </div>
+            </div>
+        `;
+    };
+
+    // Recientes (max 3)
+    filtered.slice(0, 3).forEach(dream => {
+        recentGrid.innerHTML += createCard(dream);
+    });
+
+    // Todos
+    filtered.forEach(dream => {
+        allGrid.innerHTML += createCard(dream);
+    });
+}
+
+// --- Conocimiento y Búsqueda ---
+function renderKnowledgeBase(filterText = '') {
+    const grid = document.getElementById('knowledge-grid');
+    grid.innerHTML = '';
+
+    const filtered = filterText ? 
+        knowledgeBase.filter(k => 
+            k.title.toLowerCase().includes(filterText) || 
+            k.content.toLowerCase().includes(filterText) ||
+            k.tags.join(' ').toLowerCase().includes(filterText)
+        ) : knowledgeBase;
+
+    filtered.forEach(item => {
+        const tagsHTML = item.tags.map(t => `<span class="tag">${t}</span>`).join('');
+        grid.innerHTML += `
+            <div class="card">
+                <div class="card-header"><span class="tag gold">${item.category}</span></div>
+                <h3>${item.title}</h3>
+                <p class="text-muted" style="font-size:0.9rem;">${item.content}</p>
+                <div style="margin-top: 15px;">${tagsHTML}</div>
+            </div>
+        `;
+    });
+}
+
+function setupSearch() {
+    const searchInput = document.getElementById('globalSearch');
+    searchInput.addEventListener('input', (e) => {
+        const val = e.target.value.toLowerCase();
+        renderDreams(val);
+        renderKnowledgeBase(val);
+    });
+}
+
+// --- Funcionalidad PWA Básica ---
+function setupPWA() {
+    // Indicador Offline
+    window.addEventListener('online', () => document.getElementById('offline-banner').style.display = 'none');
+    window.addEventListener('offline', () => document.getElementById('offline-banner').style.display = 'block');
+    if (!navigator.onLine) document.getElementById('offline-banner').style.display = 'block';
+
+    // BeforeInstallPrompt
+    let deferredPrompt;
+    const installBtn = document.getElementById('install-btn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installBtn.style.display = 'grid';
+    });
+
+    installBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                installBtn.style.display = 'none';
+            }
+            deferredPrompt = null;
+        }
+    });
+}
+
+// Iniciar aplicación
+document.addEventListener('DOMContentLoaded', initApp);
+</script>
+</body>
+</html>
