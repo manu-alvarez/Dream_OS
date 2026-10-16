@@ -175,6 +175,37 @@ padding:8px 8px calc(8px + env(safe-area-inset-bottom));gap:2px}
 }
 @media(max-width:900px) and (prefers-reduced-motion:reduce){.tabbar button{transition:none}}
 
+/* ===== COSMOS v1.1.0 — rail + sidebar cristal + hero dial lunar (slot foto opcional) ===== */
+.layout{grid-template-columns:64px 224px minmax(0,1fr)}
+.rail{position:sticky;top:76px;align-self:start;display:flex;flex-direction:column;gap:10px;align-items:center;
+background:linear-gradient(170deg,#ffffff12,#ffffff04);border:1px solid #ffffff22;border-radius:22px;padding:14px 0;
+backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:var(--shadow)}
+.rail button{width:44px;height:44px;border-radius:50%;border:1px solid transparent;background:transparent;color:var(--muted);font-size:1.2rem;display:grid;place-items:center;position:relative;overflow:hidden}
+.rail button:hover{color:#fff;background:#ffffff10;box-shadow:0 0 14px #b7a9ff44}
+.rail button.active{color:#fff;background:linear-gradient(140deg,#b7a9ff44,#ff4ecd33);border-color:#ffffff44;box-shadow:0 0 18px #ff4ecd55}
+.rail button:active{transform:scale(.92)}
+.side{background:linear-gradient(170deg,#ffffff0e,#ffffff03);border:1px solid #ffffff22;border-radius:22px;padding:16px 12px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.hero-cosmos{background-image:var(--bg-photo,none);background-size:cover;background-position:center;
+display:flex;align-items:center;gap:20px;min-height:min(76vh,600px)}
+.hero-cosmos .hero-in{flex:1;min-width:0}
+.nebula{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;mix-blend-mode:screen}
+.nb1{width:420px;height:420px;left:-120px;bottom:-160px;background:#5b2ee066}
+.nb2{width:360px;height:360px;right:20%;top:-160px;background:#ff4ecd33}
+.moondial{flex:0 0 auto;width:min(280px,32%);position:relative;z-index:2;filter:drop-shadow(0 0 34px #f4d06866) drop-shadow(0 0 90px #ff4ecd33)}
+.moondial svg{width:100%;height:auto;display:block}
+.moondial .ticks{transform-origin:100px 100px;animation:spin 120s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stat{position:relative}
+.sic{position:absolute;right:12px;top:12px;width:26px;height:26px;color:var(--hot);opacity:.9;filter:drop-shadow(0 0 8px #ff4ecd88)}
+.sic svg{width:100%;height:100%}
+.stat b{padding-right:30px}
+@media(max-width:1180px){.layout{grid-template-columns:224px minmax(0,1fr)}.rail{display:none}}
+@media(max-width:900px){
+.moondial{position:absolute;right:10px;top:10px;width:104px}
+.hero-cosmos{padding-top:70px}
+.nb1{width:260px;height:260px}.nb2{width:220px;height:220px}
+}
+
 /* ===== PREMIUM POLISH v0.3.3 — fondo cosmos, menú con luz, tipo con carácter, tacto ===== */
 :root[data-theme="dark"] body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 background:radial-gradient(55% 40% at 8% 4%,#2a1b5e66 0%,transparent 70%),radial-gradient(45% 38% at 96% 12%,#5c104866 0%,transparent 70%),radial-gradient(60% 45% at 50% 110%,#0e3a4d66 0%,transparent 70%)}
