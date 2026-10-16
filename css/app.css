@@ -130,3 +130,20 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 .nav button.active{box-shadow:inset 0 0 18px #b7a9ff22,0 0 14px #b7a9ff22}
 .logo{box-shadow:0 0 18px #8473e4aa}
 @media(max-width:600px){.hero-neon{min-height:82vh}.hero-neon .moon{width:74px;height:74px;right:6%;top:8%}}
+
+/* ===== NEON POWER v0.3.1 — magenta de contraste, doble glow, CTA con pulso ===== */
+::selection{background:var(--hot);color:#150f2e}
+:root[data-theme="dark"] body{background:radial-gradient(90% 60% at 10% 0%,#1c1440 0%,transparent 60%),radial-gradient(80% 55% at 95% 20%,#3a1140 0%,transparent 55%),var(--bg)}
+.hero-neon{border:1px solid #ffffff2e;box-shadow:0 0 50px #b7a9ff2e,0 0 130px #ff4ecd1f,inset 0 0 80px #b7a9ff14}
+.hero-neon .aurora span:nth-child(3){background:var(--hot);opacity:.4}
+.hero-neon h1{background:linear-gradient(100deg,#fff 15%,var(--neon) 42%,var(--hot) 68%,var(--neon3) 95%);-webkit-background-clip:text;background-clip:text;
+filter:drop-shadow(0 0 18px #b7a9ff88) drop-shadow(0 0 46px #ff4ecd44)}
+.btn-neon{background:linear-gradient(100deg,var(--neon),var(--hot));color:#fff;border:none;font-size:1.08rem;padding:14px 26px;animation:pulse 2.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 1px #ffffff66,0 0 26px #b7a9ff77}50%{box-shadow:0 0 0 1px #ffffff88,0 0 48px #ff4ecd99}}
+.btn-ghost{box-shadow:inset 0 0 18px #67e8f922,0 0 16px #67e8f922}
+.dream:before{background:linear-gradient(180deg,var(--neon),var(--hot) 50%,var(--neon2));box-shadow:0 0 12px #ff4ecd66}
+.stats-neon .stat b{background:linear-gradient(100deg,#fff,var(--hot) 55%,var(--neon2));-webkit-background-clip:text;background-clip:text}
+.nav button.active{box-shadow:inset 0 0 18px #b7a9ff2e,0 0 14px #ff4ecd44;border-color:#ff4ecd66}
+.tag{border:1px solid #b7a9ff55}
+.logo{box-shadow:0 0 18px #8473e4cc,0 0 42px #ff4ecd55}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#0a0618}::-webkit-scrollbar-thumb{background:linear-gradient(var(--neon),var(--hot));border-radius:99px}

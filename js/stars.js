@@ -6,7 +6,7 @@
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const ctx = cv.getContext("2d");
   let stars = [], meteors = [], running = true, W = 0, H = 0;
-  const COLORS = ["#ffffff", "#c4a7ff", "#67e8f9", "#f4d068"];
+  const COLORS = ["#ffffff", "#c4a7ff", "#67e8f9", "#f4d068", "#ff4ecd"];
   function resize() {
     const r = cv.parentElement.getBoundingClientRect();
     const dpr = Math.min(devicePixelRatio || 1, 2);
