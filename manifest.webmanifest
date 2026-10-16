@@ -1,0 +1,17 @@
+{
+  "name": "DreamOS — Laboratorio Onírico",
+  "short_name": "DreamOS",
+  "description": "Diario de sueños local-first: registra, explora símbolos y compara lecturas. Privado y offline.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#101321",
+  "theme_color": "#101321",
+  "lang": "es",
+  "categories": ["lifestyle", "education", "health"],
+  "icons": [
+    { "src": "assets/icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/icons/maskable.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

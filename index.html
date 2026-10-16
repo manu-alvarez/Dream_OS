@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es" data-theme="system">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101321">
+<meta name="description" content="DreamOS: laboratorio personal de exploración onírica. Diario local, símbolos trazables, lecturas múltiples.">
+<title>DreamOS · Laboratorio onírico</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./assets/icons/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<div id="offline" class="offline" role="status">Sin conexión: las funciones locales siguen disponibles.</div>
+<header class="top"><div class="top-in">
+<a class="brand" href="#inicio"><span class="logo" aria-hidden="true">☾</span><span><b>DreamOS</b><br><small style="color:var(--muted);font-size:.68rem;letter-spacing:.1em">LABORATORIO ONÍRICO</small></span></a>
+<label class="search"><input id="globalSearch" type="search" placeholder="Buscar sueños, símbolos, teorías…" aria-label="Buscar en DreamOS" autocomplete="off"></label>
+<button class="icon" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">◐</button>
+<button class="icon" id="installBtn" hidden aria-label="Instalar app" title="Instalar app">⇩</button>
+</div></header>
+<div class="layout">
+<aside class="side" aria-label="Navegación"><div class="label">Espacio personal</div><nav class="nav" id="nav">
+<button class="active" data-view="inicio">⌂ Inicio</button><button data-view="diario">▤ Diario <span class="count" id="navDreamCount">0</span></button><button data-view="conocimiento">⌕ Conocimiento <span class="count" id="navKnowCount">0</span></button><button data-view="metodo">◷ Método</button><button data-view="ajustes">⚙ Ajustes y datos</button>
+</nav><div class="note"><b>Privacidad local.</b> Todo vive en este dispositivo (IndexedDB). Sin cuentas, sin nube, sin IA remota por defecto.</div></aside>
+<main id="main">
+<section class="view active" id="view-inicio" aria-label="Inicio">
+<div class="hero"><div class="eyebrow">● Un espacio para explorar</div><h1>Tus sueños.<br>Muchas perspectivas.</h1><p>Registra lo que recuerdas al despertar, explora 41 símbolos trazables y compara lecturas sin convertir ninguna en verdad absoluta.</p><div class="actions"><button class="btn primary" data-new>＋ Registrar un sueño</button><button class="btn" data-goto="conocimiento">Explorar conocimiento ↗</button><button class="btn" id="demoBtn" hidden>✦ Cargar 12 sueños de ejemplo</button></div></div>
+<div class="stats"><div class="stat"><b id="statDreams">0</b><span>Sueños guardados</span></div><div class="stat"><b id="statSymbols">0</b><span>Símbolos en base</span></div><div class="stat"><b id="statEntries">0</b><span>Entradas conocimiento</span></div><div class="stat"><b id="statOffline">…</b><span>Estado</span></div></div>
+<div class="section-head"><div><div class="kicker">Reciente</div><h2>Tus últimos registros</h2></div><button class="btn" data-goto="diario">Ver diario</button></div>
+<div id="recentDreams" class="dreams"><div class="empty">Todavía no hay sueños guardados.</div></div>
+<div class="footer">DreamOS v0.1.0 · Las interpretaciones son posibilidades, no diagnósticos ni presagios.</div>
+</section>
+<section class="view" id="view-diario" aria-label="Diario">
+<div class="section-head"><div><div class="kicker">Espacio personal</div><h2>Diario de sueños</h2><p class="muted">Registra primero el recuerdo; reflexiona después.</p></div><button class="btn primary" data-new>＋ Nuevo sueño</button></div>
+<div class="toolbar"><input id="dreamSearch" type="search" placeholder="Buscar en tus sueños…" aria-label="Buscar en diario"><select id="emotionFilter" aria-label="Filtrar emoción"><option value="">Todas las emociones</option><option>Miedo</option><option>Alegría</option><option>Tristeza</option><option>Confusión</option><option>Calma</option><option>Sorpresa</option><option>Otra</option></select><select id="dreamSort" aria-label="Ordenar"><option value="newest">Más recientes</option><option value="oldest">Más antiguos</option><option value="title">Título A–Z</option></select></div>
+<div id="dreamList" class="dreams"></div>
+</section>
+<section class="view" id="view-conocimiento" aria-label="Conocimiento">
+<div class="section-head"><div><div class="kicker">Biblioteca trazable</div><h2>Conocimiento onírico</h2><p class="muted" id="kbMeta">Base local curada.</p></div></div>
+<div class="toolbar"><select id="categoryFilter" aria-label="Filtrar categoría"><option value="">Todas las categorías</option><option value="ciencia">Ciencia</option><option value="psicología">Psicología</option><option value="historia">Historia</option><option value="símbolo">Símbolos</option><option value="método">Método</option><option value="tecnología">Tecnología</option><option value="ética">Ética</option><option value="personal">Personal</option></select><span class="tag" id="knowledgeCount">0 entradas</span></div>
+<div id="knowledgeGrid" class="dreams"></div>
+</section>
+<section class="view" id="view-metodo" aria-label="Método">
+<div class="section-head"><div><div class="kicker">Cómo interpretar</div><h2>Método de análisis</h2><p class="muted">El relato primero; las hipótesis después, con procedencia.</p></div></div>
+<div class="panel"><h2>Motor de reglas v0.1.0 (sin IA)</h2><p class="muted">Extrae entidades por léxico ES + sinónimos (267), recupera entradas de la base local y compone informe por escuelas. Si el relato tiene menos de 20 palabras o menos de 2 entidades, responde “datos insuficientes” con preguntas.</p><ul><li>Observación ≠ hipótesis ≠ asociación personal.</li><li>Cada lectura indica escuela, elementos que la motivan y fuente.</li><li>Nunca diagnósticos, presagios ni afirmaciones sobre terceros.</li></ul></div>
+<div class="panel"><h2>Pipeline</h2><p class="muted">Captura → Normalización → Extracción → Recuperación → Análisis por perspectivas → Síntesis → Validación → Presentación → Persistencia. El texto original nunca se modifica.</p></div>
+</section>
+<section class="view" id="view-ajustes" aria-label="Ajustes">
+<div class="section-head"><div><div class="kicker">Control de datos</div><h2>Ajustes y privacidad</h2></div></div>
+<div class="panel"><h2>Datos guardados</h2><p class="muted" id="storageSummary">…</p><div class="formactions"><button class="btn primary" id="exportBtn">Exportar copia JSON</button><label class="btn" for="importFile">Importar JSON</label><input id="importFile" type="file" accept=".json,application/json" hidden><button class="btn" id="wipeBtn">Borrar todo</button></div></div>
+<div class="panel"><h2>Sueños de ejemplo</h2><p class="muted">12 relatos ficticios (CC0) para probar búsqueda, interpretación y patrones. Se distinguen con la etiqueta <span class="tag">ejemplo</span>.</p><div class="formactions"><button class="btn" id="demoBtn2">Cargar ejemplos</button><button class="btn" id="demoWipeBtn">Quitar ejemplos</button></div></div>
+<div class="panel"><h2>Tema</h2><div class="formactions"><button class="btn" data-theme="system">Automático</button><button class="btn" data-theme="light">Claro</button><button class="btn" data-theme="dark">Oscuro</button></div></div>
+<div class="panel"><h2>Alcance v0.1.0</h2><ul><li>IndexedDB local, Service Worker offline, sin red obligatoria.</li><li>Sin IA remota. Sin cifrado app-level (depende del dispositivo).</li><li>Voz solo si el navegador la ofrece (puede requerir red).</li></ul></div>
+</section>
+</main>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<div class="modalback" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal">
+<div class="modalhead"><h2 id="modalTitle">Registrar un sueño</h2><button class="icon" id="closeModal" aria-label="Cerrar">✕</button></div>
+<p class="muted">Guarda fragmentos. Solo el título es obligatorio. <button class="small" id="voiceBtn" hidden>🎙 Dictar</button> <span class="muted" id="voiceNote"></span></p>
+<form id="dreamForm"><input type="hidden" id="dreamId"><div class="formgrid">
+<div class="field"><label for="dreamTitle">Título *</label><input id="dreamTitle" required maxlength="120" placeholder="El río que sube…"></div>
+<div class="field"><label for="dreamDate">Fecha</label><input id="dreamDate" type="date"></div>
+<div class="field"><label for="dreamQuality">Calidad (1-10)</label><input id="dreamQuality" type="number" min="1" max="10" placeholder="7"></div>
+<div class="field"><label for="dreamStress">Estrés previo (1-10)</label><input id="dreamStress" type="number" min="1" max="10" placeholder="5"></div>
+<div class="field"><label for="dreamEmotion">Emoción principal</label><select id="dreamEmotion"><option value="">Sin indicar</option><option>Miedo</option><option>Alegría</option><option>Tristeza</option><option>Confusión</option><option>Calma</option><option>Sorpresa</option><option>Otra</option></select></div>
+<div class="field"><label for="dreamTags">Etiquetas (comas)</label><input id="dreamTags" placeholder="agua, río, casa"></div>
+<div class="field full"><label for="dreamStory">Relato</label><textarea id="dreamStory" placeholder="Lo que recuerdes, aunque sean escenas sueltas…"></textarea></div>
+<div class="field full"><label for="dreamReflection">Asociaciones personales (opcional)</label><textarea id="dreamReflection" style="min-height:70px" placeholder="¿Qué te evoca? ¿Con qué de estos días conecta?"></textarea></div>
+</div><div class="formactions"><button class="btn primary" type="submit">Guardar en este dispositivo</button><button class="btn" type="button" id="cancelModal">Cancelar</button></div></form>
+</div></div>
+<script src="./js/db.js"></script>
+<script src="./js/knowledge.js"></script>
+<script src="./js/interpret.js"></script>
+<script src="./js/app.js"></script>
+</body>
+</html>
