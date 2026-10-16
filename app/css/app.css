@@ -150,6 +150,31 @@ filter:drop-shadow(0 0 18px #b7a9ff88) drop-shadow(0 0 46px #ff4ecd44)}
 @media(max-width:600px){.brand .tagline{max-width:52vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
 ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#0a0618}::-webkit-scrollbar-thumb{background:linear-gradient(var(--neon),var(--hot));border-radius:99px}
 
+/* ===== MOBILE FIRST v0.3.4 — tabbar inferior, hero y stats que sí encajan ===== */
+.tabbar{display:none}
+@media(max-width:900px){
+.side{display:none}
+.tabbar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:40;
+background:color-mix(in srgb,#0b0720 88%,transparent);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+border-top:1px solid #ffffff26;box-shadow:0 -8px 32px #000000aa,0 -1px 0 #ff4ecd33;
+padding:8px 8px calc(8px + env(safe-area-inset-bottom));gap:2px}
+.tabbar button{flex:1;background:transparent;border:none;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:3px;font-size:.66rem;font-weight:800;padding:9px 2px;border-radius:14px;min-height:58px;position:relative;overflow:hidden}
+.tabbar button span{font-size:1.3rem;line-height:1}
+.tabbar button small{font-size:.66rem}
+.tabbar button.active{color:#fff;background:linear-gradient(100deg,#b7a9ff2e,#ff4ecd26);box-shadow:0 0 16px #ff4ecd44}
+.tabbar button:active{transform:scale(.93)}
+.tabbar .cta-dot{background:linear-gradient(100deg,var(--neon),var(--hot));width:46px;height:30px;border-radius:99px;display:grid;place-items:center;color:#fff!important;box-shadow:0 0 18px #ff4ecd77;font-size:1.1rem!important}
+.layout{padding-bottom:120px}
+.stats{grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{padding:10px}.stat b{font-size:1.15rem!important}.stat span{font-size:.68rem}
+.hero-neon{min-height:62vh;padding:28px 20px}
+.hero-neon .actions .btn{flex:1;text-align:center;white-space:nowrap}
+.brand .tagline{display:none}
+.top-in{gap:8px}
+.modal{padding:16px}
+}
+@media(max-width:900px) and (prefers-reduced-motion:reduce){.tabbar button{transition:none}}
+
 /* ===== PREMIUM POLISH v0.3.3 — fondo cosmos, menú con luz, tipo con carácter, tacto ===== */
 :root[data-theme="dark"] body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 background:radial-gradient(55% 40% at 8% 4%,#2a1b5e66 0%,transparent 70%),radial-gradient(45% 38% at 96% 12%,#5c104866 0%,transparent 70%),radial-gradient(60% 45% at 50% 110%,#0e3a4d66 0%,transparent 70%)}
