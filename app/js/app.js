@@ -48,15 +48,13 @@ function stats() {
   set("#statStreak", streak); set("#statMonth", month); set("#statEmotion", last?.emotion || "—");
   const recent = [...dreams].sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || "")).slice(0, 2);
   $("#recentDreams").innerHTML = recent.length ? recent.map((d) => dreamCard(d, true)).join("") : '<div class="empty">Todavía no hay sueños guardados. <button class="small" data-new>Registrar el primero</button></div>';
-  const hasDemo = dreams.some((d) => d.synthetic);
-  $("#demoBtn").hidden = hasDemo || dreams.length > 0;
 }
 function dreamCard(d, compact = false) {
   const txt = d.story_original || "Sin relato añadido.";
   const tags = [...(d.tags || [])].map((t) => `<span class="tag">${esc(t)}</span>`).join("");
   return `<article class="dream" data-id="${esc(d.id)}">
     <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><div>
-    <h3>${esc(d.title)} ${d.synthetic ? '<span class="tag gold">ejemplo</span>' : ""}</h3>
+    <h3>${esc(d.title)}</h3>
     <div class="muted" style="font-size:.82rem">${fmtDate(d.date)}${d.emotion ? " · " + esc(d.emotion) : ""}${d.quality ? " · sueño " + d.quality + "/10" : ""}${d.stress ? " · estrés " + d.stress + "/10" : ""}</div>
     <div>${tags}</div></div></div>
     <p>${esc(compact && txt.length > 160 ? txt.slice(0, 160) + "…" : txt)}</p>
@@ -123,7 +121,7 @@ function voiceSetup() {
   };
 }
 
-/* ---------- export / import / ejemplos ---------- */
+/* ---------- export / import ---------- */
 function download(name, obj) {
   const blob = new Blob([JSON.stringify(obj, null, 2)], { type: "application/json" });
   const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name;
@@ -146,22 +144,6 @@ async function importFile(f) {
     await refresh(); renderDreams(); toast(n ? `${n} sueños importados` : "Nada válido que importar");
   } catch (e) { console.warn(e); toast(e.message || "Importación fallida; diario intacto."); }
   finally { $("#importFile").value = ""; }
-}
-async function loadDemos() {
-  try {
-    const d = await fetch("./data/demo_dreams.json").then((r) => { if (!r.ok) throw new Error(); return r.json(); });
-    let n = 0;
-    for (const x of d.dreams) {
-      if (dreams.some((dd) => dd.id === x.id)) continue;
-      await DB.putDream({ ...x, story_original: x.story_original, tags: x.tags, symbols: [], characters: [], settings: [], reflection: x.reflection || "", createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(), synthetic: true });
-      n++;
-    }
-    await refresh(); renderDreams(); toast(n ? `${n} sueños de ejemplo cargados (ficticios)` : "Los ejemplos ya estaban cargados");
-  } catch { toast("No se pudieron cargar los ejemplos"); }
-}
-async function wipeDemos() {
-  for (const d of dreams.filter((x) => x.synthetic)) await DB.deleteDream(d.id);
-  await refresh(); renderDreams(); toast("Ejemplos eliminados");
 }
 function storageSummary() {
   DB.allDreams().then(async (all) => {
@@ -214,7 +196,6 @@ $("#globalSearch").addEventListener("keydown", (e) => { if (e.key !== "Enter") r
 $("#themeToggle").onclick = () => { theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark"; try { localStorage.setItem("dreamos.theme", theme); } catch {} applyTheme(); };
 $("#exportBtn").onclick = exportAll;
 $("#importFile").addEventListener("change", (e) => importFile(e.target.files?.[0]));
-$("#demoBtn").onclick = loadDemos; $("#demoBtn2").onclick = loadDemos; $("#demoWipeBtn").onclick = wipeDemos;
 $("#wipeBtn").onclick = async () => { if (!confirm("¿Borrar TODOS los sueños de este dispositivo? Exporta antes si los quieres conservar.")) return; await DB.clearDreams(); await refresh(); renderDreams(); storageSummary(); toast("Diario vaciado"); };
 window.addEventListener("online", online); window.addEventListener("offline", online);
 if (matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => { if (theme === "system") applyTheme(); });
