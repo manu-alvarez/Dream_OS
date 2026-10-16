@@ -23,7 +23,7 @@ function nav(view) {
   const apply = () => {
   if (!$("#view-" + view)) view = "inicio";
   $$(".view").forEach((x) => x.classList.toggle("active", x.id === "view-" + view));
-  $$("#nav button,.tabbar button").forEach((x) => x.classList.toggle("active", x.dataset.view === view));
+  $$("#nav button,.tabbar button,.rail button").forEach((x) => x.classList.toggle("active", x.dataset.view === view));
   if (location.hash !== "#" + view) history.replaceState(null, "", "#" + view);
   if (view === "diario") renderDreams();
   if (view === "conocimiento") renderKnowledge();
@@ -155,7 +155,7 @@ function storageSummary() {
 
 /* ---------- eventos ---------- */
 document.addEventListener("click", async (e) => {
-  const nv = e.target.closest("#nav button,.tabbar button"); if (nv && nv.dataset.view) return nav(nv.dataset.view);
+  const nv = e.target.closest("#nav button,.tabbar button,.rail button"); if (nv && nv.dataset.view) return nav(nv.dataset.view);
   const gt = e.target.closest("[data-goto]"); if (gt) { e.preventDefault(); return nav(gt.dataset.goto); }
   if (e.target.closest("[data-new]")) return openModal();
   const ed = e.target.closest("[data-edit]"); if (ed) return openModal(ed.dataset.edit);
