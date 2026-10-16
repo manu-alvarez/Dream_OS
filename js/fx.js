@@ -4,7 +4,7 @@
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   /* Ripple en botones, nav y tarjetas */
   document.addEventListener("pointerdown", (e) => {
-    const t = e.target.closest(".btn,.small,.icon,.nav button,.dream,.card");
+    const t = e.target.closest(".btn,.small,.icon,.nav button,.tabbar button,.dream,.card");
     if (!t) return;
     const r = t.getBoundingClientRect();
     const s = Math.max(r.width, r.height);
