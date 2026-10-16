@@ -1,0 +1,18 @@
+/* DreamOS tokens — Oneiric Intelligence v0.1.0. Contraste AA verificado en texto principal. */
+:root {
+  color-scheme: light dark;
+  --night: #101321; --indigo: #433a7c; --graphite: #22233a; --petrol: #23414f;
+  --lavender: #b7a9ff; --lavender-deep: #6554c0; --ivory: #f5f2e9; --gold: #f4d068;
+  --bg: #f5f5fa; --panel: #ffffff; --panel2: #efedf8; --text: #22233a; --muted: #5b5e78;
+  --line: #e0dff0; --accent: #6554c0; --accent-ink: #ffffff; --soft: #eeebff;
+  --danger: #b3261e; --ok: #1e7e34;
+  --shadow: 0 12px 32px rgba(40, 32, 75, .08); --radius: 18px;
+  --font-ui: system-ui, -apple-system, "Segoe UI", Manrope, sans-serif;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #101321; --panel: #191d30; --panel2: #252940; --text: #f2f0ff; --muted: #b0b3c9;
+  --line: #343950; --accent: #b7a9ff; --accent-ink: #1a1330; --soft: #302b4e;
+  --shadow: 0 12px 32px rgba(0, 0, 0, .35);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: dark; } }
