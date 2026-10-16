@@ -25,15 +25,15 @@
 </div></header>
 <div class="layout">
 <aside class="side" aria-label="Navegación"><div class="label">Espacio personal</div><nav class="nav" id="nav">
-<button class="active" data-view="inicio">⌂ Inicio</button><button data-view="diario">▤ Diario <span class="count" id="navDreamCount">0</span></button><button data-view="conocimiento">⌕ Conocimiento <span class="count" id="navKnowCount">0</span></button><button data-view="metodo">◷ Método</button><button data-view="ajustes">⚙ Ajustes y datos</button>
+<button class="active" data-view="inicio">⌂ Inicio</button><button data-view="diario">▤ Diario <span class="count" id="navDreamCount">0</span></button><button data-view="conocimiento">✦ Símbolos</button><button data-view="metodo">◷ Método</button><button data-view="ajustes">⚙ Ajustes y datos</button>
 </nav><div class="note"><b>Privacidad local.</b> Todo vive en este dispositivo (IndexedDB). Sin cuentas, sin nube, sin IA remota por defecto.</div></aside>
 <main id="main">
 <section class="view active" id="view-inicio" aria-label="Inicio">
-<div class="hero"><div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div><div class="eyebrow">● Un espacio para explorar</div><h1>Tus sueños.<br>Muchas perspectivas.</h1><p>Registra lo que recuerdas al despertar, explora 41 símbolos trazables y compara lecturas sin convertir ninguna en verdad absoluta.</p><div class="actions"><button class="btn primary" data-new>＋ Registrar un sueño</button><button class="btn" data-goto="conocimiento">Explorar conocimiento ↗</button><button class="btn" id="demoBtn" hidden>✦ Cargar 12 sueños de ejemplo</button></div></div>
-<div class="stats"><div class="stat"><b id="statDreams">0</b><span>Sueños guardados</span></div><div class="stat"><b id="statSymbols">0</b><span>Símbolos en base</span></div><div class="stat"><b id="statEntries">0</b><span>Entradas conocimiento</span></div><div class="stat"><b id="statOffline">…</b><span>Estado</span></div></div>
+<div class="hero hero-neon grain"><canvas id="stars" aria-hidden="true"></canvas><div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div><div class="moon" aria-hidden="true"></div><div class="hero-in"><div class="eyebrow">● Tu laboratorio onírico</div><h1>Atrapa la noche.<br><em>Entiende tus sueños.</em></h1><p>Un diario que se siente como soñar: guarda lo que recuerdes en segundos y descubre qué se repite en tu mundo interior.</p><div class="actions"><button class="btn primary btn-neon" data-new>＋ Atrapar un sueño</button><button class="btn btn-ghost" data-goto="diario">Abrir diario ↗</button></div><button class="demo-link" id="demoBtn" hidden>✦ Probar con sueños de ejemplo</button></div></div>
+<div class="stats stats-neon"><div class="stat"><b id="statStreak">0</b><span>Días seguidos</span></div><div class="stat"><b id="statMonth">0</b><span>Sueños este mes</span></div><div class="stat"><b id="statEmotion">—</b><span>Última emoción</span></div></div>
 <div class="section-head"><div><div class="kicker">Reciente</div><h2>Tus últimos registros</h2></div><button class="btn" data-goto="diario">Ver diario</button></div>
 <div id="recentDreams" class="dreams"><div class="empty">Todavía no hay sueños guardados.</div></div>
-<div class="footer">DreamOS v0.2.0 · Las interpretaciones son posibilidades, no diagnósticos ni presagios.</div>
+<div class="footer">DreamOS v0.3.0 · Tus sueños son tuyos: todo queda en este dispositivo.</div>
 </section>
 <section class="view" id="view-diario" aria-label="Diario">
 <div class="section-head"><div><div class="kicker">Espacio personal</div><h2>Diario de sueños</h2><p class="muted">Registra primero el recuerdo; reflexiona después.</p></div><button class="btn primary" data-new>＋ Nuevo sueño</button></div>
@@ -41,19 +41,19 @@
 <div id="dreamList" class="dreams"></div>
 </section>
 <section class="view" id="view-conocimiento" aria-label="Conocimiento">
-<div class="section-head"><div><div class="kicker">Biblioteca trazable</div><h2>Conocimiento onírico</h2><p class="muted" id="kbMeta">Base local curada.</p></div></div>
+<div class="section-head"><div><div class="kicker">Biblioteca de símbolos</div><h2>¿Qué soñaste?</h2><p class="muted" id="kbMeta">Toca un símbolo para ver sus lecturas.</p></div></div>
 <div class="toolbar"><select id="categoryFilter" aria-label="Filtrar categoría"><option value="">Todas las categorías</option><option value="ciencia">Ciencia</option><option value="psicología">Psicología</option><option value="historia">Historia</option><option value="símbolo">Símbolos</option><option value="método">Método</option><option value="tecnología">Tecnología</option><option value="ética">Ética</option><option value="personal">Personal</option></select><span class="tag" id="knowledgeCount">0 entradas</span></div>
 <div id="knowledgeGrid" class="dreams"></div>
 </section>
 <section class="view" id="view-metodo" aria-label="Método">
 <div class="section-head"><div><div class="kicker">Cómo interpretar</div><h2>Método de análisis</h2><p class="muted">El relato primero; las hipótesis después, con procedencia.</p></div></div>
-<div class="panel"><h2>Motor de reglas v0.1.0 (sin IA)</h2><p class="muted">Extrae entidades por léxico ES + sinónimos (267), recupera entradas de la base local y compone informe por escuelas. Si el relato tiene menos de 20 palabras o menos de 2 entidades, responde “datos insuficientes” con preguntas.</p><ul><li>Observación ≠ hipótesis ≠ asociación personal.</li><li>Cada lectura indica escuela, elementos que la motivan y fuente.</li><li>Nunca diagnósticos, presagios ni afirmaciones sobre terceros.</li></ul></div>
+<div class="panel"><h2>Cómo leo tu sueño</h2><p class="muted">Leo tus palabras, encuentro símbolos y te muestro lecturas de distintas escuelas con sus fuentes. Todo ocurre en tu dispositivo, sin IA remota. Si hay poco material, te lo digo y te pregunto.</p><ul><li>Observación ≠ hipótesis ≠ asociación personal.</li><li>Cada lectura indica escuela, elementos que la motivan y fuente.</li><li>Nunca diagnósticos, presagios ni afirmaciones sobre terceros.</li></ul></div>
 <div class="panel"><h2>Pipeline</h2><p class="muted">Captura → Normalización → Extracción → Recuperación → Análisis por perspectivas → Síntesis → Validación → Presentación → Persistencia. El texto original nunca se modifica.</p></div>
 </section>
 <section class="view" id="view-ajustes" aria-label="Ajustes">
 <div class="section-head"><div><div class="kicker">Control de datos</div><h2>Ajustes y privacidad</h2></div></div>
 <div class="panel"><h2>Datos guardados</h2><p class="muted" id="storageSummary">…</p><div class="formactions"><button class="btn primary" id="exportBtn">Exportar copia JSON</button><label class="btn" for="importFile">Importar JSON</label><input id="importFile" type="file" accept=".json,application/json" hidden><button class="btn" id="wipeBtn">Borrar todo</button></div></div>
-<div class="panel"><h2>Sueños de ejemplo</h2><p class="muted">12 relatos ficticios (CC0) para probar búsqueda, interpretación y patrones. Se distinguen con la etiqueta <span class="tag">ejemplo</span>.</p><div class="formactions"><button class="btn" id="demoBtn2">Cargar ejemplos</button><button class="btn" id="demoWipeBtn">Quitar ejemplos</button></div></div>
+<div class="panel"><h2>Sueños de ejemplo</h2><p class="muted">12 relatos ficticios para probar la app. Se distinguen con la etiqueta <span class="tag">ejemplo</span>.</p><div class="formactions"><button class="btn" id="demoBtn2">Probar ejemplos</button><button class="btn" id="demoWipeBtn">Quitar ejemplos</button></div></div>
 <div class="panel"><h2>Tema</h2><div class="formactions"><button class="btn" data-theme="system">Automático</button><button class="btn" data-theme="light">Claro</button><button class="btn" data-theme="dark">Oscuro</button></div></div>
 <div class="panel"><h2>Ambiente</h2><p class="muted">Drone nocturno generativo (WebAudio, sin archivos). Se desactiva solo al salir. Con movimiento reducido del sistema, los efectos visuales ya están pausados.</p><div class="formactions"><button class="btn" id="soundToggle" aria-pressed="false">🌙 Activar ambiente</button></div></div>
 <div class="panel"><h2>Alcance v0.1.0</h2><ul><li>IndexedDB local, Service Worker offline, sin red obligatoria.</li><li>Sin IA remota. Sin cifrado app-level (depende del dispositivo).</li><li>Voz solo si el navegador la ofrece (puede requerir red).</li></ul></div>
@@ -78,6 +78,7 @@
 <script src="./js/db.js"></script>
 <script src="./js/knowledge.js"></script>
 <script src="./js/interpret.js"></script>
+<script src="./js/stars.js"></script>
 <script src="./js/app.js"></script>
 </body>
 </html>
