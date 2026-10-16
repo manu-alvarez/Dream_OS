@@ -23,7 +23,7 @@ function nav(view) {
   const apply = () => {
   if (!$("#view-" + view)) view = "inicio";
   $$(".view").forEach((x) => x.classList.toggle("active", x.id === "view-" + view));
-  $$("#nav button,.tabbar button,.rail button").forEach((x) => x.classList.toggle("active", x.dataset.view === view));
+  $$("#nav button,.tabbar button").forEach((x) => x.classList.toggle("active", x.dataset.view === view));
   if (location.hash !== "#" + view) history.replaceState(null, "", "#" + view);
   if (view === "diario") renderDreams();
   if (view === "conocimiento") renderKnowledge();
@@ -208,25 +208,52 @@ $("#shareBtn").onclick = async () => {
   try { await navigator.clipboard.writeText(data.url); toast("Enlace copiado: compártelo donde quieras"); }
   catch { toast("Copia la URL del navegador para compartir"); }
 };
-/* Ambiente generativo: drone nocturno WebAudio (sin archivos), solo tras gesto, OFF por defecto. */
+/* Ambiente generativo: drone nocturno WebAudio (ondas Theta / 432Hz), solo tras gesto, OFF por defecto. */
 let AC = null, drone = null;
-$("#soundToggle").onclick = () => {
-  const btn = $("#soundToggle");
+function toggleSound() {
+  const btnSettings = $("#soundToggle");
+  const btnTop = $("#soundToggleTop");
   if (drone) {
-    try { drone.g.gain.linearRampToValueAtTime(0, AC.currentTime + .6); setTimeout(() => { drone.os.forEach((o) => { try { o.stop(); } catch {} }); AC.close().catch(() => {}); }, 700); } catch {}
-    drone = null; AC = null; btn.textContent = "🌙 Activar ambiente"; btn.setAttribute("aria-pressed", "false"); return;
+    try {
+      drone.g.gain.linearRampToValueAtTime(0, AC.currentTime + 0.6);
+      setTimeout(() => {
+        drone.os.forEach((o) => { try { o.stop(); } catch {} });
+        AC.close().catch(() => {});
+      }, 700);
+    } catch {}
+    drone = null; AC = null;
+    if (btnSettings) { btnSettings.textContent = "🌙 Activar ambiente sonoro"; btnSettings.setAttribute("aria-pressed", "false"); }
+    if (btnTop) { btnTop.classList.remove("playing"); btnTop.setAttribute("aria-pressed", "false"); btnTop.title = "Activar drone nocturno (432Hz)"; }
+    toast("🌙 Drone onírico silenciado");
+    return;
   }
   try {
     AC = new (window.AudioContext || window.webkitAudioContext)();
     const g = AC.createGain(); g.gain.value = 0;
     const f = AC.createBiquadFilter(); f.type = "lowpass"; f.frequency.value = 420;
-    const os = [110, 164.81, 220.5].map((fr, i) => { const o = AC.createOscillator(); o.type = i === 2 ? "triangle" : "sine"; o.frequency.value = fr; o.detune.value = i * 3; o.connect(f); o.start(); return o; });
+    /* Frecuencias armónicas binaurales en escala Theta para relajación profunda */
+    const os = [108, 162, 216].map((fr, i) => {
+      const o = AC.createOscillator();
+      o.type = i === 2 ? "triangle" : "sine";
+      o.frequency.value = fr;
+      o.detune.value = i * 4;
+      o.connect(f);
+      o.start();
+      return o;
+    });
     f.connect(g); g.connect(AC.destination);
-    g.gain.linearRampToValueAtTime(.045, AC.currentTime + 2.5);
-    drone = { os, g }; btn.textContent = "🌙 Silenciar ambiente"; btn.setAttribute("aria-pressed", "true"); toast("Ambiente activado");
-  } catch { toast("Audio no disponible en este navegador"); }
-};
-document.addEventListener("visibilitychange", () => { if (document.hidden && drone) $("#soundToggle").click(); });
+    g.gain.linearRampToValueAtTime(0.045, AC.currentTime + 2.5);
+    drone = { os, g };
+    if (btnSettings) { btnSettings.textContent = "🌙 Silenciar ambiente sonoro"; btnSettings.setAttribute("aria-pressed", "true"); }
+    if (btnTop) { btnTop.classList.add("playing"); btnTop.setAttribute("aria-pressed", "true"); btnTop.title = "Silenciar drone nocturno (432Hz)"; }
+    toast("✨ Drone onírico activado (Frecuencia Theta 432Hz)");
+  } catch {
+    toast("Audio no disponible en este navegador");
+  }
+}
+if ($("#soundToggle")) $("#soundToggle").onclick = toggleSound;
+if ($("#soundToggleTop")) $("#soundToggleTop").onclick = toggleSound;
+document.addEventListener("visibilitychange", () => { if (document.hidden && drone) toggleSound(); });
 
 /* ---------- init ---------- */
 (async function init() {

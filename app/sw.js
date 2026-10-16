@@ -1,11 +1,14 @@
 /* DreamOS SW v0.1.0 — app-shell precache + NetworkFirst navigations con fallback offline. */
-const VERSION = "dreamos-v1.3.0";
+const VERSION = "dreamos-v1.4.0";
 const SHELL = ["./", "./index.html", "./offline.html", "./manifest.webmanifest",
   "./css/tokens.css", "./css/app.css", "./js/db.js", "./js/knowledge.js",
   "./js/interpret.js", "./js/stars.js", "./js/fx.js", "./js/app.js",
   "./data/knowledge_base.json", "./data/synonyms.json",
   "./assets/icons/icon.svg", "./assets/icons/maskable.svg",
-  "./assets/nebula.jpg", "./assets/cosmos.jpg", "./assets/astrolabe.jpg"];
+  "./assets/icons/icon-192.png", "./assets/icons/icon-512.png",
+  "./assets/icons/apple-touch-icon.png", "./assets/icons/favicon-32x32.png",
+  "./assets/nebula.jpg", "./assets/cosmos.jpg", "./assets/astrolabe.jpg",
+  "./assets/og-cover.jpg"];
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
 });
