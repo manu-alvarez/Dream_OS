@@ -155,7 +155,7 @@ function storageSummary() {
 
 /* ---------- eventos ---------- */
 document.addEventListener("click", async (e) => {
-  const nv = e.target.closest("#nav button,.tabbar button,.rail button"); if (nv && nv.dataset.view) return nav(nv.dataset.view);
+  const nv = e.target.closest("#nav button,.tabbar button"); if (nv && nv.dataset.view) return nav(nv.dataset.view);
   const gt = e.target.closest("[data-goto]"); if (gt) { e.preventDefault(); return nav(gt.dataset.goto); }
   if (e.target.closest("[data-new]")) return openModal();
   const ed = e.target.closest("[data-edit]"); if (ed) return openModal(ed.dataset.edit);
@@ -165,7 +165,7 @@ document.addEventListener("click", async (e) => {
   const del = e.target.closest("[data-del]");
   if (del) { const d = dreams.find((x) => x.id === del.dataset.del);
     if (confirm(`¿Eliminar “${d.title}”?`)) { await DB.deleteDream(d.id); await refresh(); renderDreams(); toast("Eliminado"); } return; }
-  const th = e.target.closest("[data-theme]"); if (th) { theme = th.dataset.theme; try { localStorage.setItem("dreamos.theme", theme); } catch {} applyTheme(); toast("Tema actualizado"); }
+  const th = e.target.closest("button[data-theme]"); if (th) { theme = th.dataset.theme; try { localStorage.setItem("dreamos.theme", theme); } catch {} applyTheme(); toast("Tema actualizado"); }
 });
 $("#dreamForm").addEventListener("submit", async (e) => {
   e.preventDefault();
