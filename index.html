@@ -4,24 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#06040d">
-<meta name="description" content="Dream_OS: laboratorio personal de exploración onírica. Registra recuerdos, descubre patrones y explora lecturas psicológicas y científicas en tu dispositivo.">
+<title>Dream OS · Atrapa la noche. Entiende tus sueños.</title>
+<meta name="description" content="Dream OS: laboratorio personal de exploración onírica. Registra recuerdos, descubre patrones y explora lecturas psicológicas y científicas en tu dispositivo.">
 
 <!-- Open Graph / WhatsApp / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://manu-alvarez.github.io/Dream_OS/">
-<meta property="og:title" content="Dream_OS · Atrapa la noche. Entiende tus sueños.">
+<meta property="og:title" content="Dream OS · Atrapa la noche. Entiende tus sueños.">
 <meta property="og:description" content="Laboratorio personal de exploración onírica. Registra recuerdos, descubre patrones y explora lecturas en tu dispositivo, privado y sin nube.">
 <meta property="og:image" content="https://manu-alvarez.github.io/Dream_OS/assets/og-cover.jpg">
 <meta property="og:image:secure_url" content="https://manu-alvarez.github.io/Dream_OS/assets/og-cover.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="675">
-<meta property="og:image:alt" content="Dream_OS — Atrapa la noche. Entiende tus sueños.">
+<meta property="og:image:alt" content="Dream OS — Atrapa la noche. Entiende tus sueños.">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://manu-alvarez.github.io/Dream_OS/">
-<meta name="twitter:title" content="Dream_OS · Atrapa la noche. Entiende tus sueños.">
+<meta name="twitter:title" content="Dream OS · Atrapa la noche. Entiende tus sueños.">
 <meta name="twitter:description" content="Laboratorio personal de exploración onírica. Privado, local-first y offline.">
 <meta name="twitter:image" content="https://manu-alvarez.github.io/Dream_OS/assets/og-cover.jpg">
 
@@ -52,12 +53,14 @@
 <!-- Cabecera Superior -->
 <header class="top">
   <div class="top-in">
-    <a class="brand" href="#inicio" aria-label="Dream_OS Inicio">
-      <span class="brand-orb" aria-hidden="true">☾</span>
-      <span class="brand-name">Dream_OS</span>
+    <a class="brand" href="#inicio" aria-label="Dream OS Inicio">
+      <span class="brand-orb" aria-hidden="true">
+        <img src="./assets/moon-crescent.jpg" alt="Media luna Dream OS" class="brand-moon-img">
+      </span>
+      <span class="brand-name">Dream OS</span>
     </a>
     <div class="search-pill-wrap">
-      <input id="globalSearch" type="search" placeholder="Buscar sueños, símbolos, teorías…" aria-label="Buscar en Dream_OS" autocomplete="off">
+      <input id="globalSearch" type="search" placeholder="Buscar sueños, símbolos, teorías…" aria-label="Buscar en Dream OS" autocomplete="off">
       <span class="search-orb-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="20" height="20">
           <defs>
@@ -81,8 +84,8 @@
         </span>
       </button>
       <button class="icon-btn" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">◐</button>
-      <button class="icon-btn" id="installBtn" hidden aria-label="Instalar app" title="Instalar app">⤓</button>
-      <button class="icon-btn" id="shareBtn" aria-label="Compartir Dream_OS" title="Compartir">↗</button>
+      <button class="icon-btn" id="installBtn" aria-label="Instalar app en tu pantalla de inicio" title="Instalar Dream OS en tu pantalla de inicio">⤓</button>
+      <button class="icon-btn" id="shareBtn" aria-label="Compartir Dream OS" title="Compartir">↗</button>
     </div>
   </div>
 </header>
@@ -444,6 +447,33 @@
         <button class="btn btn-hero-ghost" type="button" id="cancelModal">Cancelar</button>
       </div>
     </form>
+  </div>
+</div>
+
+<!-- Modal Guía de Instalación PWA (Compatible con iOS y Android) -->
+<div class="modalback" id="installModal" role="dialog" aria-modal="true" aria-labelledby="installModalTitle">
+  <div class="modal" style="max-width: 460px; text-align: center;">
+    <div class="modalhead" style="justify-content: center; position: relative; margin-bottom: 8px;">
+      <h2 id="installModalTitle" style="font-family: var(--font-display); font-size: 1.45rem;">Instalar Dream OS</h2>
+      <button class="icon-btn" id="closeInstallModal" aria-label="Cerrar" style="position: absolute; right: 0; top: 0;">✕</button>
+    </div>
+    <div style="margin: 14px auto 16px; width: 72px; height: 72px; border-radius: 50%; overflow: hidden; box-shadow: 0 0 25px rgba(244, 208, 104, 0.5), 0 0 45px rgba(217, 70, 239, 0.4); border: 1.5px solid rgba(255, 255, 255, 0.25);">
+      <img src="./assets/moon-crescent.jpg" alt="Dream OS Icono" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <p style="font-size: 0.95rem; color: #e9e4f5; line-height: 1.5; margin-bottom: 18px;">
+      Añade <b>Dream OS</b> a tu pantalla de inicio para usarla como una aplicación nativa a pantalla completa y 100% offline.
+    </p>
+    <div id="installStepsContainer" style="text-align: left; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 16px 18px; margin-bottom: 22px;">
+      <div id="installStepApple" style="display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem; color: #d6cee8;">
+        <div><b>1.</b> En Safari, pulsa el botón <b>Compartir</b> (el icono con la flecha hacia arriba <span style="font-size:1.1rem;color:#f5d0fe">⎋</span> o <span style="font-size:1.1rem;color:#f5d0fe">[↑]</span> en la barra inferior).</div>
+        <div><b>2.</b> Desliza hacia abajo y selecciona <b>«Añadir a la pantalla de inicio»</b> (<span style="color:#f472b6;font-weight:bold">＋</span>).</div>
+        <div><b>3.</b> Pulsa <b>Añadir</b> en la esquina superior derecha. ¡Listo!</div>
+      </div>
+      <div id="installStepOther" style="font-size: 0.88rem; color: #d6cee8; display: none;">
+        <div>Pulsa el botón de menú del navegador (<b>⋮</b> o compartir) y selecciona <b>«Instalar aplicación»</b> o <b>«Añadir a pantalla principal»</b>.</div>
+      </div>
+    </div>
+    <button class="btn btn-hero-primary" id="confirmInstallBtn" style="width: 100%;">¡Entendido!</button>
   </div>
 </div>
 
