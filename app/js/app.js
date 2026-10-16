@@ -20,6 +20,7 @@ let installPrompt = null;
 
 /* ---------- navegación ---------- */
 function nav(view) {
+  const apply = () => {
   if (!$("#view-" + view)) view = "inicio";
   $$(".view").forEach((x) => x.classList.toggle("active", x.id === "view-" + view));
   $$("#nav button").forEach((x) => x.classList.toggle("active", x.dataset.view === view));
@@ -28,6 +29,8 @@ function nav(view) {
   if (view === "conocimiento") renderKnowledge();
   if (view === "ajustes") storageSummary();
   window.scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  };
+  if (document.startViewTransition && !matchMedia("(prefers-reduced-motion: reduce)").matches) document.startViewTransition(apply); else apply();
 }
 
 /* ---------- sueños ---------- */
@@ -212,6 +215,32 @@ window.addEventListener("online", online); window.addEventListener("offline", on
 if (matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => { if (theme === "system") applyTheme(); });
 window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); installPrompt = e; $("#installBtn").hidden = false; });
 $("#installBtn").onclick = async () => { if (!installPrompt) return toast("Instalación no disponible aquí (requiere HTTPS/localhost)."); try { installPrompt.prompt(); await installPrompt.userChoice; installPrompt = null; $("#installBtn").hidden = true; } catch { toast("No se pudo instalar"); } };
+/* Compartir la app (nunca el diario): Web Share API con fallback a portapapeles. */
+$("#shareBtn").onclick = async () => {
+  const data = { title: "DreamOS", text: "Mi laboratorio onírico privado y offline. Pruébalo:", url: location.href };
+  if (navigator.share) { try { await navigator.share(data); } catch {} return; }
+  try { await navigator.clipboard.writeText(data.url); toast("Enlace copiado: compártelo donde quieras"); }
+  catch { toast("Copia la URL del navegador para compartir"); }
+};
+/* Ambiente generativo: drone nocturno WebAudio (sin archivos), solo tras gesto, OFF por defecto. */
+let AC = null, drone = null;
+$("#soundToggle").onclick = () => {
+  const btn = $("#soundToggle");
+  if (drone) {
+    try { drone.g.gain.linearRampToValueAtTime(0, AC.currentTime + .6); setTimeout(() => { drone.os.forEach((o) => { try { o.stop(); } catch {} }); AC.close().catch(() => {}); }, 700); } catch {}
+    drone = null; AC = null; btn.textContent = "🌙 Activar ambiente"; btn.setAttribute("aria-pressed", "false"); return;
+  }
+  try {
+    AC = new (window.AudioContext || window.webkitAudioContext)();
+    const g = AC.createGain(); g.gain.value = 0;
+    const f = AC.createBiquadFilter(); f.type = "lowpass"; f.frequency.value = 420;
+    const os = [110, 164.81, 220.5].map((fr, i) => { const o = AC.createOscillator(); o.type = i === 2 ? "triangle" : "sine"; o.frequency.value = fr; o.detune.value = i * 3; o.connect(f); o.start(); return o; });
+    f.connect(g); g.connect(AC.destination);
+    g.gain.linearRampToValueAtTime(.045, AC.currentTime + 2.5);
+    drone = { os, g }; btn.textContent = "🌙 Silenciar ambiente"; btn.setAttribute("aria-pressed", "true"); toast("Ambiente activado");
+  } catch { toast("Audio no disponible en este navegador"); }
+};
+document.addEventListener("visibilitychange", () => { if (document.hidden && drone) $("#soundToggle").click(); });
 
 /* ---------- init ---------- */
 (async function init() {
