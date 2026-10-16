@@ -1,5 +1,5 @@
 /* DreamOS SW v0.1.0 — app-shell precache + NetworkFirst navigations con fallback offline. */
-const VERSION = "dreamos-v0.1.0";
+const VERSION = "dreamos-v0.2.0";
 const SHELL = ["./", "./index.html", "./offline.html", "./manifest.webmanifest",
   "./css/tokens.css", "./css/app.css", "./js/db.js", "./js/knowledge.js",
   "./js/interpret.js", "./js/app.js",

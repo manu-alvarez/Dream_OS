@@ -7,7 +7,11 @@
   --line: #e0dff0; --accent: #6554c0; --accent-ink: #ffffff; --soft: #eeebff;
   --danger: #b3261e; --ok: #1e7e34;
   --shadow: 0 12px 32px rgba(40, 32, 75, .08); --radius: 18px;
-  --font-ui: system-ui, -apple-system, "Segoe UI", Manrope, sans-serif;
+  --font-display: "Fraunces", "Instrument Serif", Georgia, serif;
+  --font-ui: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease-spring: cubic-bezier(.34, 1.4, .64, 1);
+  --dur-fast: .18s; --dur-med: .45s;
+  --aurora-1: #8473e4; --aurora-2: #b7a9ff; --aurora-3: #f4d068;
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
