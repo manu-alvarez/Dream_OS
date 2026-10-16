@@ -1,6 +1,6 @@
 {
-  "name": "DreamOS — Laboratorio Onírico",
-  "short_name": "DreamOS",
+  "name": "Dream_OS — Laboratorio onírico",
+  "short_name": "Dream_OS",
   "description": "Diario de sueños local-first: registra, explora símbolos y compara lecturas. Privado y offline.",
   "start_url": ".",
   "scope": ".",
