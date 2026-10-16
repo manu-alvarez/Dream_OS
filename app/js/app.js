@@ -199,8 +199,39 @@ $("#importFile").addEventListener("change", (e) => importFile(e.target.files?.[0
 $("#wipeBtn").onclick = async () => { if (!confirm("¿Borrar TODOS los sueños de este dispositivo? Exporta antes si los quieres conservar.")) return; await DB.clearDreams(); await refresh(); renderDreams(); storageSummary(); toast("Diario vaciado"); };
 window.addEventListener("online", online); window.addEventListener("offline", online);
 if (matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => { if (theme === "system") applyTheme(); });
-window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); installPrompt = e; $("#installBtn").hidden = false; });
-$("#installBtn").onclick = async () => { if (!installPrompt) return toast("Instalación no disponible aquí (requiere HTTPS/localhost)."); try { installPrompt.prompt(); await installPrompt.userChoice; installPrompt = null; $("#installBtn").hidden = true; } catch { toast("No se pudo instalar"); } };
+window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); installPrompt = e; });
+function openInstallGuide() {
+  const modal = $("#installModal");
+  if (!modal) return;
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  if ($("#installStepApple")) $("#installStepApple").style.display = isIOS ? "flex" : "none";
+  if ($("#installStepOther")) $("#installStepOther").style.display = isIOS ? "none" : "block";
+  modal.classList.add("open");
+}
+function closeInstallGuide() {
+  const modal = $("#installModal");
+  if (modal) modal.classList.remove("open");
+}
+if ($("#closeInstallModal")) $("#closeInstallModal").onclick = closeInstallGuide;
+if ($("#confirmInstallBtn")) $("#confirmInstallBtn").onclick = closeInstallGuide;
+if ($("#installBtn")) {
+  $("#installBtn").onclick = async () => {
+    if (installPrompt) {
+      try {
+        installPrompt.prompt();
+        const choice = await installPrompt.userChoice;
+        if (choice && choice.outcome === "accepted") {
+          installPrompt = null;
+          toast("¡Dream OS añadido con éxito!");
+        }
+      } catch {
+        openInstallGuide();
+      }
+    } else {
+      openInstallGuide();
+    }
+  };
+}
 /* Compartir la app (nunca el diario): Web Share API con fallback a portapapeles. */
 $("#shareBtn").onclick = async () => {
   const data = { title: "DreamOS", text: "Mi laboratorio onírico privado y offline. Pruébalo:", url: location.href };
