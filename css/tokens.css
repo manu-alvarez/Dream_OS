@@ -1,23 +1,72 @@
-/* DreamOS tokens — Oneiric Intelligence v0.1.0. Contraste AA verificado en texto principal. */
+/* DreamOS tokens — Paleta Cósmica & Ethereal Glassmorphism */
 :root {
-  color-scheme: light dark;
-  --night: #101321; --indigo: #433a7c; --graphite: #22233a; --petrol: #23414f;
-  --lavender: #b7a9ff; --lavender-deep: #6554c0; --ivory: #f5f2e9; --gold: #f4d068;
-  --bg: #f5f5fa; --panel: #ffffff; --panel2: #efedf8; --text: #22233a; --muted: #5b5e78;
-  --line: #e0dff0; --accent: #6554c0; --accent-ink: #ffffff; --soft: #eeebff;
-  --danger: #b3261e; --ok: #1e7e34;
-  --shadow: 0 12px 32px rgba(40, 32, 75, .08); --radius: 18px;
-  --font-display: "Fraunces", "Instrument Serif", Georgia, serif;
-  --font-ui: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --ease-spring: cubic-bezier(.34, 1.4, .64, 1);
-  --dur-fast: .18s; --dur-med: .45s;
-  --aurora-1: #8473e4; --aurora-2: #b7a9ff; --aurora-3: #f4d068;
-}
-:root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #070512; --panel: #141021; --panel2: #1e1836; --text: #f4f1ff; --muted: #b6aee0;
-  --line: #2e2654; --accent: #c4a7ff; --accent-ink: #150f2e; --soft: #2b2352;
-  --shadow: 0 12px 32px rgba(0, 0, 0, .5);
-  --neon: #c4a7ff; --neon2: #67e8f9; --neon3: #f4d068; --hot: #ff4ecd;
+  
+  /* Paleta Espacial Profunda */
+  --space-void: #06040d;
+  --space-bg: #090614;
+  --space-dark: #0f0a20;
+  --space-surface: rgba(20, 15, 38, 0.48);
+  --space-surface-hover: rgba(36, 26, 68, 0.65);
+  --space-surface-active: rgba(52, 36, 96, 0.8);
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(20, 15, 38, 0.45);
+  --glass-bg-subtle: rgba(255, 255, 255, 0.04);
+  --glass-bg-pill: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-hover: rgba(255, 255, 255, 0.24);
+  --glass-border-glow: rgba(217, 70, 239, 0.45);
+  --glass-blur: blur(20px) saturate(180%);
+  
+  /* Neones y Resplandores */
+  --neon-magenta: #d946ef;
+  --neon-pink: #ff4ecd;
+  --neon-purple: #a855f7;
+  --neon-violet: #8b5cf6;
+  --neon-cyan: #38bdf8;
+  --gold: #f4d068;
+  --gold-warm: #fde68a;
+  --gold-glow: rgba(244, 208, 104, 0.45);
+  --magenta-glow: rgba(217, 70, 239, 0.5);
+  
+  /* Textos */
+  --text: #ffffff;
+  --text-cream: #faf7f2;
+  --text-muted: #a69ebd;
+  --text-dim: #797191;
+  --accent: #d946ef;
+  --accent-ink: #ffffff;
+  
+  /* Tipografía */
+  --font-display: "Fraunces", "Cinzel", Georgia, serif;
+  --font-ui: "Manrope", system-ui, -apple-system, sans-serif;
+  
+  /* Radios & Sombras */
+  --radius-pill: 9999px;
+  --radius-card: 22px;
+  --radius-panel: 24px;
+  --radius-sm: 14px;
+  --shadow-glass: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 1px rgba(255, 255, 255, 0.15) inset;
+  --shadow-neon: 0 0 26px rgba(217, 70, 239, 0.55), 0 0 60px rgba(217, 70, 239, 0.25);
+  
+  /* Animaciones */
+  --ease-spring: cubic-bezier(.34, 1.4, .64, 1);
+  --dur-fast: .18s;
+  --dur-med: .4s;
 }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: dark; } }
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --space-void: #f3f0fa;
+  --space-bg: #f8f6fc;
+  --space-surface: rgba(255, 255, 255, 0.68);
+  --space-surface-hover: rgba(255, 255, 255, 0.88);
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(140, 100, 220, 0.18);
+  --text: #171126;
+  --text-cream: #171126;
+  --text-muted: #5d5377;
+  --text-dim: #8b80a6;
+  --shadow-glass: 0 16px 36px rgba(45, 30, 80, 0.12);
+}

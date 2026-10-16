@@ -13,10 +13,11 @@
     W = r.width; H = r.height;
     cv.width = W * dpr; cv.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    stars = Array.from({ length: Math.min(160, W * H / 4500) }, () => ({
+    const count = Math.min(240, Math.max(80, Math.floor((W * H) / 6000)));
+    stars = Array.from({ length: count }, () => ({
       x: Math.random() * W, y: Math.random() * H,
-      r: Math.random() * 1.4 + .3, p: Math.random() * Math.PI * 2,
-      s: .4 + Math.random() * 1.2, c: COLORS[Math.random() * COLORS.length | 0],
+      r: Math.random() * 1.3 + .25, p: Math.random() * Math.PI * 2,
+      s: .3 + Math.random() * 1.1, c: COLORS[Math.random() * COLORS.length | 0],
     }));
   }
   function frame(t) {

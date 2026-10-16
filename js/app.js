@@ -13,7 +13,7 @@ function fmtDate(v) { if (!v) return "Sin fecha"; const d = new Date(v + "T12:00
 function applyTheme() {
   const t = theme === "system" ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : theme;
   document.documentElement.dataset.theme = t;
-  document.querySelector('meta[name="theme-color"]').content = t === "dark" ? "#101321" : "#f5f5fa";
+  document.querySelector('meta[name="theme-color"]').content = t === "dark" ? "#06040d" : "#f5f5fa";
 }
 function online() { $("#offline").classList.toggle("show", !navigator.onLine); }
 let installPrompt = null;
@@ -45,7 +45,7 @@ function stats() {
   const month = dreams.filter((d) => (d.date || "").startsWith(today().slice(0, 7))).length;
   const last = [...dreams].sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || ""))[0];
   const set = (id, v) => { const el = $(id); if (el) el.textContent = v; };
-  set("#statStreak", streak); set("#statMonth", month); set("#statEmotion", last?.emotion || "—");
+  set("#statStreak", streak); set("#statMonth", month); set("#statEmotion", last?.emotion || "0");
   const recent = [...dreams].sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || "")).slice(0, 2);
   $("#recentDreams").innerHTML = recent.length ? recent.map((d) => dreamCard(d, true)).join("") : '<div class="empty">Todavía no hay sueños guardados. <button class="small" data-new>Registrar el primero</button></div>';
 }
