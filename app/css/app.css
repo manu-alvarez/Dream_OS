@@ -185,7 +185,8 @@ backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:var(--s
 .rail button.active{color:#fff;background:linear-gradient(140deg,#b7a9ff44,#ff4ecd33);border-color:#ffffff44;box-shadow:0 0 18px #ff4ecd55}
 .rail button:active{transform:scale(.92)}
 .side{background:linear-gradient(170deg,#ffffff0e,#ffffff03);border:1px solid #ffffff22;border-radius:22px;padding:16px 12px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-.hero-cosmos{background-image:var(--bg-photo,none);background-size:cover;background-position:center;
+.hero-cosmos{background-size:cover;background-position:center 30%;
+background-image:linear-gradient(100deg,#0a061cee 15%,#150b33cc 45%,#ff4ecd30 100%),linear-gradient(0deg,#070512e6 0%,transparent 55%),url("../assets/nebula.jpg");
 display:flex;align-items:center;gap:20px;min-height:min(76vh,600px)}
 .hero-cosmos .hero-in{flex:1;min-width:0}
 .nebula{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;mix-blend-mode:screen}
