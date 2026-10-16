@@ -234,7 +234,7 @@ if ($("#installBtn")) {
 }
 /* Compartir la app (nunca el diario): Web Share API con fallback a portapapeles. */
 $("#shareBtn").onclick = async () => {
-  const data = { title: "DreamOS", text: "Mi laboratorio onírico privado y offline. Pruébalo:", url: location.href };
+  const data = { title: "Dream OS", text: "Dream OS — Explora tus Sueños. Privado y offline. Pruébalo:", url: location.href };
   if (navigator.share) { try { await navigator.share(data); } catch {} return; }
   try { await navigator.clipboard.writeText(data.url); toast("Enlace copiado: compártelo donde quieras"); }
   catch { toast("Copia la URL del navegador para compartir"); }

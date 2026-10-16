@@ -62,7 +62,15 @@ body {
   inset: 0;
   pointer-events: none;
   z-index: 2;
-  background: radial-gradient(circle at 75% 25%, rgba(217, 70, 239, 0.08) 0%, transparent 45%);
+  background: 
+    radial-gradient(circle at 75% 25%, rgba(217, 70, 239, 0.12) 0%, transparent 48%),
+    radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.09) 0%, transparent 45%);
+  animation: cosmicAtmosphereBreath 10s ease-in-out infinite alternate;
+}
+
+@keyframes cosmicAtmosphereBreath {
+  0% { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.04); }
 }
 
 button, input, textarea, select {
@@ -569,6 +577,24 @@ main {
   overflow: hidden;
 }
 
+.btn-hero-primary::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -120%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: rotate(25deg);
+  animation: btnShimmer 4.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes btnShimmer {
+  0%, 65% { left: -120%; }
+  100% { left: 220%; }
+}
+
 .btn-hero-primary:hover {
   transform: translateY(-2px) scale(1.02);
   border-color: #f472b6;
@@ -610,7 +636,7 @@ main {
   position: absolute;
   inset: -22%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(217, 70, 239, 0.48) 0%, rgba(139, 92, 246, 0.3) 45%, transparent 70%);
+  background: radial-gradient(circle, rgba(217, 70, 239, 0.55) 0%, rgba(139, 92, 246, 0.38) 45%, rgba(244, 208, 104, 0.15) 65%, transparent 75%);
   filter: blur(40px);
   pointer-events: none;
   animation: haloBreath 6s ease-in-out infinite alternate;
