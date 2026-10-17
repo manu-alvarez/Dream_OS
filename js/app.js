@@ -9,6 +9,103 @@ function toast(m) { const e = $("#toast"); e.textContent = m; e.classList.add("s
 function today() { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`; }
 function fmtDate(v) { if (!v) return "Sin fecha"; const d = new Date(v + "T12:00:00"); return isNaN(d) ? esc(v) : new Intl.DateTimeFormat("es-ES", { day: "numeric", month: "short", year: "numeric" }).format(d); }
 
+/* ---------- escuelas y simbología visual ---------- */
+const schoolName = { 
+  cientifica: "Psicología & Mente", 
+  freudiana: "Emociones & Vivencias", 
+  junguiana: "Simbología & Arquetipos", 
+  historica: "Sabiduría Tradicional", 
+  personal: "Reflexión Personal" 
+};
+
+const SYMBOL_VISUALS = {
+  "agua": { icon: "🌊", badge: "Elemento Natural", color: "#38bdf8" },
+  "fuego": { icon: "🔥", badge: "Energía & Pasión", color: "#f97316" },
+  "caida": { icon: "🕳️", badge: "Sensación Corporal", color: "#a855f7" },
+  "vuelo": { icon: "🕊️", badge: "Libertad & Control", color: "#38bdf8" },
+  "persecucion / huida": { icon: "🏃", badge: "Tensión & Huida", color: "#ec4899" },
+  "persecucion": { icon: "🏃", badge: "Tensión & Huida", color: "#ec4899" },
+  "muerte": { icon: "🥀", badge: "Cierre & Renovación", color: "#94a3b8" },
+  "nacimiento / bebe": { icon: "👶", badge: "Nuevo Comienzo", color: "#f472b6" },
+  "casa": { icon: "🏡", badge: "Espacio Íntimo", color: "#10b981" },
+  "puerta / llave / umbral": { icon: "🗝️", badge: "Decisión & Paso", color: "#f59e0b" },
+  "espejo": { icon: "🪞", badge: "Autoimagen & Identidad", color: "#c084fc" },
+  "dientes (caida, rotura)": { icon: "🦷", badge: "Seguridad Personal", color: "#e2e8f0" },
+  "sangre": { icon: "🩸", badge: "Fuerza Vital", color: "#ef4444" },
+  "serpiente": { icon: "🐍", badge: "Transformación", color: "#22c55e" },
+  "perro": { icon: "🐕", badge: "Lealtad & Vínculo", color: "#fb923c" },
+  "gato": { icon: "🐈", badge: "Independencia", color: "#a855f7" },
+  "pajaro / volar (ave)": { icon: "🦅", badge: "Perspectiva Alta", color: "#06b6d4" },
+  "pez / pesca": { icon: "🐟", badge: "Mundo Inconsciente", color: "#0284c7" },
+  "caballo": { icon: "🐎", badge: "Impulso & Vitalidad", color: "#d97706" },
+  "arana / insectos": { icon: "🕷️", badge: "Inquietudes Diurnas", color: "#64748b" },
+  "boda / matrimonio": { icon: "💍", badge: "Compromiso & Unión", color: "#f472b6" },
+  "dinero / tesoro": { icon: "💰", badge: "Seguridad & Valor", color: "#eab308" },
+  "robo / perder algo": { icon: "🧭", badge: "Pérdida & Descontrol", color: "#f43f5e" },
+  "examen / escuela (llegar tarde, no preparado)": { icon: "📝", badge: "Autoexigencia", color: "#6366f1" },
+  "trabajo / jefe / companeros": { icon: "💼", badge: "Día a Día", color: "#3b82f6" },
+  "coche / conducir": { icon: "🚗", badge: "Rumbo de Vida", color: "#14b8a6" },
+  "tren / estacion (perderlo)": { icon: "🚆", badge: "Oportunidades & Tiempos", color: "#0ea5e9" },
+  "avion / aeropuerto": { icon: "✈️", badge: "Proyectos Altos", color: "#8b5cf6" },
+  "mar": { icon: "🌊", badge: "Inmensidad Emocional", color: "#0284c7" },
+  "rio / corriente": { icon: "🏞️", badge: "Fluir de la Vida", color: "#06b6d4" },
+  "lluvia / tormenta": { icon: "⛈️", badge: "Liberación Emocional", color: "#60a5fa" },
+  "bosque": { icon: "🌲", badge: "Exploración Interior", color: "#16a34a" },
+  "montana / subir / cima": { icon: "⛰️", badge: "Reto & Aspiración", color: "#78716c" },
+  "desierto / sed": { icon: "🏜️", badge: "Necesidad de Pausa", color: "#d97706" },
+  "ciudad / calles / laberinto": { icon: "🏙️", badge: "Entorno Social", color: "#818cf8" },
+  "iglesia / templo / rezo": { icon: "🏛️", badge: "Búsqueda de Sentido", color: "#f59e0b" },
+  "cementerio / difuntos": { icon: "🪦", badge: "Memoria & Duelo", color: "#94a3b8" },
+  "ropa / desnudez": { icon: "👘", badge: "Vulnerabilidad", color: "#f472b6" },
+  "embarazo": { icon: "🤰", badge: "Proyectos en Gestación", color: "#ec4899" },
+  "comida / banquete": { icon: "🍇", badge: "Afecto & Nutrición", color: "#84cc16" },
+  "telefono / tecnologia (fallos)": { icon: "📱", badge: "Comunicación Difícil", color: "#38bdf8" },
+  "laberinto / perderse": { icon: "🌀", badge: "Búsqueda de Salida", color: "#a855f7" },
+  "sueno lucido": { icon: "✨", badge: "Consciencia en el Sueño", color: "#f43f5e" },
+  "pesadilla": { icon: "🌑", badge: "Alerta & Tensión", color: "#71717a" },
+  "sueno recurrente y repetitivo": { icon: "⏳", badge: "Mensaje Recurrente", color: "#a855f7" },
+  "estres y afecto negativo onirico": { icon: "⚡", badge: "Tensión Diurna", color: "#eab308" },
+  "hipotesis de continuidad": { icon: "🔗", badge: "Mente Despierta", color: "#38bdf8" },
+  "arquetipos e inconsciente colectivo (jung)": { icon: "🧠", badge: "Imágenes Universales", color: "#a855f7" },
+  "sombra (jung)": { icon: "👤", badge: "Aspectos Ocultos", color: "#6b7280" },
+  "anima y animus (jung)": { icon: "🎭", badge: "Fuerza Interior", color: "#f472b6" },
+  "contenido manifiesto y latente (freud)": { icon: "🗝️", badge: "Lo que hay Detrás", color: "#f59e0b" },
+  "artemidoro y oneirocritica (s. ii)": { icon: "📜", badge: "Sabiduría Clásica", color: "#d97706" },
+  "insomnia y oneiroi (artemidoro)": { icon: "👁️", badge: "Sueño & Realidad", color: "#d97706" },
+  "dependencia del contexto (leccion oniromantica)": { icon: "🎯", badge: "Tu Contexto Personal", color: "#d97706" },
+  "sistema hall y van de castle": { icon: "📊", badge: "Método Científico", color: "#0ea5e9" },
+  "agresion (definicion hvdc a1-a8)": { icon: "⚔️", badge: "Conflicto", color: "#f43f5e" },
+  "emociones hvdc (5 clases)": { icon: "🎭", badge: "Espectro Emocional", color: "#a855f7" },
+  "personajes hvdc (ratio familiaridad)": { icon: "👥", badge: "Personajes", color: "#06b6d4" },
+  "escenarios hvdc (interior/exterior)": { icon: "🗺️", badge: "Escenarios", color: "#10b981" },
+  "condensacion y desplazamiento (freud)": { icon: "🧩", badge: "Mecanismo Onírico", color: "#f59e0b" },
+  "asociacion libre (metodo freudiano)": { icon: "💭", badge: "Asociación Mental", color: "#f59e0b" },
+  "amplificacion (metodo junguiano)": { icon: "🔮", badge: "Símbolos & Mitos", color: "#a855f7" },
+  "asociaciones autobiograficas (prioridad)": { icon: "📖", badge: "Tu Historia", color: "#ec4899" },
+  "rag (generacion aumentada por recuperacion)": { icon: "🔍", badge: "Búsqueda Onírica", color: "#38bdf8" },
+  "bertopic (analisis tematico)": { icon: "📈", badge: "Temas Oníricos", color: "#6366f1" },
+  "local-first (arquitectura)": { icon: "🔒", badge: "Privacidad Total", color: "#10b981" },
+  "captura por voz (diseno)": { icon: "🎙️", badge: "Voz & Dictado", color: "#ec4899" },
+  "cifrado local (diseno p2)": { icon: "🛡️", badge: "Seguridad", color: "#10b981" },
+  "privacidad por diseno": { icon: "🔐", badge: "100% Privado", color: "#10b981" },
+  "incertidumbre y abstencion": { icon: "⚖️", badge: "Ética & Cuidado", color: "#a855f7" }
+};
+
+function getSymbolVisual(e) {
+  const normTerm = (s) => String(s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+  const n = normTerm(e.term || e);
+  if (SYMBOL_VISUALS[n]) return SYMBOL_VISUALS[n];
+  for (const [key, val] of Object.entries(SYMBOL_VISUALS)) {
+    if (n.includes(key) || key.includes(n)) return val;
+  }
+  const cat = (e.category || "").toLowerCase();
+  if (cat === "símbolo") return { icon: "✦", badge: "Símbolo Onírico", color: "#f472b6" };
+  if (cat === "psicología") return { icon: "🧠", badge: "Psicología", color: "#a855f7" };
+  if (cat === "ciencia") return { icon: "🔬", badge: "Ciencia de la Mente", color: "#38bdf8" };
+  if (cat === "historia") return { icon: "📜", badge: "Sabiduría Tradicional", color: "#f59e0b" };
+  return { icon: "✦", badge: "Concepto Onírico", color: "#c084fc" };
+}
+
 /* ---------- tema / offline / PWA ---------- */
 function applyTheme() {
   const t = theme === "system" ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : theme;
@@ -51,8 +148,10 @@ function stats() {
 }
 function dreamCard(d, compact = false) {
   const txt = d.story_original || "Sin relato añadido.";
-  const hits = KB.extract(d.story_original, [...(d.tags || []), d.title, d.reflection]);
-  const symChips = hits.map((s) => `<button class="tag tag-symbol" data-symbol="${esc(s.term)}" title="Explorar símbolo ${esc(s.term)}">✦ ${esc(s.term)}</button>`).join("");
+  const symChips = hits.map((s) => {
+    const vis = getSymbolVisual(s);
+    return `<button class="tag tag-symbol" data-symbol="${esc(s.term)}" title="Explorar símbolo ${esc(s.term)}">${vis.icon} ${esc(s.term)}</button>`;
+  }).join("");
   const tagChips = [...(d.tags || [])].map((t) => `<button class="tag" data-tag="${esc(t)}" title="Filtrar sueños con #${esc(t)}">#${esc(t)}</button>`).join("");
   return `<article class="dream" data-id="${esc(d.id)}">
     <div style="display:flex;justify-content:space-between;gap:8px;align-items:start">
@@ -139,30 +238,81 @@ function renderInterp(box, d) {
 /* ---------- conocimiento ---------- */
 function renderKnowledge() {
   const q = ($("#symbolSearch")?.value || $("#globalSearch")?.value || "").trim();
-  const cat = $("#categoryFilter").value;
+  const cat = $("#categoryFilter")?.value || "";
   const list = KB.search(q, cat);
   if ($("#kbMeta")) $("#kbMeta").textContent = "Busca cualquier elemento, sensación o escenario de tus sueños para descubrir su significado.";
-  $("#knowledgeGrid").innerHTML = list.length ? list.map((e) => `
-    <article class="entry" id="entry-${esc(KB.norm(e.term)).replace(/\s+/g, '-')}">
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
-        <span class="tag">${esc(e.category)}</span>
-        ${(e.tags || []).slice(0, 3).map((t) => `<span class="tag">#${esc(t)}</span>`).join("")}
-      </div>
-      <h3>${esc(e.term)}</h3>
-      <p>${esc(e.summary)}</p>
-      <details>
-        <summary>✦ Ver interpretaciones y reflexiones</summary>
-        <p style="margin:10px 0 12px;color:#d1c8e9;font-size:0.9rem">${esc(e.detail)}</p>
-        ${(e.interpretations || []).map((i) => `
-          <div class="perspective-card" style="margin-bottom:8px">
-            <span class="tag tag-school-${esc(i.school)}">${esc(schoolName[i.school] || i.school)}</span>
-            <span style="font-size:0.88rem;color:#e2d9f3;margin-left:6px">${esc(i.text)}</span>
+
+  // Actualizar estado activo en los chips populares
+  $$("#quickSymbolChips .quick-chip").forEach((chip) => {
+    const val = chip.dataset.chip || "";
+    chip.classList.toggle("active", (!val && !q) || (val && q.toLowerCase().includes(val.toLowerCase())));
+  });
+
+  if (!list.length) {
+    $("#knowledgeGrid").innerHTML = `
+      <div class="search-empty-state">
+        <div class="empty-icon-orb">🔮</div>
+        <h4>No encontramos símbolos para "${esc(q)}"</h4>
+        <p>Prueba con términos más cotidianos o pulsa uno de estos símbolos populares:</p>
+        <div class="empty-quick-tags">
+          <button type="button" class="quick-chip" data-chip="agua">🌊 Agua</button>
+          <button type="button" class="quick-chip" data-chip="volar">🕊️ Volar</button>
+          <button type="button" class="quick-chip" data-chip="caída">🕳️ Caída</button>
+          <button type="button" class="quick-chip" data-chip="dientes">🦷 Dientes</button>
+          <button type="button" class="quick-chip" data-chip="casa">🏡 Casa</button>
+          <button type="button" class="quick-chip" data-chip="">✦ Ver todos los símbolos</button>
+        </div>
+      </div>`;
+    return;
+  }
+
+  $("#knowledgeGrid").innerHTML = list.map((e) => {
+    const vis = getSymbolVisual(e);
+    return `
+      <article class="entry symbol-card" id="entry-${esc(KB.norm(e.term)).replace(/\s+/g, '-')}" style="--sym-color: ${vis.color}">
+        <div class="symbol-header">
+          <div class="symbol-avatar" aria-hidden="true">${vis.icon}</div>
+          <div class="symbol-title-group">
+            <div class="symbol-tags-row">
+              <span class="tag tag-symbol-badge">${vis.badge}</span>
+              ${(e.tags || []).slice(0, 3).map((t) => `<span class="tag">#${esc(t)}</span>`).join("")}
+            </div>
+            <h3 class="symbol-heading">${esc(e.term)}</h3>
           </div>
-        `).join("")}
-        ${(e.questions || []).map((qq) => `<p style="font-size:0.86rem;color:#f5d0fe;margin-top:6px">✧ ${esc(qq)}</p>`).join("")}
-      </details>
-    </article>
-  `).join("") : '<div class="empty">Sin coincidencias en la biblioteca local. Prueba con otro término.</div>';
+        </div>
+
+        <p class="symbol-summary">${esc(e.summary)}</p>
+
+        <details class="symbol-details">
+          <summary class="symbol-summary-btn">
+            <span>✦ Ver interpretaciones y reflexiones</span>
+          </summary>
+          <div class="symbol-expanded">
+            <p class="symbol-detail-lead">${esc(e.detail)}</p>
+            ${(e.interpretations || []).map((i) => `
+              <div class="perspective-card" style="margin-bottom:8px">
+                <div class="perspective-meta">
+                  <span class="tag tag-school-${esc(i.school)}">${esc(schoolName[i.school] || i.school)}</span>
+                </div>
+                <p class="perspective-claim">${esc(i.text)}</p>
+              </div>
+            `).join("")}
+            ${(e.questions || []).length ? `
+              <div class="interp-questions">
+                <h5>✧ Preguntas para reflexionar:</h5>
+                <ul>${e.questions.map((qq) => `<li>${esc(qq)}</li>`).join("")}</ul>
+              </div>
+            ` : ""}
+            <div style="margin-top:14px;display:flex;justify-content:flex-end">
+              <button type="button" class="small ghost" data-use-symbol="${esc(e.term)}" title="Registrar un sueño con este símbolo">
+                + Escribir un sueño con ${esc(e.term)}
+              </button>
+            </div>
+          </div>
+        </details>
+      </article>
+    `;
+  }).join("");
 }
 
 /* ---------- modal ---------- */
@@ -265,6 +415,23 @@ document.addEventListener("click", async (e) => {
     }
     return;
   }
+  const chip = e.target.closest("[data-chip]");
+  if (chip) {
+    const val = chip.dataset.chip || "";
+    nav("conocimiento");
+    if ($("#symbolSearch")) $("#symbolSearch").value = val;
+    if ($("#globalSearch")) $("#globalSearch").value = val;
+    renderKnowledge();
+    return;
+  }
+  const us = e.target.closest("[data-use-symbol]");
+  if (us) {
+    const term = us.dataset.useSymbol;
+    openModal();
+    $("#dreamStory").value = `Soñé con ${term}... `;
+    $("#dreamTags").value = term;
+    return;
+  }
   const tg = e.target.closest("[data-tag]");
   if (tg) {
     nav("diario");
@@ -336,34 +503,36 @@ document.addEventListener("keydown", (e) => { if (e.key === "Escape") { closeMod
 $("#dreamSearch").addEventListener("input", renderDreams);
 $("#emotionFilter").addEventListener("change", renderDreams);
 $("#dreamSort").addEventListener("change", renderDreams);
-if ($("#symbolSearch")) $("#symbolSearch").addEventListener("input", renderKnowledge);
-$("#categoryFilter").addEventListener("change", renderKnowledge);
-$("#globalSearch").addEventListener("input", () => {
-  const v = $(".view.active")?.id.replace("view-", "");
-  if (v === "conocimiento") {
-    if ($("#symbolSearch")) $("#symbolSearch").value = $("#globalSearch").value;
+if ($("#symbolSearch")) {
+  $("#symbolSearch").addEventListener("input", (e) => {
+    if ($("#globalSearch")) $("#globalSearch").value = e.target.value;
     renderKnowledge();
-  }
-  if (v === "diario") {
-    $("#dreamSearch").value = $("#globalSearch").value;
-    renderDreams();
-  }
-});
-$("#globalSearch").addEventListener("keydown", (e) => {
-  if (e.key !== "Enter") return;
-  const q = e.target.value.trim().toLowerCase();
-  if (!q) return;
-  const hitK = KB.entries.some((x) => [x.term, x.summary, x.detail, (x.tags || []).join(" ")].join(" ").toLowerCase().includes(q));
-  if (hitK) {
+  });
+}
+if ($("#categoryFilter")) {
+  $("#categoryFilter").addEventListener("change", renderKnowledge);
+}
+if ($("#globalSearch")) {
+  $("#globalSearch").addEventListener("input", (e) => {
+    const v = $(".view.active")?.id.replace("view-", "");
+    const val = e.target.value;
+    if (v === "conocimiento") {
+      if ($("#symbolSearch")) $("#symbolSearch").value = val;
+      renderKnowledge();
+    } else if (v === "diario") {
+      if ($("#dreamSearch")) $("#dreamSearch").value = val;
+      renderDreams();
+    }
+  });
+  $("#globalSearch").addEventListener("keydown", (e) => {
+    if (e.key !== "Enter") return;
+    const q = e.target.value.trim();
+    if (!q) return;
     nav("conocimiento");
-    if ($("#symbolSearch")) $("#symbolSearch").value = e.target.value;
+    if ($("#symbolSearch")) $("#symbolSearch").value = q;
     renderKnowledge();
-  } else {
-    nav("diario");
-    $("#dreamSearch").value = e.target.value;
-    renderDreams();
-  }
-});
+  });
+}
 $("#themeToggle").onclick = () => { theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark"; try { localStorage.setItem("dreamos.theme", theme); } catch {} applyTheme(); };
 $("#exportBtn").onclick = exportAll;
 $("#importFile").addEventListener("change", (e) => importFile(e.target.files?.[0]));
