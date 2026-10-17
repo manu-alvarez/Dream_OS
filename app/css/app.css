@@ -1783,6 +1783,242 @@ html[data-theme="light"] .music-artist-name {
   color: #62557e;
 }
 
+/* ==========================================================================
+   Diccionario de Símbolos Oníricos - Estilo Visual y Responsive
+   ========================================================================== */
+.quick-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 6px 2px 16px;
+  margin-bottom: 12px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.quick-chips::-webkit-scrollbar {
+  display: none;
+}
+.quick-chip-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  margin-right: 4px;
+}
+.quick-chip {
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e2d9f3;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+.quick-chip:hover {
+  background: rgba(217, 70, 239, 0.18);
+  border-color: rgba(217, 70, 239, 0.5);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+.quick-chip.active {
+  background: linear-gradient(135deg, rgba(217, 70, 239, 0.32), rgba(139, 92, 246, 0.32));
+  border-color: #f472b6;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(217, 70, 239, 0.35);
+}
+
+.symbol-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+.symbol-card:hover {
+  border-color: rgba(244, 114, 182, 0.4);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 25px rgba(217, 70, 239, 0.2);
+}
+.symbol-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+.symbol-avatar {
+  width: 54px;
+  height: 54px;
+  min-width: 54px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-size: 1.85rem;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(20, 14, 40, 0.6) 100%);
+  border: 1.5px solid var(--sym-color, rgba(217, 70, 239, 0.5));
+  box-shadow: 0 0 16px var(--sym-color, rgba(217, 70, 239, 0.35));
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+.symbol-card:hover .symbol-avatar {
+  transform: scale(1.08) rotate(3deg);
+}
+.symbol-title-group {
+  flex: 1;
+  min-width: 0;
+}
+.symbol-tags-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.tag-symbol-badge {
+  background: rgba(244, 208, 104, 0.18) !important;
+  border-color: rgba(244, 208, 104, 0.5) !important;
+  color: #fef08a !important;
+  font-weight: 700;
+}
+.symbol-heading {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin: 0;
+}
+.symbol-summary {
+  color: #d8cfee;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  margin-bottom: 14px;
+  flex: 1;
+}
+.symbol-details {
+  background: rgba(0, 0, 0, 0.22);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  margin-top: auto;
+}
+.symbol-summary-btn {
+  padding: 11px 14px;
+  cursor: pointer;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #f5d0fe;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  background: rgba(217, 70, 239, 0.08);
+  transition: background 0.2s ease;
+}
+.symbol-summary-btn:hover {
+  background: rgba(217, 70, 239, 0.16);
+}
+.symbol-expanded {
+  padding: 14px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.symbol-detail-lead {
+  font-size: 0.9rem;
+  color: #e2d9f3;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+/* Empty State de Búsqueda */
+.search-empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px 24px;
+  background: rgba(18, 13, 34, 0.6);
+  border: 1.5px dashed rgba(217, 70, 239, 0.4);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+}
+.empty-icon-orb {
+  font-size: 3.2rem;
+  margin-bottom: 14px;
+  display: inline-block;
+  animation: pulseGlow 3s ease-in-out infinite alternate;
+}
+.search-empty-state h4 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+.search-empty-state p {
+  color: #c4b5fd;
+  font-size: 0.95rem;
+  max-width: 480px;
+  margin: 0 auto 20px;
+  line-height: 1.5;
+}
+.empty-quick-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Estilos de Tema Claro */
+html[data-theme="light"] .quick-chip {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #4b4168;
+}
+html[data-theme="light"] .quick-chip:hover {
+  background: rgba(217, 70, 239, 0.12);
+  color: #171126;
+}
+html[data-theme="light"] .quick-chip.active {
+  background: linear-gradient(135deg, rgba(217, 70, 239, 0.2), rgba(139, 92, 246, 0.2));
+  border-color: #d946ef;
+  color: #171126;
+}
+html[data-theme="light"] .symbol-heading {
+  color: #171126;
+}
+html[data-theme="light"] .symbol-summary {
+  color: #4b4168;
+}
+html[data-theme="light"] .symbol-avatar {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(235, 225, 250, 0.9) 100%);
+}
+html[data-theme="light"] .symbol-details {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(140, 100, 220, 0.15);
+}
+html[data-theme="light"] .symbol-summary-btn {
+  color: #7e22ce;
+  background: rgba(217, 70, 239, 0.08);
+}
+html[data-theme="light"] .symbol-detail-lead {
+  color: #3f3659;
+}
+html[data-theme="light"] .search-empty-state {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(168, 85, 247, 0.35);
+}
+html[data-theme="light"] .search-empty-state h4 {
+  color: #171126;
+}
+html[data-theme="light"] .search-empty-state p {
+  color: #62557e;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
