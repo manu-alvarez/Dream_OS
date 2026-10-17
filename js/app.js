@@ -87,17 +87,23 @@ function renderDreams() {
 }
 function renderInterp(box, d) {
   const r = Interpret.run(d);
-  const schoolName = { cientifica: "Científica", freudiana: "Freudiana", junguiana: "Junguiana", historica: "Histórica", personal: "Personal" };
+  const schoolName = { 
+    cientifica: "Psicología & Mente", 
+    freudiana: "Emociones & Vivencias", 
+    junguiana: "Simbología & Arquetipos", 
+    historica: "Sabiduría Tradicional", 
+    personal: "Reflexión Personal" 
+  };
   if (r.type === "unavailable") {
     box.innerHTML = `<div class="interp">
       <div class="interp-head">
-        <h4>✦ Análisis Onírico <span class="tag">Local</span></h4>
+        <h4>✦ Interpretación de tu Sueño</h4>
         <button class="icon-btn small" data-close-interp aria-label="Cerrar">✕</button>
       </div>
       <p class="interp-summary">${esc(r.summary)}</p>
       <ul style="padding-left:18px;font-size:0.88rem;color:#d1c8e9;line-height:1.6">${r.limitations.map((l) => `<li>${esc(l)}</li>`).join("")}</ul>
       <div class="interp-questions">
-        <h5>✦ Preguntas para recordar más:</h5>
+        <h5>✦ Preguntas para recordar más detalles:</h5>
         <ul>${r.questions.map((q) => `<li>${esc(q)}</li>`).join("")}</ul>
       </div>
     </div>`;
@@ -105,7 +111,7 @@ function renderInterp(box, d) {
   }
   box.innerHTML = `<div class="interp">
     <div class="interp-head">
-      <h4>✦ Análisis Onírico Multi-perspectiva <span class="tag">100% Local</span></h4>
+      <h4>✦ Interpretación de tu Sueño</h4>
       <button class="icon-btn small" data-close-interp aria-label="Cerrar">✕</button>
     </div>
     <p class="interp-summary">${esc(r.summary)}</p>
@@ -122,11 +128,11 @@ function renderInterp(box, d) {
     </div>
     ${r.questions.length ? `
       <div class="interp-questions">
-        <h5>✧ Para tu introspección y diario:</h5>
+        <h5>✧ Preguntas para reflexionar:</h5>
         <ul>${r.questions.map((q) => `<li>${esc(q)}</li>`).join("")}</ul>
       </div>
     ` : ""}
-    <p class="interp-disclaimer">${r.limitations[0]} · Fuentes: ${r.sourceIds.map(esc).join(", ") || "Biblioteca científica y psicológica local"}</p>
+    <p class="interp-disclaimer">✦ Cada persona es única: la interpretación más acertada es siempre la que mejor resuena con tu vida actual.</p>
   </div>`;
 }
 
@@ -135,8 +141,8 @@ function renderKnowledge() {
   const q = ($("#symbolSearch")?.value || $("#globalSearch")?.value || "").trim();
   const cat = $("#categoryFilter").value;
   const list = KB.search(q, cat);
-  $("#knowledgeCount").textContent = list.length + " entradas";
-  $("#kbMeta").textContent = `Biblioteca viva: ${KB.symbols().length} símbolos con lecturas de varias escuelas.`;
+  $("#knowledgeCount").textContent = list.length + " símbolos";
+  $("#kbMeta").textContent = `Explora el significado de más de ${KB.symbols().length} símbolos oníricos para comprender tus sueños.`;
   $("#knowledgeGrid").innerHTML = list.length ? list.map((e) => `
     <article class="entry" id="entry-${esc(KB.norm(e.term)).replace(/\s+/g, '-')}">
       <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
@@ -146,15 +152,14 @@ function renderKnowledge() {
       <h3>${esc(e.term)}</h3>
       <p>${esc(e.summary)}</p>
       <details>
-        <summary>✦ Ver perspectivas de análisis y fuentes</summary>
+        <summary>✦ Ver interpretaciones y reflexiones</summary>
         <p style="margin:10px 0 12px;color:#d1c8e9;font-size:0.9rem">${esc(e.detail)}</p>
         ${(e.interpretations || []).map((i) => `
           <div class="perspective-card" style="margin-bottom:8px">
-            <span class="tag tag-school-${esc(i.school)}">${esc(i.school)}</span>
+            <span class="tag tag-school-${esc(i.school)}">${esc(schoolName[i.school] || i.school)}</span>
             <span style="font-size:0.88rem;color:#e2d9f3;margin-left:6px">${esc(i.text)}</span>
           </div>
         `).join("")}
-        <p class="muted" style="font-size:0.78rem;margin-top:10px">Fuentes: ${(e.sourceIds || []).map(esc).join(", ")} · Evidencia: ${esc(e.evidence)}</p>
         ${(e.questions || []).map((qq) => `<p style="font-size:0.86rem;color:#f5d0fe;margin-top:6px">✧ ${esc(qq)}</p>`).join("")}
       </details>
     </article>
@@ -216,10 +221,10 @@ async function importFile(f) {
   finally { $("#importFile").value = ""; }
 }
 function storageSummary() {
-  DB.allDreams().then(async (all) => {
-    let bytes = 0; try { bytes = new Blob([JSON.stringify(all)]).size; } catch {}
-    let quota = ""; try { const e = await navigator.storage.estimate(); if (e.quota) quota = ` · cuota aprox ${(e.usage / 1048576).toFixed(1)}/${(e.quota / 1048576).toFixed(0)} MB`; } catch {}
-    $("#storageSummary").textContent = `${all.length} sueños · ~${bytes.toLocaleString("es-ES")} bytes${quota}. IndexedDB local, sin nube.`;
+  DB.allDreams().then((all) => {
+    $("#storageSummary").textContent = all.length === 1 
+      ? "Tienes 1 sueño guardado de forma privada en tu dispositivo." 
+      : `Tienes ${all.length} sueños guardados de forma privada en tu dispositivo.`;
   });
 }
 
@@ -323,7 +328,7 @@ $("#dreamForm").addEventListener("submit", async (e) => {
     createdAt: old?.createdAt || new Date().toISOString(), updatedAt: new Date().toISOString(),
     status: story ? "complete" : "draft", synthetic: false
   });
-  await refresh(); closeModal(); renderDreams(); toast(old ? "Sueño actualizado" : "Sueño guardado en este dispositivo");
+  await refresh(); closeModal(); renderDreams(); toast(old ? "Sueño actualizado" : "¡Sueño guardado con éxito!");
   function num(v) { v = Number(v); return v >= 1 && v <= 10 ? v : null; }
 });
 $("#closeModal").onclick = closeModal; $("#cancelModal").onclick = closeModal;

@@ -52,26 +52,26 @@ const Interpret = {
       }
     }
 
-    // 2. Análisis cognitivo de emoción y estrés (Hipótesis de Continuidad - Domhoff / Hall)
+    // 2. Análisis de emoción y estrés previo
     if (activeEmotion) {
       perspectives.push({
         school: "cientifica",
         term: `Emoción: ${activeEmotion}`,
-        claim: `La presencia de «${activeEmotion}» en el relato sugiere procesamiento de afectos recientes. Según la hipótesis de continuidad cognitiva, las emociones del sueño reflejan y consolidan experiencias de la vigilia de las últimas 24-72 horas.`,
+        claim: `Sentir «${activeEmotion}» en el sueño indica que tu mente está procesando vivencias o cambios recientes de tu día a día, integrando esas emociones mientras descansas.`,
         grounds: [activeEmotion],
-        sourceId: "s-continuidad",
-        entryId: "k-continuidad"
+        sourceId: "emocion",
+        entryId: "emocion"
       });
     }
 
     if (dream.stress && Number(dream.stress) >= 6) {
       perspectives.push({
         school: "cientifica",
-        term: `Nivel de estrés previo (${dream.stress}/10)`,
-        claim: "Niveles elevados de estrés diurno correlacionan con mayor fragmentación y vivacidad del sueño REM, generando a menudo metáforas de huida, urgencia o sobrecarga.",
+        term: `Estrés previo (${dream.stress}/10)`,
+        claim: "Acostarse con cansancio o tensión acumulada suele producir sueños más vívidos o con sensación de prisa, ya que la mente aprovecha el descanso para descargar esa sobrecarga.",
         grounds: ["estrés"],
-        sourceId: "s-continuidad-estres",
-        entryId: "k-continuidad-estres"
+        sourceId: "estres",
+        entryId: "estres"
       });
     }
 
@@ -79,21 +79,21 @@ const Interpret = {
     const questions = [];
     if (hits.length > 0) {
       const topSymbol = hits[0].term;
-      questions.push(`Al pensar en «${topSymbol}», ¿qué recuerdo o persona real te viene a la mente de forma espontánea?`);
+      questions.push(`Al pensar en «${topSymbol}», ¿qué recuerdo o persona te viene a la mente de forma espontánea?`);
     }
     if (activeEmotion) {
-      questions.push(`Sentiste «${activeEmotion}»: ¿en qué situación reciente de tu vida despierta has experimentado algo parecido?`);
+      questions.push(`Sentiste «${activeEmotion}»: ¿en qué momento reciente de tu vida despierta has tenido una sensación parecida?`);
     } else {
-      questions.push("¿Qué emoción o sensación física te quedó en el cuerpo en los primeros segundos tras despertar?");
+      questions.push("¿Qué emoción o sensación te quedó en el cuerpo durante los primeros segundos tras despertar?");
     }
-    questions.push("¿Hay algún detalle que parecía secundario o extraño y que ahora te llame la atención?");
+    questions.push("¿Hay algún detalle curioso o extraño que ahora llame tu atención?");
 
     const elementsList = hits.map((h) => h.term);
     if (activeEmotion && !elementsList.includes(activeEmotion)) elementsList.push(activeEmotion);
 
     const summaryText = hits.length > 0
-      ? `Se detectaron ${hits.length} símbolo${hits.length > 1 ? "s" : ""} clave (${hits.slice(0, 4).map((h) => h.term).join(", ")})${activeEmotion ? ` con tono de «${activeEmotion}»` : ""}. Contrastadas lecturas desde múltiples tradiciones:`
-      : `Análisis centrado en la atmósfera emocional${activeEmotion ? ` («${activeEmotion}»)` : ""} y la estructura cognitiva del relato:`;
+      ? `Claves identificadas: ${hits.slice(0, 4).map((h) => h.term).join(", ")}${activeEmotion ? ` (emoción: «${activeEmotion}»)` : ""}. Estas son las interpretaciones para comprender su mensaje:`
+      : `Interpretación basada en la atmósfera emocional${activeEmotion ? ` («${activeEmotion}»)` : ""} de tu sueño:`;
 
     return {
       type: "hypothesis",
@@ -105,9 +105,8 @@ const Interpret = {
       perspectives,
       sourceIds: [...new Set(perspectives.map((p) => p.sourceId))],
       limitations: [
-        "Las lecturas son lentes de reflexión, nunca certezas absolutas ni diagnósticos clínicos.",
-        "Tu propia intuición y contexto de vida son la verdadera autoridad sobre el significado de tu sueño.",
-        "Análisis 100% privado procesado de forma local en tu navegador."
+        "Las interpretaciones son guías de reflexión para tu autoconocimiento.",
+        "Tu propia intuición y vivencias son las que determinan el verdadero significado de tu sueño."
       ],
       questions
     };

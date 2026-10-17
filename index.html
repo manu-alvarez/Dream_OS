@@ -114,29 +114,19 @@
           <span>Símbolos</span>
         </button>
         <button class="nav-item" data-view="metodo">
-          <span class="nav-ic">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
-            </svg>
-          </span>
-          <span>Método</span>
+          <span class="nav-ic">✧</span>
+          <span>Guía Onírica</span>
         </button>
         <button class="nav-item" data-view="ajustes">
-          <span class="nav-ic">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="3"/>
-              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-            </svg>
-          </span>
-          <span>Ajustes y datos</span>
+          <span class="nav-ic">⚙</span>
+          <span>Ajustes</span>
         </button>
       </nav>
     </div>
 
     <!-- Tarjeta de Privacidad Local -->
     <div class="side-privacy-card">
-      <b>Privacidad local.</b> Todo se ve en este dispositivo (IndexedDB). Sin cuentas, sin nube, sin IA remota por defecto.
+      <b style="color:#f472b6">✦ Privacidad total:</b> Tus sueños se guardan únicamente en la memoria de este dispositivo. Nadie más tiene acceso a ellos.
     </div>
   </aside>
 
@@ -283,50 +273,66 @@
     </section>
 
     <!-- Vista Conocimiento / Símbolos -->
-    <section class="view" id="view-conocimiento" aria-label="Conocimiento">
+    <section class="view" id="view-conocimiento" aria-label="Símbolos">
       <div class="section-head">
         <div>
-          <div class="kicker">Biblioteca de símbolos</div>
-          <h2>¿Qué soñaste?</h2>
-          <p class="muted" id="kbMeta">Toca un símbolo para ver sus lecturas.</p>
+          <div class="kicker">Diccionario de sueños</div>
+          <h2>Explora los Símbolos</h2>
+          <p class="muted" id="kbMeta">Busca cualquier elemento de tu sueño para descubrir su significado e interpretaciones.</p>
         </div>
       </div>
       <div class="toolbar">
-        <input id="symbolSearch" type="search" placeholder="Buscar símbolo o concepto (ej. agua, volar, sombra)…" aria-label="Buscar símbolo">
+        <input id="symbolSearch" type="search" placeholder="Buscar símbolo (ej. agua, volar, caída, laberinto, mar)…" aria-label="Buscar símbolo">
         <select id="categoryFilter" aria-label="Filtrar categoría">
-          <option value="">Todas las categorías</option>
-          <option value="símbolo">Símbolos</option>
-          <option value="ciencia">Ciencia y cognición</option>
-          <option value="psicología">Psicología profunda</option>
-          <option value="historia">Historia y tradición</option>
-          <option value="método">Método</option>
+          <option value="">Todos los símbolos</option>
+          <option value="símbolo">Símbolos y elementos</option>
+          <option value="psicología">Psicología y arquetipos</option>
+          <option value="ciencia">Mente y cognición</option>
+          <option value="historia">Tradición y cultura</option>
         </select>
-        <span class="tag" id="knowledgeCount">0 entradas</span>
+        <span class="tag" id="knowledgeCount">0 símbolos</span>
       </div>
       <div id="knowledgeGrid" class="dreams"></div>
     </section>
 
-    <!-- Vista Método -->
-    <section class="view" id="view-metodo" aria-label="Método">
+    <!-- Vista Guía Onírica -->
+    <section class="view" id="view-metodo" aria-label="Guía Onírica">
       <div class="section-head">
         <div>
-          <div class="kicker">Cómo interpretar</div>
-          <h2>Método de análisis</h2>
-          <p class="muted">El relato primero; las hipótesis después, con procedencia.</p>
+          <div class="kicker">Claves y consejos</div>
+          <h2>Guía Onírica</h2>
+          <p class="muted">Técnicas sencillas para recordar tus sueños, experimentar lucidez y entender su significado.</p>
         </div>
       </div>
-      <div class="panel">
-        <h2>Cómo leo tu sueño</h2>
-        <p class="muted">Leo tus palabras, encuentro símbolos y te muestro lecturas de distintas escuelas con sus fuentes. Todo ocurre en tu dispositivo, sin IA remota. Si hay poco material, te lo digo y te pregunto.</p>
+      
+      <div class="panel" style="margin-bottom: 18px;">
+        <h3 style="font-family: var(--font-display); font-size: 1.28rem; color: #f4d068; margin-bottom: 10px;">1. Cómo recordar más sueños al despertar</h3>
+        <p class="muted" style="line-height: 1.6;">El 90% de los sueños se desvanece en los primeros 10 minutos de vigilia. Para atraparlos fácilmente:</p>
         <ul style="padding-left:20px;margin-top:10px;line-height:1.7" class="muted">
-          <li>Observación ≠ hipótesis ≠ asociación personal.</li>
-          <li>Cada lectura indica escuela, elementos que la motivan y fuente.</li>
-          <li>Nunca diagnósticos, presagios ni afirmaciones sobre terceros.</li>
+          <li><b>Quédate inmóvil:</b> Al abrir los ojos, no te muevas ni mires el reloj. Rebobina la última escena mental antes de levantarte.</li>
+          <li><b>Apunta al instante:</b> Abre Dream OS y guarda aunque sea una palabra, persona o emoción. El resto de la historia suele brotar solo.</li>
+          <li><b>Aprovecha la mañana:</b> Los sueños más vívidos y fáciles de recordar ocurren en las últimas dos horas de sueño nocturno.</li>
         </ul>
       </div>
-      <div class="panel" style="margin-top:14px">
-        <h2>Pipeline de Análisis</h2>
-        <p class="muted">Captura → Normalización → Extracción → Recuperación → Análisis por perspectivas → Síntesis → Validación → Presentación → Persistencia. El texto original nunca se modifica.</p>
+
+      <div class="panel" style="margin-bottom: 18px;">
+        <h3 style="font-family: var(--font-display); font-size: 1.28rem; color: #f472b6; margin-bottom: 10px;">2. El arte de los Sueños Lúcidos</h3>
+        <p class="muted" style="line-height: 1.6;">Un sueño lúcido ocurre cuando te das cuenta conscientemente de que estás soñando mientras continúas dentro de la experiencia.</p>
+        <ul style="padding-left:20px;margin-top:10px;line-height:1.7" class="muted">
+          <li><b>Chequeos de realidad:</b> Durante el día, pregúntate con frecuencia: <i>«¿Estoy soñando ahora?»</i> y mira las palmas de tus manos o lee dos veces un texto. En un sueño, los textos cambian al mirarlos por segunda vez.</li>
+          <li><b>Intención antes de dormir (MILD):</b> Justo antes de conciliar el sueño, repite mentalmente: <i>«Esta noche me daré cuenta de que estoy soñando»</i> mientras visualizas un sueño reciente.</li>
+          <li><b>Mantén la calma:</b> Al tomar conciencia dentro del sueño, no te emociones en exceso. Frota tus manos en el sueño para anclar la estabilidad antes de explorar.</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h3 style="font-family: var(--font-display); font-size: 1.28rem; color: #38bdf8; margin-bottom: 10px;">3. Cómo interpretar tus sueños</h3>
+        <p class="muted" style="line-height: 1.6;">Tu subconsciente se comunica a través de metáforas visuales, emociones intensas y asociaciones personales:</p>
+        <ul style="padding-left:20px;margin-top:10px;line-height:1.7" class="muted">
+          <li><b>La emoción es tu mejor guía:</b> La sensación que experimentaste (alivio, miedo, paz, asombro) casi siempre refleja cómo vives un desafío o cambio en tu vida presente.</li>
+          <li><b>Consulta el diccionario de símbolos:</b> Usa nuestra sección de Símbolos para descubrir cómo la psicología y la sabiduría tradicional han interpretado elementos como el agua, el vuelo o los laberintos.</li>
+          <li><b>Tu intuición manda:</b> La interpretación más certera es siempre aquella que resuena profundamente con tu momento vital.</li>
+        </ul>
       </div>
     </section>
 
@@ -334,41 +340,42 @@
     <section class="view" id="view-ajustes" aria-label="Ajustes">
       <div class="section-head">
         <div>
-          <div class="kicker">Control de datos</div>
+          <div class="kicker">Preferencias</div>
           <h2>Ajustes y privacidad</h2>
         </div>
       </div>
       <div class="panel">
-        <h2>Datos guardados</h2>
-        <p class="muted" id="storageSummary">…</p>
-        <div class="formactions">
-          <button class="btn btn-hero-primary" id="exportBtn">Exportar copia JSON</button>
-          <label class="btn btn-hero-ghost" for="importFile" style="cursor:pointer">Importar JSON</label>
+        <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: #ffffff; margin-bottom: 6px;">Copia de seguridad de tus sueños</h3>
+        <p class="muted" id="storageSummary">Tus sueños se guardan de forma segura y privada en este dispositivo.</p>
+        <div class="formactions" style="margin-top: 14px;">
+          <button class="btn btn-hero-primary" id="exportBtn">Exportar copia de seguridad</button>
+          <label class="btn btn-hero-ghost" for="importFile" style="cursor:pointer">Restaurar copia</label>
           <input id="importFile" type="file" accept=".json,application/json" hidden>
-          <button class="small" id="wipeBtn" style="border-color:rgba(239,68,68,0.4);color:#fca5a5">Borrar todo</button>
+          <button class="small" id="wipeBtn" style="border-color:rgba(239,68,68,0.4);color:#fca5a5">Borrar todos mis sueños</button>
         </div>
       </div>
-      <div class="panel" style="margin-top:14px">
-        <h2>Tema de visualización</h2>
+      <div class="panel" style="margin-top:16px">
+        <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: #ffffff; margin-bottom: 6px;">Tema y visualización</h3>
+        <p class="muted" style="margin-bottom: 12px;">Selecciona el aspecto visual que mejor acompañe tu lectura nocturna o diurna.</p>
         <div class="formactions">
           <button class="small" data-theme="system">Automático</button>
-          <button class="small" data-theme="dark">Oscuro (Espacial)</button>
-          <button class="small" data-theme="light">Claro</button>
+          <button class="small" data-theme="dark">Espacio Cósmico (Oscuro)</button>
+          <button class="small" data-theme="light">Luz Suave (Claro)</button>
         </div>
       </div>
-      <div class="panel" style="margin-top:14px">
-        <h2>Atmósfera sonora</h2>
-        <p class="muted">Drone nocturno generativo (WebAudio, sin archivos externos). Con movimiento reducido del sistema, los efectos se atenúan automáticamente.</p>
+      <div class="panel" style="margin-top:16px">
+        <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: #ffffff; margin-bottom: 6px;">Ambiente sonoro de relajación</h3>
+        <p class="muted" style="margin-bottom: 12px;">Frecuencia onírica envolvente a 432 Hz para calmar la mente y facilitar la desconexión antes de dormir.</p>
         <div class="formactions">
-          <button class="btn btn-hero-ghost" id="soundToggle" aria-pressed="false">🌙 Activar ambiente sonoro</button>
+          <button class="btn btn-hero-ghost" id="soundToggle" aria-pressed="false">🌙 Activar sonido de relajación</button>
         </div>
       </div>
-      <div class="panel" style="margin-top:14px">
-        <h2>Alcance y Principios</h2>
-        <ul style="padding-left:20px;margin-top:10px;line-height:1.7" class="muted">
-          <li>IndexedDB local, Service Worker offline, sin red obligatoria.</li>
-          <li>Sin IA remota. Tus sueños nunca salen de tu navegador.</li>
-          <li>Dictado por voz solo si el navegador la ofrece de manera nativa.</li>
+      <div class="panel" style="margin-top:16px">
+        <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: #ffffff; margin-bottom: 6px;">Tu privacidad es lo primero</h3>
+        <ul style="padding-left:20px;margin-top:8px;line-height:1.7" class="muted">
+          <li><b>100% privado:</b> Todo lo que escribes permanece exclusivamente en tu dispositivo.</li>
+          <li><b>Sin conexión necesaria:</b> Dream OS funciona perfectamente en modo avión o sin cobertura.</li>
+          <li><b>Sin registros obligatorios:</b> No necesitas crear cuentas ni compartir datos personales para usarla.</li>
         </ul>
       </div>
     </section>
@@ -394,54 +401,55 @@
       <h2 id="modalTitle">Registrar un sueño</h2>
       <button class="icon-btn" id="closeModal" aria-label="Cerrar">✕</button>
     </div>
-    <p class="muted" style="margin-bottom:14px">Guarda fragmentos. Solo el título es obligatorio. <button class="small" id="voiceBtn" hidden>🎙 Dictar</button> <span class="muted" id="voiceNote"></span></p>
+    <p class="muted" style="margin-bottom:14px">Anota lo que recuerdes, aunque sea una sola escena, emoción o detalle. <button class="small" id="voiceBtn" hidden>🎙 Dictar</button> <span class="muted" id="voiceNote"></span></p>
     <form id="dreamForm">
       <input type="hidden" id="dreamId">
       <div class="formgrid">
         <div class="field">
-          <label for="dreamTitle">Título *</label>
-          <input id="dreamTitle" required maxlength="120" placeholder="El río que sube…">
+          <label for="dreamTitle">Título del sueño *</label>
+          <input id="dreamTitle" required maxlength="120" placeholder="Ej: El vuelo sobre el mar…">
         </div>
         <div class="field">
           <label for="dreamDate">Fecha</label>
           <input id="dreamDate" type="date">
         </div>
         <div class="field">
-          <label for="dreamQuality">Calidad (1-10)</label>
+          <label for="dreamQuality">Claridad / Vivacidad (1-10)</label>
           <input id="dreamQuality" type="number" min="1" max="10" placeholder="7">
         </div>
         <div class="field">
-          <label for="dreamStress">Estrés previo (1-10)</label>
-          <input id="dreamStress" type="number" min="1" max="10" placeholder="5">
+          <label for="dreamStress">Cansancio o estrés previo (1-10)</label>
+          <input id="dreamStress" type="number" min="1" max="10" placeholder="4">
         </div>
         <div class="field">
           <label for="dreamEmotion">Emoción principal</label>
           <select id="dreamEmotion">
             <option value="">Sin indicar</option>
-            <option>Miedo</option>
+            <option>Asombro</option>
             <option>Alegría</option>
+            <option>Calma</option>
+            <option>Miedo</option>
             <option>Tristeza</option>
             <option>Confusión</option>
-            <option>Calma</option>
             <option>Sorpresa</option>
             <option>Otra</option>
           </select>
         </div>
         <div class="field">
-          <label for="dreamTags">Etiquetas (comas)</label>
-          <input id="dreamTags" placeholder="agua, río, casa">
+          <label for="dreamTags">Palabras clave (separadas por comas)</label>
+          <input id="dreamTags" placeholder="agua, volar, mar, noche">
         </div>
         <div class="field full">
-          <label for="dreamStory">Relato</label>
-          <textarea id="dreamStory" placeholder="Lo que recuerdes, aunque sean escenas sueltas…"></textarea>
+          <label for="dreamStory">Relato del sueño</label>
+          <textarea id="dreamStory" placeholder="Describe lo que recuerdes: escenarios, personas, objetos o lo que sentiste…"></textarea>
         </div>
         <div class="field full">
-          <label for="dreamReflection">Asociaciones personales (opcional)</label>
-          <textarea id="dreamReflection" style="min-height:70px" placeholder="¿Qué te evoca? ¿Con qué de estos días conecta?"></textarea>
+          <label for="dreamReflection">Reflexiones o notas personales (opcional)</label>
+          <textarea id="dreamReflection" style="min-height:70px" placeholder="¿Qué te sugiere este sueño? ¿Con qué aspecto de tu momento actual conecta?"></textarea>
         </div>
       </div>
       <div class="formactions" style="margin-top:20px">
-        <button class="btn btn-hero-primary" type="submit">Guardar en este dispositivo</button>
+        <button class="btn btn-hero-primary" type="submit">＋ Guardar sueño</button>
         <button class="btn btn-hero-ghost" type="button" id="cancelModal">Cancelar</button>
       </div>
     </form>
