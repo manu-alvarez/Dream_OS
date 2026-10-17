@@ -295,32 +295,46 @@
         </div>
       </div>
       <div class="toolbar">
-        <input id="symbolSearch" type="search" placeholder="Buscar símbolo (ej. agua, volar, caída, laberinto, mar)…" aria-label="Buscar símbolo">
+        <input id="symbolSearch" type="search" placeholder="Buscar animal, lugar, planta, clima, color, persona (ej. águila, playa, árbol, tormenta, rojo)…" aria-label="Buscar símbolo">
         <select id="categoryFilter" aria-label="Filtrar categoría">
-          <option value="">Todos los símbolos</option>
-          <option value="símbolo">Símbolos y elementos</option>
-          <option value="psicología">Psicología y arquetipos</option>
-          <option value="ciencia">Mente y cognición</option>
-          <option value="historia">Tradición y cultura</option>
+          <option value="">Todas las categorías</option>
+          <option value="animal">🐾 Animales y fauna</option>
+          <option value="lugar">📍 Lugares y paisajes</option>
+          <option value="clima">⛅ Tiempo, clima y cielo</option>
+          <option value="naturaleza">🌿 Plantas, árboles y flores</option>
+          <option value="mineral">💎 Piedras, minerales y tesoros</option>
+          <option value="persona">👤 Personas y vínculos</option>
+          <option value="color">🎨 Colores y tonos</option>
+          <option value="sensación">💫 Sensaciones y acciones</option>
+          <option value="símbolo">✦ Símbolos cotidianos</option>
+          <option value="psicología">🧠 Arquetipos y psicología</option>
+          <option value="historia">📜 Sabiduría tradicional</option>
         </select>
       </div>
       <div class="quick-chips" id="quickSymbolChips" aria-label="Símbolos populares">
-        <span class="quick-chip-label">Populares:</span>
+        <span class="quick-chip-label">Explora:</span>
         <button type="button" class="quick-chip active" data-chip="">✦ Todos</button>
+        <button type="button" class="quick-chip" data-chip="aguila">🦅 Águila</button>
+        <button type="button" class="quick-chip" data-chip="elefante">🐘 Elefante</button>
+        <button type="button" class="quick-chip" data-chip="perro">🐕 Perro</button>
+        <button type="button" class="quick-chip" data-chip="gato">🐈 Gato</button>
+        <button type="button" class="quick-chip" data-chip="arbol">🌳 Árbol</button>
+        <button type="button" class="quick-chip" data-chip="flores">🌸 Flores</button>
+        <button type="button" class="quick-chip" data-chip="piedras">🪨 Piedras</button>
+        <button type="button" class="quick-chip" data-chip="playa">🏖️ Playa</button>
+        <button type="button" class="quick-chip" data-chip="desierto">🏜️ Desierto</button>
+        <button type="button" class="quick-chip" data-chip="montaña">⛰️ Montaña</button>
+        <button type="button" class="quick-chip" data-chip="viento">🌪️ Viento</button>
+        <button type="button" class="quick-chip" data-chip="arcoiris">🌈 Arcoíris</button>
+        <button type="button" class="quick-chip" data-chip="rojo">🔴 Rojo</button>
+        <button type="button" class="quick-chip" data-chip="azul">🔵 Azul</button>
+        <button type="button" class="quick-chip" data-chip="madre">👩‍👧 Madre</button>
+        <button type="button" class="quick-chip" data-chip="ex">💔 Ex</button>
         <button type="button" class="quick-chip" data-chip="lagarto">🦎 Lagarto</button>
         <button type="button" class="quick-chip" data-chip="niebla">🌫️ Niebla</button>
         <button type="button" class="quick-chip" data-chip="ojos">👁️ Ojos</button>
-        <button type="button" class="quick-chip" data-chip="agua">🌊 Agua</button>
-        <button type="button" class="quick-chip" data-chip="volar">🕊️ Volar</button>
-        <button type="button" class="quick-chip" data-chip="caída">🕳️ Caída</button>
         <button type="button" class="quick-chip" data-chip="dientes">🦷 Dientes</button>
-        <button type="button" class="quick-chip" data-chip="serpiente">🐍 Serpiente</button>
-        <button type="button" class="quick-chip" data-chip="casa">🏡 Casa</button>
-        <button type="button" class="quick-chip" data-chip="escaleras">🪜 Escaleras</button>
-        <button type="button" class="quick-chip" data-chip="mariposa">🦋 Mariposa</button>
-        <button type="button" class="quick-chip" data-chip="muerte">🥀 Muerte</button>
-        <button type="button" class="quick-chip" data-chip="lúcido">✨ Lúcido</button>
-        <button type="button" class="quick-chip" data-chip="fuego">🔥 Fuego</button>
+        <button type="button" class="quick-chip" data-chip="volar">🕊️ Volar</button>
       </div>
       <div id="knowledgeGrid" class="dreams"></div>
     </section>
