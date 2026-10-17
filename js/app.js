@@ -330,6 +330,7 @@ function stats() {
 }
 function dreamCard(d, compact = false) {
   const txt = d.story_original || "Sin relato añadido.";
+  const hits = KB.ready ? KB.extract(txt, [...(d.tags || []), d.title, d.reflection || ""]) : [];
   const symChips = hits.map((s) => {
     const vis = getSymbolVisual(s);
     return `<button class="tag tag-symbol" data-symbol="${esc(s.term)}" title="Explorar símbolo ${esc(s.term)}">${vis.icon} ${esc(s.term)}</button>`;
