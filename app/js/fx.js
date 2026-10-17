@@ -1,22 +1,7 @@
-/* DreamOS fx.js v0.4.0 — Micro-interacciones de lujo: parallax 3D en astrolabio, reflejo líquido y ripples */
+/* DreamOS fx.js v0.5.0 — Micro-interacciones de lujo: parallax 3D en astrolabio e iluminación líquida */
 "use strict";
 (function () {
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-  /* Ondulación de luz táctil (Ripple) */
-  document.addEventListener("pointerdown", (e) => {
-    const t = e.target.closest(".btn, .small, .icon-btn, .nav button, .tabbar button, .dream, .stat-card, .side-card");
-    if (!t) return;
-    const r = t.getBoundingClientRect();
-    const s = Math.max(r.width, r.height);
-    const rip = document.createElement("span");
-    rip.className = "ripple";
-    rip.style.width = rip.style.height = s * 2 + "px";
-    rip.style.left = (e.clientX - r.left - s) + "px";
-    rip.style.top = (e.clientY - r.top - s) + "px";
-    t.appendChild(rip);
-    setTimeout(() => rip.remove(), 650);
-  });
 
   /* Parallax 3D e Iluminación Líquida con ratón fino */
   if (!matchMedia("(hover:hover) and (pointer:fine)").matches) return;
