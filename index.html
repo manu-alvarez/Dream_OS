@@ -77,8 +77,8 @@
       </span>
     </div>
     <div class="top-actions">
-      <button class="icon-btn sound-toggle-btn" id="soundToggleTop" aria-label="Ambiente sonoro onírico" title="Ambiente sonoro onírico (Drone 432Hz)">
-        <span class="sound-icon-idle">🌙</span>
+      <button class="icon-btn sound-toggle-btn" id="soundToggleTop" aria-label="Música de fondo" title="Música de fondo: The Ambientalist - In A Better World">
+        <span class="sound-icon-idle">🎵</span>
         <span class="sound-wave-bars" aria-hidden="true">
           <span></span><span></span><span></span>
         </span>
@@ -148,6 +148,20 @@
           <div class="hero-actions">
             <button class="btn btn-hero-primary" data-new>＋ Atrapar un sueño</button>
             <button class="btn btn-hero-ghost" data-goto="diario">Abrir diario ↗</button>
+          </div>
+
+          <!-- Reproductor de Música Onírica en el Inicio -->
+          <div class="music-banner-hero" id="musicBannerHero">
+            <button class="music-play-btn" id="musicHeroToggle" aria-label="Reproducir música onírica" title="Reproducir música">
+              <span class="music-btn-icon" id="musicHeroIcon">▶</span>
+            </button>
+            <div class="music-info">
+              <div class="music-track-title">In A Better World</div>
+              <div class="music-artist-name">The Ambientalist · Música de fondo</div>
+            </div>
+            <div class="music-wave-bars" id="musicWaveBars" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
           </div>
         </div>
 
@@ -364,10 +378,10 @@
         </div>
       </div>
       <div class="panel" style="margin-top:16px">
-        <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: #ffffff; margin-bottom: 6px;">Ambiente sonoro de relajación</h3>
-        <p class="muted" style="margin-bottom: 12px;">Frecuencia onírica envolvente a 432 Hz para calmar la mente y facilitar la desconexión antes de dormir.</p>
+        <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: #ffffff; margin-bottom: 6px;">Música de fondo</h3>
+        <p class="muted" style="margin-bottom: 12px;"><b>The Ambientalist — In A Better World (Extended Mix)</b>. Música ambiental envolvente para acompañar tu lectura, reflexión y descanso.</p>
         <div class="formactions">
-          <button class="btn btn-hero-ghost" id="soundToggle" aria-pressed="false">🌙 Activar sonido de relajación</button>
+          <button class="btn btn-hero-ghost" id="soundToggle" aria-pressed="false">▶ Reproducir música</button>
         </div>
       </div>
       <div class="panel" style="margin-top:16px">

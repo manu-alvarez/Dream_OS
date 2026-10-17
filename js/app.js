@@ -411,52 +411,92 @@ $("#shareBtn").onclick = async () => {
   try { await navigator.clipboard.writeText(data.url); toast("Enlace copiado: compártelo donde quieras"); }
   catch { toast("Copia la URL del navegador para compartir"); }
 };
-/* Ambiente generativo: drone nocturno WebAudio (ondas Theta / 432Hz), solo tras gesto, OFF por defecto. */
-let AC = null, drone = null;
-function toggleSound() {
+/* Música de fondo: The Ambientalist - In A Better World (2025 Extended Mix) */
+const bgMusic = new Audio("./assets/music.mp3");
+bgMusic.loop = true;
+bgMusic.volume = 0.55;
+bgMusic.preload = "auto";
+
+function updateMusicUI(isPlaying) {
   const btnSettings = $("#soundToggle");
   const btnTop = $("#soundToggleTop");
-  if (drone) {
-    try {
-      drone.g.gain.linearRampToValueAtTime(0, AC.currentTime + 0.6);
-      setTimeout(() => {
-        drone.os.forEach((o) => { try { o.stop(); } catch {} });
-        AC.close().catch(() => {});
-      }, 700);
-    } catch {}
-    drone = null; AC = null;
-    if (btnSettings) { btnSettings.textContent = "🌙 Activar ambiente sonoro"; btnSettings.setAttribute("aria-pressed", "false"); }
-    if (btnTop) { btnTop.classList.remove("playing"); btnTop.setAttribute("aria-pressed", "false"); btnTop.title = "Activar drone nocturno (432Hz)"; }
-    toast("🌙 Drone onírico silenciado");
-    return;
+  const bannerHero = $("#musicBannerHero");
+  const heroIcon = $("#musicHeroIcon");
+
+  if (btnSettings) {
+    btnSettings.textContent = isPlaying ? "❚❚ Pausar música" : "▶ Reproducir música";
+    btnSettings.setAttribute("aria-pressed", isPlaying ? "true" : "false");
   }
-  try {
-    AC = new (window.AudioContext || window.webkitAudioContext)();
-    const g = AC.createGain(); g.gain.value = 0;
-    const f = AC.createBiquadFilter(); f.type = "lowpass"; f.frequency.value = 420;
-    /* Frecuencias armónicas binaurales en escala Theta para relajación profunda */
-    const os = [108, 162, 216].map((fr, i) => {
-      const o = AC.createOscillator();
-      o.type = i === 2 ? "triangle" : "sine";
-      o.frequency.value = fr;
-      o.detune.value = i * 4;
-      o.connect(f);
-      o.start();
-      return o;
-    });
-    f.connect(g); g.connect(AC.destination);
-    g.gain.linearRampToValueAtTime(0.045, AC.currentTime + 2.5);
-    drone = { os, g };
-    if (btnSettings) { btnSettings.textContent = "🌙 Silenciar ambiente sonoro"; btnSettings.setAttribute("aria-pressed", "true"); }
-    if (btnTop) { btnTop.classList.add("playing"); btnTop.setAttribute("aria-pressed", "true"); btnTop.title = "Silenciar drone nocturno (432Hz)"; }
-    toast("✨ Drone onírico activado (Frecuencia Theta 432Hz)");
-  } catch {
-    toast("Audio no disponible en este navegador");
+  if (btnTop) {
+    btnTop.classList.toggle("playing", isPlaying);
+    btnTop.setAttribute("aria-pressed", isPlaying ? "true" : "false");
+    btnTop.title = isPlaying 
+      ? "Pausar música: In A Better World" 
+      : "Reproducir música: In A Better World (The Ambientalist)";
+  }
+  if (bannerHero) {
+    bannerHero.classList.toggle("playing", isPlaying);
+  }
+  if (heroIcon) {
+    heroIcon.textContent = isPlaying ? "❚❚" : "▶";
   }
 }
+
+async function playMusic(userInitiated = false) {
+  try {
+    await bgMusic.play();
+    updateMusicUI(true);
+    if (userInitiated) toast("🎵 Reproduciendo: In A Better World");
+    return true;
+  } catch (err) {
+    updateMusicUI(false);
+    return false;
+  }
+}
+
+function pauseMusic(userInitiated = false) {
+  try { bgMusic.pause(); } catch {}
+  updateMusicUI(false);
+  if (userInitiated) toast("Música pausada");
+}
+
+function toggleSound() {
+  if (bgMusic.paused) {
+    playMusic(true);
+  } else {
+    pauseMusic(true);
+  }
+}
+
 if ($("#soundToggle")) $("#soundToggle").onclick = toggleSound;
 if ($("#soundToggleTop")) $("#soundToggleTop").onclick = toggleSound;
-document.addEventListener("visibilitychange", () => { if (document.hidden && drone) toggleSound(); });
+if ($("#musicHeroToggle")) $("#musicHeroToggle").onclick = toggleSound;
+
+bgMusic.addEventListener("ended", () => {
+  bgMusic.currentTime = 0;
+  bgMusic.play().catch(() => {});
+});
+bgMusic.addEventListener("play", () => updateMusicUI(true));
+bgMusic.addEventListener("pause", () => updateMusicUI(false));
+
+function initBackgroundMusic() {
+  // 1. Intentar reproducir directamente al entrar
+  playMusic().catch(() => {});
+
+  // 2. Si el navegador bloquea el autoplay sin interacción, iniciarlo con el primer toque en pantalla
+  const startOnInteraction = () => {
+    if (bgMusic.paused) {
+      bgMusic.play().then(() => updateMusicUI(true)).catch(() => {});
+    }
+    ["pointerdown", "touchstart", "click", "keydown"].forEach((evt) => {
+      window.removeEventListener(evt, startOnInteraction);
+    });
+  };
+
+  ["pointerdown", "touchstart", "click", "keydown"].forEach((evt) => {
+    window.addEventListener(evt, startOnInteraction, { once: true, passive: true });
+  });
+}
 
 /* ---------- init ---------- */
 (async function init() {
@@ -466,6 +506,7 @@ document.addEventListener("visibilitychange", () => { if (document.hidden && dro
   try { await DB.migrateV0(); } catch (e) { console.warn(e); }
   await refresh(); renderKnowledge(); storageSummary();
   nav(location.hash.slice(1) || "inicio");
+  initBackgroundMusic();
   if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
     try { await navigator.serviceWorker.register("./sw.js"); } catch (e) { console.warn("SW", e); }
   }
