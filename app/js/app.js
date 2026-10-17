@@ -141,8 +141,7 @@ function renderKnowledge() {
   const q = ($("#symbolSearch")?.value || $("#globalSearch")?.value || "").trim();
   const cat = $("#categoryFilter").value;
   const list = KB.search(q, cat);
-  $("#knowledgeCount").textContent = list.length + " símbolos";
-  $("#kbMeta").textContent = `Explora el significado de más de ${KB.symbols().length} símbolos oníricos para comprender tus sueños.`;
+  if ($("#kbMeta")) $("#kbMeta").textContent = "Busca cualquier elemento, sensación o escenario de tus sueños para descubrir su significado.";
   $("#knowledgeGrid").innerHTML = list.length ? list.map((e) => `
     <article class="entry" id="entry-${esc(KB.norm(e.term)).replace(/\s+/g, '-')}">
       <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
