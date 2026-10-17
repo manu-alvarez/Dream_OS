@@ -418,32 +418,41 @@ function renderInterp(box, d) {
 }
 
 /* ---------- conocimiento ---------- */
+const TECHNICAL_IDS = new Set([
+  "k-continuidad", "k-hall", "k-hall-agresion", "k-hall-emociones", "k-hall-personajes", "k-hall-escenarios",
+  "k-freud-manifiesto", "k-freud-condensacion", "k-freud-asociacion", "k-jung-amplificacion",
+  "k-rag", "k-bertopic", "k-localfirst", "k-voice", "k-crypto", "k-privacidad", "k-incertidumbre"
+]);
+
 function renderKnowledge() {
   const q = ($("#symbolSearch")?.value || $("#globalSearch")?.value || "").trim();
   const cat = $("#categoryFilter")?.value || "";
-  const list = KB.search(q, cat);
-  if ($("#kbMeta")) $("#kbMeta").textContent = "Busca cualquier elemento, sensación o escenario de tus sueños para descubrir su significado.";
 
-  // Actualizar estado activo en los chips populares
-  $$("#quickSymbolChips .quick-chip").forEach((chip) => {
-    const val = chip.dataset.chip || "";
-    chip.classList.toggle("active", (!val && !q) || (val && q.toLowerCase().includes(val.toLowerCase())));
-  });
+  if ($("#kbMeta")) {
+    $("#kbMeta").textContent = "Busca cualquier elemento, sensación o escenario de tus sueños para descubrir su significado.";
+  }
+
+  // No mostrar nada hasta que el usuario pregunte o consulte
+  if (!q && !cat) {
+    $("#knowledgeGrid").innerHTML = `
+      <div class="search-empty-state" style="padding: 60px 20px; text-align: center;">
+        <div class="empty-icon-orb" style="font-size: 2.4rem; margin-bottom: 12px; filter: drop-shadow(0 0 16px rgba(224,86,253,0.35));">✦</div>
+        <h4 style="font-size: 1.18rem; color: #f5f5fa; font-weight: 500; margin-bottom: 8px;">Consulta cualquier símbolo o elemento</h4>
+        <p style="color: var(--text-muted); max-width: 440px; margin: 0 auto; font-size: 0.94rem; line-height: 1.6;">
+          Escribe en el buscador o selecciona una categoría para ver su significado e interpretaciones oníricas.
+        </p>
+      </div>`;
+    return;
+  }
+
+  const list = KB.search(q, cat).filter((e) => !TECHNICAL_IDS.has(e.id));
 
   if (!list.length) {
     $("#knowledgeGrid").innerHTML = `
-      <div class="search-empty-state">
-        <div class="empty-icon-orb">🔮</div>
-        <h4>No encontramos símbolos para "${esc(q)}"</h4>
-        <p>Prueba con términos más cotidianos o pulsa uno de estos símbolos populares:</p>
-        <div class="empty-quick-tags">
-          <button type="button" class="quick-chip" data-chip="agua">🌊 Agua</button>
-          <button type="button" class="quick-chip" data-chip="volar">🕊️ Volar</button>
-          <button type="button" class="quick-chip" data-chip="caída">🕳️ Caída</button>
-          <button type="button" class="quick-chip" data-chip="dientes">🦷 Dientes</button>
-          <button type="button" class="quick-chip" data-chip="casa">🏡 Casa</button>
-          <button type="button" class="quick-chip" data-chip="">✦ Ver todos los símbolos</button>
-        </div>
+      <div class="search-empty-state" style="padding: 40px 20px; text-align: center;">
+        <div class="empty-icon-orb" style="font-size: 2rem; margin-bottom: 10px;">🔮</div>
+        <h4 style="font-size: 1.1rem; color: #f5f5fa; margin-bottom: 6px;">No encontramos resultados para "${esc(q)}"</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Prueba con otra palabra o selecciona una categoría diferente en el menú.</p>
       </div>`;
     return;
   }
