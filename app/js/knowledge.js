@@ -1,4 +1,4 @@
-/* DreamOS knowledge.js v0.1.0 — carga base local + búsqueda léxica ES con sinónimos. */
+/* DreamOS knowledge.js v0.2.0 — carga base local + búsqueda léxica ES con sinónimos. */
 "use strict";
 const KB = {
   entries: [], synonyms: {}, byId: {}, ready: false,
@@ -16,16 +16,21 @@ const KB = {
   norm(s) {
     return String(s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   },
-  /* Entidades por coincidencia léxica: término + sinónimos contra relato+tags. */
+  /* Extracción de entidades por coincidencia léxica: término + sinónimos contra relato+tags. */
   extract(text, tags) {
-    const hay = KB.norm([text, (tags || []).join(" ")].join(" "));
+    const hay = " " + KB.norm([text, (tags || []).join(" ")].join(" ")) + " ";
     const hits = [];
+    const seen = new Set();
     for (const e of KB.entries) {
-      if (e.category !== "símbolo") continue;
+      if (seen.has(e.id)) continue;
       const terms = [e.term, ...(e.synonyms || [])];
       for (const t of terms) {
         const n = KB.norm(t);
-        if (n.length >= 3 && hay.includes(n)) { hits.push(e); break; }
+        if (n.length >= 3 && hay.includes(n)) {
+          hits.push(e);
+          seen.add(e.id);
+          break;
+        }
       }
     }
     return hits;
@@ -40,3 +45,5 @@ const KB = {
   },
   symbols() { return KB.entries.filter((e) => e.category === "símbolo"); },
 };
+if (typeof window !== "undefined") window.KB = KB;
+if (typeof globalThis !== "undefined") globalThis.KB = KB;

@@ -1277,7 +1277,293 @@ main {
   .hero-actions .btn {
     width: 100%;
     justify-content: center;
-  }
+/* ==========================================================================
+   Panel de Interpretación Onírica (.interp)
+   ========================================================================== */
+.interpSlot {
+  margin-top: 14px;
+}
+
+.interp {
+  background: rgba(18, 12, 34, 0.78);
+  border: 1px solid rgba(217, 70, 239, 0.38);
+  border-radius: 20px;
+  padding: 22px;
+  margin-top: 14px;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.5), 0 0 30px rgba(217, 70, 239, 0.18);
+  animation: fadeIn 0.35s ease-out;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.interp-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+.interp-head h4 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--text-cream);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.interp-summary {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #ede9fe;
+  margin-bottom: 16px;
+}
+
+.perspective-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.perspective-card {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 14px 16px;
+  transition: all var(--dur-fast);
+}
+
+.perspective-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(217, 70, 239, 0.4);
+}
+
+.perspective-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.perspective-meta b {
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.perspective-claim {
+  font-size: 0.88rem;
+  color: #d8d0ee;
+  line-height: 1.55;
+}
+
+/* Badges de Escuelas de Interpretación */
+.tag-school-cientifica {
+  background: rgba(56, 189, 248, 0.18) !important;
+  border-color: rgba(56, 189, 248, 0.5) !important;
+  color: #bae6fd !important;
+}
+.tag-school-freudiana {
+  background: rgba(245, 158, 11, 0.18) !important;
+  border-color: rgba(245, 158, 11, 0.5) !important;
+  color: #fde68a !important;
+}
+.tag-school-junguiana {
+  background: rgba(168, 85, 247, 0.18) !important;
+  border-color: rgba(168, 85, 247, 0.5) !important;
+  color: #e9d5ff !important;
+}
+.tag-school-historica {
+  background: rgba(244, 208, 104, 0.18) !important;
+  border-color: rgba(244, 208, 104, 0.5) !important;
+  color: #fef08a !important;
+}
+
+.interp-questions {
+  background: rgba(217, 70, 239, 0.08);
+  border: 1px solid rgba(217, 70, 239, 0.25);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-top: 14px;
+}
+
+.interp-questions h5 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #f5d0fe;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.interp-questions ul {
+  padding-left: 18px;
+  margin: 0;
+  font-size: 0.88rem;
+  color: #e2d9f3;
+  line-height: 1.6;
+}
+
+.interp-questions li {
+  margin-bottom: 6px;
+}
+
+.interp-disclaimer {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+/* Símbolos interactivos en tarjetas */
+.tag-symbol {
+  cursor: pointer;
+  background: rgba(217, 70, 239, 0.16) !important;
+  border-color: rgba(217, 70, 239, 0.45) !important;
+  color: #f5d0fe !important;
+  transition: all var(--dur-fast) var(--ease-spring);
+}
+.tag-symbol:hover {
+  background: rgba(217, 70, 239, 0.35) !important;
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: 0 0 12px rgba(217, 70, 239, 0.6);
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--neon-magenta);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0 4px;
+  text-decoration: underline;
+}
+.link-btn:hover {
+  color: #f472b6;
+}
+
+/* Estilos de biblioteca y detalles */
+.entry details {
+  margin-top: 12px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px 14px;
+  transition: all var(--dur-fast);
+}
+
+.entry details[open] {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: rgba(217, 70, 239, 0.35);
+}
+
+.entry summary {
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #c4b5fd;
+  outline: none;
+  user-select: none;
+  transition: color var(--dur-fast);
+}
+
+.entry summary:hover {
+  color: #fff;
+}
+
+/* ==========================================================================
+   Modo Claro Elegante y Pristino (html[data-theme="light"])
+   ========================================================================== */
+html[data-theme="light"] body {
+  background-color: #f3f0fa;
+  background-image: 
+    radial-gradient(ellipse 90% 60% at 85% 15%, rgba(139, 92, 246, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 80% 30%, rgba(217, 70, 239, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 70% at 10% 90%, rgba(59, 130, 246, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, #ffffff 0%, #f3f0fa 100%);
+  color: #171126;
+}
+
+html[data-theme="light"] header.top {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(140, 100, 220, 0.16);
+}
+
+html[data-theme="light"] .tabbar {
+  background: rgba(255, 255, 255, 0.94);
+  border-top: 1px solid rgba(140, 100, 220, 0.18);
+  box-shadow: 0 -10px 32px rgba(45, 30, 80, 0.1);
+}
+
+html[data-theme="light"] .side-card,
+html[data-theme="light"] .stat-card,
+html[data-theme="light"] .dream,
+html[data-theme="light"] .panel,
+html[data-theme="light"] .entry {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(140, 100, 220, 0.2);
+  box-shadow: 0 10px 32px rgba(45, 30, 80, 0.07);
+  color: #171126;
+}
+
+html[data-theme="light"] .title-upper {
+  color: #171126;
+  text-shadow: none;
+}
+
+html[data-theme="light"] .title-lower {
+  color: #581c87;
+  text-shadow: none;
+}
+
+html[data-theme="light"] .hero-desc {
+  color: #4b4168;
+}
+
+html[data-theme="light"] .hero {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(140, 100, 220, 0.2);
+}
+
+html[data-theme="light"] .modal {
+  background: #ffffff;
+  border-color: rgba(140, 100, 220, 0.25);
+  color: #171126;
+}
+
+html[data-theme="light"] .modalhead h2 {
+  color: #171126;
+}
+
+html[data-theme="light"] input,
+html[data-theme="light"] textarea,
+html[data-theme="light"] select {
+  background: rgba(245, 243, 252, 0.95);
+  border-color: rgba(140, 100, 220, 0.25);
+  color: #171126;
+}
+
+html[data-theme="light"] .interp {
+  background: rgba(250, 248, 255, 0.95);
+  border-color: rgba(217, 70, 239, 0.4);
+  color: #171126;
+}
+
+html[data-theme="light"] .interp-head h4,
+html[data-theme="light"] .interp-summary,
+html[data-theme="light"] .perspective-meta b {
+  color: #171126;
+}
+
+html[data-theme="light"] .perspective-claim {
+  color: #4b4168;
+}
+
+html[data-theme="light"] .perspective-card {
+  background: rgba(240, 235, 250, 0.85);
+  border-color: rgba(140, 100, 220, 0.2);
 }
 
 @media (prefers-reduced-motion: reduce) {

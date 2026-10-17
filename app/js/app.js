@@ -45,22 +45,39 @@ function stats() {
   const month = dreams.filter((d) => (d.date || "").startsWith(today().slice(0, 7))).length;
   const last = [...dreams].sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || ""))[0];
   const set = (id, v) => { const el = $(id); if (el) el.textContent = v; };
-  set("#statStreak", streak); set("#statMonth", month); set("#statEmotion", last?.emotion || "0");
-  const recent = [...dreams].sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || "")).slice(0, 2);
+  set("#statStreak", streak); set("#statMonth", month); set("#statEmotion", last?.emotion || "—");
+  const recent = [...dreams].sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || "")).slice(0, 3);
   $("#recentDreams").innerHTML = recent.length ? recent.map((d) => dreamCard(d, true)).join("") : '<div class="empty">Todavía no hay sueños guardados. <button class="small" data-new>Registrar el primero</button></div>';
 }
 function dreamCard(d, compact = false) {
   const txt = d.story_original || "Sin relato añadido.";
-  const tags = [...(d.tags || [])].map((t) => `<span class="tag">${esc(t)}</span>`).join("");
+  const hits = KB.extract(d.story_original, [...(d.tags || []), d.title, d.reflection]);
+  const symChips = hits.map((s) => `<button class="tag tag-symbol" data-symbol="${esc(s.term)}" title="Explorar símbolo ${esc(s.term)}">✦ ${esc(s.term)}</button>`).join("");
+  const tagChips = [...(d.tags || [])].map((t) => `<button class="tag" data-tag="${esc(t)}" title="Filtrar sueños con #${esc(t)}">#${esc(t)}</button>`).join("");
   return `<article class="dream" data-id="${esc(d.id)}">
-    <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><div>
-    <h3>${esc(d.title)}</h3>
-    <div class="muted" style="font-size:.82rem">${fmtDate(d.date)}${d.emotion ? " · " + esc(d.emotion) : ""}${d.quality ? " · sueño " + d.quality + "/10" : ""}${d.stress ? " · estrés " + d.stress + "/10" : ""}</div>
-    <div>${tags}</div></div></div>
-    <p>${esc(compact && txt.length > 160 ? txt.slice(0, 160) + "…" : txt)}</p>
-    ${!compact && d.reflection ? `<div class="callout"><b>Asociaciones:</b> ${esc(d.reflection)}</div>` : ""}
-    <div class="formactions"><button class="small" data-edit="${esc(d.id)}">Editar</button><button class="small" data-interp="${esc(d.id)}">Interpretar</button><button class="small" data-del="${esc(d.id)}">Eliminar</button></div>
-    <div class="interpSlot"></div></article>`;
+    <div style="display:flex;justify-content:space-between;gap:8px;align-items:start">
+      <div>
+        <h3>${esc(d.title)}</h3>
+        <div class="muted" style="font-size:.82rem">${fmtDate(d.date)}${d.emotion ? " · " + esc(d.emotion) : ""}${d.quality ? " · calidad " + d.quality + "/10" : ""}${d.stress ? " · estrés previo " + d.stress + "/10" : ""}</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px">${symChips}${tagChips}</div>
+      </div>
+    </div>
+    <div style="margin-top:10px">
+      ${compact && txt.length > 160 ? `
+        <p class="dream-text">${esc(txt.slice(0, 160))}… <button class="link-btn" data-expand="${esc(d.id)}">Leer más</button></p>
+        <p class="dream-text-full" hidden>${esc(txt)} <button class="link-btn" data-collapse="${esc(d.id)}">Mostrar menos</button></p>
+      ` : `
+        <p class="dream-text">${esc(txt)}</p>
+      `}
+    </div>
+    ${!compact && d.reflection ? `<div class="callout" style="margin-top:10px"><b>Asociaciones personales:</b> ${esc(d.reflection)}</div>` : ""}
+    <div class="formactions" style="margin-top:12px">
+      <button class="small" data-edit="${esc(d.id)}">Editar</button>
+      <button class="small" data-interp="${esc(d.id)}">✦ Interpretar</button>
+      <button class="small" data-del="${esc(d.id)}" style="color:#fca5a5">Eliminar</button>
+    </div>
+    <div class="interpSlot"></div>
+  </article>`;
 }
 function renderDreams() {
   const q = ($("#dreamSearch").value || "").trim().toLowerCase(), emo = $("#emotionFilter").value, sort = $("#dreamSort").value;
@@ -70,25 +87,78 @@ function renderDreams() {
 }
 function renderInterp(box, d) {
   const r = Interpret.run(d);
+  const schoolName = { cientifica: "Científica", freudiana: "Freudiana", junguiana: "Junguiana", historica: "Histórica", personal: "Personal" };
   if (r.type === "unavailable") {
-    box.innerHTML = `<div class="interp"><h4>Aún hay poco material <span class="tag">lectura local</span></h4><p class="muted">${esc(r.summary)}</p><ul>${r.limitations.map((l) => `<li>${esc(l)}</li>`).join("")}</ul><p><b>Preguntas para completarlo:</b></p><ul>${r.questions.map((q) => `<li>${esc(q)}</li>`).join("")}</ul></div>`;
+    box.innerHTML = `<div class="interp">
+      <div class="interp-head">
+        <h4>✦ Análisis Onírico <span class="tag">Local</span></h4>
+        <button class="icon-btn small" data-close-interp aria-label="Cerrar">✕</button>
+      </div>
+      <p class="interp-summary">${esc(r.summary)}</p>
+      <ul style="padding-left:18px;font-size:0.88rem;color:#d1c8e9;line-height:1.6">${r.limitations.map((l) => `<li>${esc(l)}</li>`).join("")}</ul>
+      <div class="interp-questions">
+        <h5>✦ Preguntas para recordar más:</h5>
+        <ul>${r.questions.map((q) => `<li>${esc(q)}</li>`).join("")}</ul>
+      </div>
+    </div>`;
     return;
   }
-  const schoolName = { cientifica: "Científica", freudiana: "Freudiana", junguiana: "Junguiana", historica: "Histórica", personal: "Personal" };
-  box.innerHTML = `<div class="interp"><h4>Lecturas posibles <span class="tag">lectura local</span></h4><p class="muted">${esc(r.summary)}</p>
-  ${r.perspectives.map((p) => `<div style="margin:8px 0"><span class="tag">${esc(schoolName[p.school] || p.school)}</span> <b>${esc(p.term)}</b><br><span class="muted">${esc(p.claim)}</span></div>`).join("")}
-  <p class="muted">Fuentes: ${r.sourceIds.map(esc).join(", ") || "—"}</p>
-  <ul>${r.limitations.map((l) => `<li>${esc(l)}</li>`).join("")}</ul>
-  <p><b>Para reflexionar:</b></p><ul>${r.questions.map((q) => `<li>${esc(q)}</li>`).join("")}</ul></div>`;
+  box.innerHTML = `<div class="interp">
+    <div class="interp-head">
+      <h4>✦ Análisis Onírico Multi-perspectiva <span class="tag">100% Local</span></h4>
+      <button class="icon-btn small" data-close-interp aria-label="Cerrar">✕</button>
+    </div>
+    <p class="interp-summary">${esc(r.summary)}</p>
+    <div class="perspective-grid">
+      ${r.perspectives.map((p) => `
+        <div class="perspective-card">
+          <div class="perspective-meta">
+            <span class="tag tag-school-${esc(p.school)}">${esc(schoolName[p.school] || p.school)}</span>
+            <b>${esc(p.term)}</b>
+          </div>
+          <p class="perspective-claim">${esc(p.claim)}</p>
+        </div>
+      `).join("")}
+    </div>
+    ${r.questions.length ? `
+      <div class="interp-questions">
+        <h5>✧ Para tu introspección y diario:</h5>
+        <ul>${r.questions.map((q) => `<li>${esc(q)}</li>`).join("")}</ul>
+      </div>
+    ` : ""}
+    <p class="interp-disclaimer">${r.limitations[0]} · Fuentes: ${r.sourceIds.map(esc).join(", ") || "Biblioteca científica y psicológica local"}</p>
+  </div>`;
 }
 
 /* ---------- conocimiento ---------- */
 function renderKnowledge() {
-  const q = ($("#globalSearch").value || "").trim(), cat = $("#categoryFilter").value;
+  const q = ($("#symbolSearch")?.value || $("#globalSearch")?.value || "").trim();
+  const cat = $("#categoryFilter").value;
   const list = KB.search(q, cat);
   $("#knowledgeCount").textContent = list.length + " entradas";
-  $("#kbMeta").textContent = `Diccionario vivo: ${KB.symbols().length} símbolos con lecturas de varias escuelas.`;
-  $("#knowledgeGrid").innerHTML = list.length ? list.map((e) => `<article class="entry"><span class="tag">${esc(e.category)}</span>${(e.tags || []).slice(0, 3).map((t) => `<span class="tag">${esc(t)}</span>`).join("")}<h3>${esc(e.term)}</h3><p>${esc(e.summary)}</p><details><summary>Contexto, escuelas y límites</summary><p>${esc(e.detail)}</p>${(e.interpretations || []).map((i) => `<p><span class="tag">${esc(i.school)}</span> <span class="muted">${esc(i.text)}</span></p>`).join("")}<p class="muted">Fuentes: ${(e.sourceIds || []).map(esc).join(", ")} · Evidencia ${esc(e.evidence)}</p>${(e.questions || []).map((qq) => `<p>✦ ${esc(qq)}</p>`).join("")}</details></article>`).join("") : '<div class="empty">Sin coincidencias en la base local.</div>';
+  $("#kbMeta").textContent = `Biblioteca viva: ${KB.symbols().length} símbolos con lecturas de varias escuelas.`;
+  $("#knowledgeGrid").innerHTML = list.length ? list.map((e) => `
+    <article class="entry" id="entry-${esc(KB.norm(e.term)).replace(/\s+/g, '-')}">
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+        <span class="tag">${esc(e.category)}</span>
+        ${(e.tags || []).slice(0, 3).map((t) => `<span class="tag">#${esc(t)}</span>`).join("")}
+      </div>
+      <h3>${esc(e.term)}</h3>
+      <p>${esc(e.summary)}</p>
+      <details>
+        <summary>✦ Ver perspectivas de análisis y fuentes</summary>
+        <p style="margin:10px 0 12px;color:#d1c8e9;font-size:0.9rem">${esc(e.detail)}</p>
+        ${(e.interpretations || []).map((i) => `
+          <div class="perspective-card" style="margin-bottom:8px">
+            <span class="tag tag-school-${esc(i.school)}">${esc(i.school)}</span>
+            <span style="font-size:0.88rem;color:#e2d9f3;margin-left:6px">${esc(i.text)}</span>
+          </div>
+        `).join("")}
+        <p class="muted" style="font-size:0.78rem;margin-top:10px">Fuentes: ${(e.sourceIds || []).map(esc).join(", ")} · Evidencia: ${esc(e.evidence)}</p>
+        ${(e.questions || []).map((qq) => `<p style="font-size:0.86rem;color:#f5d0fe;margin-top:6px">✧ ${esc(qq)}</p>`).join("")}
+      </details>
+    </article>
+  `).join("") : '<div class="empty">Sin coincidencias en la biblioteca local. Prueba con otro término.</div>';
 }
 
 /* ---------- modal ---------- */
@@ -160,25 +230,99 @@ document.addEventListener("click", async (e) => {
   if (e.target.closest("[data-new]")) return openModal();
   const ed = e.target.closest("[data-edit]"); if (ed) return openModal(ed.dataset.edit);
   const it = e.target.closest("[data-interp]");
-  if (it) { const card = it.closest(".dream"); const d = dreams.find((x) => x.id === it.dataset.interp); const box = card.querySelector(".interpSlot");
-    if (box.innerHTML) { box.innerHTML = ""; return; } renderInterp(box, d); box.scrollIntoView({ block: "nearest" }); return; }
+  if (it) {
+    const card = it.closest(".dream");
+    const d = dreams.find((x) => x.id === it.dataset.interp);
+    const box = card.querySelector(".interpSlot");
+    if (box.innerHTML) { box.innerHTML = ""; return; }
+    renderInterp(box, d);
+    box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    return;
+  }
+  const ci = e.target.closest("[data-close-interp]");
+  if (ci) {
+    const slot = ci.closest(".interpSlot");
+    if (slot) slot.innerHTML = "";
+    return;
+  }
+  const sym = e.target.closest("[data-symbol]");
+  if (sym) {
+    const term = sym.dataset.symbol;
+    nav("conocimiento");
+    if ($("#symbolSearch")) $("#symbolSearch").value = term;
+    renderKnowledge();
+    const entryId = "entry-" + KB.norm(term).replace(/\s+/g, "-");
+    const entryEl = document.getElementById(entryId);
+    if (entryEl) {
+      entryEl.scrollIntoView({ behavior: "smooth", block: "center" });
+      entryEl.querySelector("details")?.setAttribute("open", "true");
+      entryEl.style.boxShadow = "0 0 35px rgba(217, 70, 239, 0.75)";
+      setTimeout(() => { if (entryEl) entryEl.style.boxShadow = ""; }, 2500);
+    }
+    return;
+  }
+  const tg = e.target.closest("[data-tag]");
+  if (tg) {
+    nav("diario");
+    if ($("#dreamSearch")) $("#dreamSearch").value = tg.dataset.tag;
+    renderDreams();
+    return;
+  }
+  const exp = e.target.closest("[data-expand]");
+  if (exp) {
+    const art = exp.closest("article");
+    if (art) {
+      art.querySelector(".dream-text").hidden = true;
+      art.querySelector(".dream-text-full").hidden = false;
+    }
+    return;
+  }
+  const col = e.target.closest("[data-collapse]");
+  if (col) {
+    const art = col.closest("article");
+    if (art) {
+      art.querySelector(".dream-text").hidden = false;
+      art.querySelector(".dream-text-full").hidden = true;
+    }
+    return;
+  }
   const del = e.target.closest("[data-del]");
-  if (del) { const d = dreams.find((x) => x.id === del.dataset.del);
-    if (confirm(`¿Eliminar “${d.title}”?`)) { await DB.deleteDream(d.id); await refresh(); renderDreams(); toast("Eliminado"); } return; }
-  const th = e.target.closest("button[data-theme]"); if (th) { theme = th.dataset.theme; try { localStorage.setItem("dreamos.theme", theme); } catch {} applyTheme(); toast("Tema actualizado"); }
+  if (del) {
+    const d = dreams.find((x) => x.id === del.dataset.del);
+    if (confirm(`¿Eliminar “${d.title}”?`)) {
+      await DB.deleteDream(d.id);
+      await refresh();
+      renderDreams();
+      toast("Eliminado");
+    }
+    return;
+  }
+  const th = e.target.closest("button[data-theme]");
+  if (th) {
+    theme = th.dataset.theme;
+    try { localStorage.setItem("dreamos.theme", theme); } catch {}
+    applyTheme();
+    toast("Tema actualizado");
+  }
 });
 $("#dreamForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const title = $("#dreamTitle").value.trim();
   if (!title) return toast("Añade un título breve.");
+  const story = $("#dreamStory").value.trim();
+  const tags = $("#dreamTags").value.split(",").map((t) => t.trim().toLowerCase()).filter(Boolean).slice(0, 20);
+  const reflection = $("#dreamReflection").value.trim();
   const id = $("#dreamId").value || uid();
   const old = dreams.find((d) => d.id === id);
-  await DB.putDream({ id, title: title.slice(0, 120), date: $("#dreamDate").value || today(),
-    wakeTime: "", story_original: $("#dreamStory").value.trim(), quality: num($("#dreamQuality").value), stress: num($("#dreamStress").value),
-    emotion: $("#dreamEmotion").value, tags: $("#dreamTags").value.split(",").map((t) => t.trim().toLowerCase()).filter(Boolean).slice(0, 20),
-    symbols: [], characters: [], settings: [], reflection: $("#dreamReflection").value.trim(),
+  const detectedSymbols = KB.extract(story, [...tags, title, reflection]).map((s) => s.term);
+  await DB.putDream({
+    id, title: title.slice(0, 120), date: $("#dreamDate").value || today(),
+    wakeTime: "", story_original: story, quality: num($("#dreamQuality").value), stress: num($("#dreamStress").value),
+    emotion: $("#dreamEmotion").value, tags,
+    symbols: detectedSymbols, characters: [], settings: [], reflection,
     createdAt: old?.createdAt || new Date().toISOString(), updatedAt: new Date().toISOString(),
-    status: $("#dreamStory").value.trim() ? "complete" : "draft", synthetic: old?.synthetic || false });
+    status: story ? "complete" : "draft", synthetic: false
+  });
   await refresh(); closeModal(); renderDreams(); toast(old ? "Sueño actualizado" : "Sueño guardado en este dispositivo");
   function num(v) { v = Number(v); return v >= 1 && v <= 10 ? v : null; }
 });
@@ -188,11 +332,34 @@ document.addEventListener("keydown", (e) => { if (e.key === "Escape") { closeMod
 $("#dreamSearch").addEventListener("input", renderDreams);
 $("#emotionFilter").addEventListener("change", renderDreams);
 $("#dreamSort").addEventListener("change", renderDreams);
+if ($("#symbolSearch")) $("#symbolSearch").addEventListener("input", renderKnowledge);
 $("#categoryFilter").addEventListener("change", renderKnowledge);
-$("#globalSearch").addEventListener("input", () => { const v = $(".view.active")?.id.replace("view-", ""); if (v === "conocimiento") renderKnowledge(); if (v === "diario") { $("#dreamSearch").value = $("#globalSearch").value; renderDreams(); } });
-$("#globalSearch").addEventListener("keydown", (e) => { if (e.key !== "Enter") return; const q = e.target.value.trim().toLowerCase(); if (!q) return;
+$("#globalSearch").addEventListener("input", () => {
+  const v = $(".view.active")?.id.replace("view-", "");
+  if (v === "conocimiento") {
+    if ($("#symbolSearch")) $("#symbolSearch").value = $("#globalSearch").value;
+    renderKnowledge();
+  }
+  if (v === "diario") {
+    $("#dreamSearch").value = $("#globalSearch").value;
+    renderDreams();
+  }
+});
+$("#globalSearch").addEventListener("keydown", (e) => {
+  if (e.key !== "Enter") return;
+  const q = e.target.value.trim().toLowerCase();
+  if (!q) return;
   const hitK = KB.entries.some((x) => [x.term, x.summary, x.detail, (x.tags || []).join(" ")].join(" ").toLowerCase().includes(q));
-  if (hitK) { nav("conocimiento"); renderKnowledge(); } else { nav("diario"); $("#dreamSearch").value = e.target.value; renderDreams(); } });
+  if (hitK) {
+    nav("conocimiento");
+    if ($("#symbolSearch")) $("#symbolSearch").value = e.target.value;
+    renderKnowledge();
+  } else {
+    nav("diario");
+    $("#dreamSearch").value = e.target.value;
+    renderDreams();
+  }
+});
 $("#themeToggle").onclick = () => { theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark"; try { localStorage.setItem("dreamos.theme", theme); } catch {} applyTheme(); };
 $("#exportBtn").onclick = exportAll;
 $("#importFile").addEventListener("change", (e) => importFile(e.target.files?.[0]));
