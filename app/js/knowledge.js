@@ -39,68 +39,64 @@ const KB = {
     const raw = String(q || "").trim();
     if (!raw) return KB.entries.filter((e) => !cat || e.category === cat);
     const nq = KB.norm(raw);
-    const stopWords = new Set(["el", "la", "los", "las", "un", "una", "unos", "unas", "de", "del", "en", "con", "por", "para", "sobre", "que", "y", "o", "al", "mi", "mis", "tu", "tus", "su", "sus", "son", "es", "vi", "habia", "sonar", "sueno", "soñe"]);
+    const stopWords = new Set(["el", "la", "los", "las", "un", "una", "unos", "unas", "de", "del", "en", "con", "sin", "por", "para", "sobre", "que", "y", "o", "al", "mi", "mis", "tu", "tus", "su", "sus", "son", "es", "vi", "habia", "sonar", "sueno", "soñe", "ante", "bajo", "cabe", "contra", "desde", "hacia", "hasta", "mediante", "segun", "tras"]);
     const tokens = nq.split(/[^a-z0-9]+/i).filter((t) => t.length >= 2 && !stopWords.has(t));
     
-    const directHitIds = new Set();
-    if (KB.synonyms && KB.synonyms[nq]) directHitIds.add(KB.synonyms[nq]);
+    const exactSynId = (KB.synonyms && KB.synonyms[nq]) || null;
+    const tokenSynIds = new Set();
     tokens.forEach((tok) => {
-      if (KB.synonyms && KB.synonyms[tok]) directHitIds.add(KB.synonyms[tok]);
+      if (KB.synonyms && KB.synonyms[tok]) tokenSynIds.add(KB.synonyms[tok]);
       if (tok.endsWith("es") && tok.length > 4) {
         const s = tok.slice(0, -2);
-        if (KB.synonyms && KB.synonyms[s]) directHitIds.add(KB.synonyms[s]);
+        if (KB.synonyms && KB.synonyms[s]) tokenSynIds.add(KB.synonyms[s]);
       } else if (tok.endsWith("s") && tok.length > 3) {
         const s = tok.slice(0, -1);
-        if (KB.synonyms && KB.synonyms[s]) directHitIds.add(KB.synonyms[s]);
+        if (KB.synonyms && KB.synonyms[s]) tokenSynIds.add(KB.synonyms[s]);
       }
     });
 
     const results = [];
     for (const e of KB.entries) {
       if (cat && e.category !== cat) continue;
-      if (directHitIds.has(e.id)) {
-        results.push({ entry: e, score: 100 });
-        continue;
-      }
+      let score = 0;
       const termNorm = KB.norm(e.term);
       const synNorms = (e.synonyms || []).map((s) => KB.norm(s));
       const tagsNorms = (e.tags || []).map((t) => KB.norm(t));
-      const textCorpus = KB.norm([e.term, e.category, e.summary, e.detail, e.perspective, ...tagsNorms, ...synNorms].join(" "));
 
-      if (termNorm === nq) {
-        results.push({ entry: e, score: 95 });
-        continue;
-      }
-      if (termNorm.includes(nq) || nq.includes(termNorm)) {
-        results.push({ entry: e, score: 85 });
-        continue;
-      }
+      if (e.id === exactSynId) score += 250;
+      if (termNorm === nq) score += 200;
+      if (tokenSynIds.has(e.id)) score += 90;
 
-      let hitSyn = false;
-      for (const s of synNorms) {
-        if (s === nq || nq.includes(s) || s.includes(nq)) {
-          results.push({ entry: e, score: 80 });
-          hitSyn = true;
-          break;
-        }
-      }
-      if (hitSyn) continue;
-
-      let score = 0;
+      // Coincidencias de frases o palabras completas
+      if (termNorm.includes(nq)) score += 45;
       for (const tok of tokens) {
         const tokSing = tok.endsWith("es") && tok.length > 4 ? tok.slice(0, -2) : (tok.endsWith("s") && tok.length > 3 ? tok.slice(0, -1) : tok);
-        if (termNorm.includes(tok) || termNorm.includes(tokSing)) score += 35;
-        else if (synNorms.some((s) => s.includes(tok) || s.includes(tokSing))) score += 25;
-        else if (tagsNorms.some((t) => t.includes(tok) || t.includes(tokSing))) score += 15;
-        else if (textCorpus.includes(tok) || textCorpus.includes(tokSing)) score += 10;
+        const wRegex = new RegExp("\\b" + tok + "\\b", "i");
+        const wSingRegex = new RegExp("\\b" + tokSing + "\\b", "i");
+
+        if (wRegex.test(termNorm) || wSingRegex.test(termNorm)) score += 40;
+        else if (termNorm.includes(tok) || termNorm.includes(tokSing)) score += 20;
+
+        if (synNorms.some((s) => wRegex.test(s) || wSingRegex.test(s))) score += 35;
+        else if (synNorms.some((s) => s.includes(tok) || s.includes(tokSing))) score += 15;
+
+        if (tagsNorms.some((t) => t === tok || t === tokSing)) score += 25;
       }
+
+      // Penalizar entradas puramente técnicas internas frente a símbolos oníricos cuando no se filtra por categoría
+      if (!cat && ["tecnología", "ética"].includes(e.category)) {
+        score -= 60;
+      }
+
       if (score > 0) results.push({ entry: e, score });
     }
 
     results.sort((a, b) => b.score - a.score);
     return results.map((r) => r.entry);
   },
-  symbols() { return KB.entries.filter((e) => e.category === "símbolo"); },
+  symbols() {
+    return KB.entries.filter((e) => !["tecnología", "ética"].includes(e.category));
+  },
 };
 if (typeof window !== "undefined") window.KB = KB;
 if (typeof globalThis !== "undefined") globalThis.KB = KB;

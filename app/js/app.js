@@ -140,7 +140,129 @@ const SYMBOL_VISUALS = {
   "captura por voz (diseno)": { icon: "🎙️", badge: "Voz & Dictado", color: "#ec4899" },
   "cifrado local (diseno p2)": { icon: "🛡️", badge: "Seguridad", color: "#10b981" },
   "privacidad por diseno": { icon: "🔐", badge: "100% Privado", color: "#10b981" },
-  "incertidumbre y abstencion": { icon: "⚖️", badge: "Ética & Cuidado", color: "#a855f7" }
+  "incertidumbre y abstencion": { icon: "⚖️", badge: "Ética & Cuidado", color: "#a855f7" },
+  // Animales adicionales
+  "aguila / halcon / ave rapaz": { icon: "🦅", badge: "Visión Panorámica", color: "#0284c7" },
+  "aguila": { icon: "🦅", badge: "Visión Panorámica", color: "#0284c7" },
+  "halcon": { icon: "🦅", badge: "Agudeza & Foco", color: "#0284c7" },
+  "elefante": { icon: "🐘", badge: "Memoria & Sabiduría", color: "#64748b" },
+  "toro / vaca": { icon: "🐂", badge: "Fuerza & Nutrición", color: "#d97706" },
+  "toro": { icon: "🐂", badge: "Fuerza Indómita", color: "#d97706" },
+  "vaca": { icon: "🐄", badge: "Nutrición Materna", color: "#10b981" },
+  "tortuga": { icon: "🐢", badge: "Paciencia & Longevidad", color: "#10b981" },
+  "rana / sapo": { icon: "🐸", badge: "Metamorfosis & Salto", color: "#22c55e" },
+  "rana": { icon: "🐸", badge: "Metamorfosis & Salto", color: "#22c55e" },
+  "sapo": { icon: "🐸", badge: "Transformación Oculta", color: "#15803d" },
+  "abeja / avispa / colmena": { icon: "🐝", badge: "Comunidad & Dulzura", color: "#eab308" },
+  "abeja": { icon: "🐝", badge: "Laboriosidad & Miel", color: "#eab308" },
+  "avispa": { icon: "🐝", badge: "Alerta & Pinchazo", color: "#f59e0b" },
+  "zorro": { icon: "🦊", badge: "Astucia & Cautela", color: "#f97316" },
+  "ciervo / venado": { icon: "🦌", badge: "Nobleza & Gentileza", color: "#d97706" },
+  "ciervo": { icon: "🦌", badge: "Nobleza & Gentileza", color: "#d97706" },
+  "venado": { icon: "🦌", badge: "Sensibilidad Silvestre", color: "#d97706" },
+  "rata / raton": { icon: "🐭", badge: "Inquietud & Recursos", color: "#78716c" },
+  "rata": { icon: "🐀", badge: "Preocupación Subterránea", color: "#78716c" },
+  "raton": { icon: "🐭", badge: "Detalles Descuidados", color: "#a8a29e" },
+  "cuervo": { icon: "🐦‍⬛", badge: "Misterio & Lucidez", color: "#64748b" },
+  "murcielago": { icon: "🦇", badge: "Navegación Nocturna", color: "#8b5cf6" },
+  "cocodrilo / caiman": { icon: "🐊", badge: "Peligro al Acecho", color: "#059669" },
+  "cocodrilo": { icon: "🐊", badge: "Emociones Arcaicas", color: "#059669" },
+  "mono / simio": { icon: "🐒", badge: "Curiosidad & Juego", color: "#d97706" },
+  "mono": { icon: "🐒", badge: "Espontaneidad", color: "#d97706" },
+  "hormiga / plaga de insectos": { icon: "🐜", badge: "Detalles & Disciplina", color: "#78716c" },
+  "hormiga": { icon: "🐜", badge: "Trabajo Constante", color: "#78716c" },
+  // Plantas, árboles y naturaleza
+  "arbol / raices / ramas": { icon: "🌳", badge: "Árbol de la Vida", color: "#16a34a" },
+  "arbol": { icon: "🌳", badge: "Estructura & Raíces", color: "#16a34a" },
+  "planta": { icon: "🌿", badge: "Crecimiento Vital", color: "#22c55e" },
+  "plantas": { icon: "🌿", badge: "Reino Vegetal", color: "#22c55e" },
+  "flores / rosa / loto / jardin": { icon: "🌸", badge: "Florecimiento Interior", color: "#f472b6" },
+  "flores": { icon: "🌸", badge: "Belleza & Apertura", color: "#f472b6" },
+  "rosa": { icon: "🌹", badge: "Amor & Secreto", color: "#f43f5e" },
+  "loto": { icon: "🪷", badge: "Pureza Espiritual", color: "#ec4899" },
+  "jardin": { icon: "🌺", badge: "Espacio de Paz", color: "#10b981" },
+  "semilla / cosecha / frutos": { icon: "🌱", badge: "Potencial & Maduración", color: "#84cc16" },
+  "semilla": { icon: "🌱", badge: "Gestación de Proyectos", color: "#84cc16" },
+  "espinas / maleza / cactus": { icon: "🌵", badge: "Defensa & Obstáculos", color: "#ca8a04" },
+  "espinas": { icon: "🌵", badge: "Límites & Autoprotección", color: "#ca8a04" },
+  // Piedras, cristales y tesoros minerales
+  "piedras / rocas / penasco": { icon: "🪨", badge: "Firmeza & Peso", color: "#78716c" },
+  "piedra": { icon: "🪨", badge: "Fundamento Firme", color: "#78716c" },
+  "roca": { icon: "🪨", badge: "Cimiento Inamovible", color: "#78716c" },
+  "cristales / cuarzo / minerales": { icon: "🔮", badge: "Claridad & Energía", color: "#38bdf8" },
+  "cristales": { icon: "🔮", badge: "Claridad Mental", color: "#38bdf8" },
+  "cuarzo": { icon: "💎", badge: "Luz & Geometría", color: "#38bdf8" },
+  "joyas / diamante / oro / perlas": { icon: "💎", badge: "Valor Supremo", color: "#eab308" },
+  "joyas": { icon: "💎", badge: "Dones del Alma", color: "#eab308" },
+  "diamante": { icon: "💎", badge: "Incorruptibilidad", color: "#38bdf8" },
+  "oro": { icon: "🪙", badge: "Riqueza Interior", color: "#eab308" },
+  "arena / dunas / tierras movedizas": { icon: "⏳", badge: "Tiempo & Fluidez", color: "#f59e0b" },
+  "arena": { icon: "🏖️", badge: "Paso del Tiempo", color: "#f59e0b" },
+  // Entornos y paisajes
+  "playa / costa / orilla": { icon: "🏖️", badge: "Orilla & Sosiego", color: "#06b6d4" },
+  "playa": { icon: "🏖️", badge: "Frontera Consciente", color: "#06b6d4" },
+  "isla / aislamiento": { icon: "🏝️", badge: "Retiro & Soledad", color: "#10b981" },
+  "isla": { icon: "🏝️", badge: "Santuario Propio", color: "#10b981" },
+  "cueva / caverna / gruta": { icon: "🕳️", badge: "Introspección Profunda", color: "#6b7280" },
+  "cueva": { icon: "🕳️", badge: "Descenso al Origen", color: "#6b7280" },
+  "castillo / fortaleza / palacio": { icon: "🏰", badge: "Defensas & Soberanía", color: "#8b5cf6" },
+  "castillo": { icon: "🏰", badge: "Murallas Personales", color: "#8b5cf6" },
+  "sotano / subsuelo / bodega": { icon: "🗝️", badge: "Inconsciente Oculto", color: "#71717a" },
+  "sotano": { icon: "🗝️", badge: "Secretos Reprimidos", color: "#71717a" },
+  // Tiempo, clima y fenómenos
+  "viento / huracan / tornado": { icon: "🌪️", badge: "Fuerzas de Cambio", color: "#0ea5e9" },
+  "viento": { icon: "💨", badge: "Renovación Mental", color: "#0ea5e9" },
+  "huracan": { icon: "🌪️", badge: "Giro Drástico", color: "#0284c7" },
+  "tornado": { icon: "🌪️", badge: "Transformación Rápida", color: "#0284c7" },
+  "arcoiris": { icon: "🌈", badge: "Paz tras la Tempestad", color: "#ec4899" },
+  "terremoto / temblor / sismo": { icon: "⚡", badge: "Sacudida Vital", color: "#ef4444" },
+  "terremoto": { icon: "⚡", badge: "Ruptura de Esquemas", color: "#ef4444" },
+  "inundacion / tsunami / marea alta": { icon: "🌊", badge: "Desbordamiento Emocional", color: "#0284c7" },
+  "inundacion": { icon: "🌊", badge: "Llanto o Catarsis", color: "#0284c7" },
+  "tsunami": { icon: "🌊", badge: "Emoción Incontenible", color: "#0284c7" },
+  // Colores
+  "color rojo": { icon: "🔴", badge: "Pasión & Alerta", color: "#ef4444" },
+  "rojo": { icon: "🔴", badge: "Fuego & Valentía", color: "#ef4444" },
+  "color azul": { icon: "🔵", badge: "Serenidad & Verdad", color: "#3b82f6" },
+  "azul": { icon: "🔵", badge: "Profundidad Mental", color: "#3b82f6" },
+  "color verde": { icon: "🟢", badge: "Sanación & Esperanza", color: "#22c55e" },
+  "verde": { icon: "🟢", badge: "Regeneración Vital", color: "#22c55e" },
+  "color blanco": { icon: "⚪", badge: "Pureza & Comienzo", color: "#e2e8f0" },
+  "blanco": { icon: "⚪", badge: "Lienzo en Blanco", color: "#e2e8f0" },
+  "color negro / oscuridad": { icon: "⚫", badge: "Sombra & Misterio", color: "#64748b" },
+  "negro": { icon: "⚫", badge: "Noche Fértil", color: "#64748b" },
+  "color amarillo / dorado": { icon: "🟡", badge: "Lucidez & Optimismo", color: "#eab308" },
+  "amarillo": { icon: "🟡", badge: "Claridad Solar", color: "#eab308" },
+  "color violeta / morado / purpura": { icon: "🟣", badge: "Transformación Espiritual", color: "#a855f7" },
+  "violeta": { icon: "🟣", badge: "Transmutación Sabia", color: "#a855f7" },
+  // Personas y vínculos
+  "personas desconocidas / extranos": { icon: "👤", badge: "Facetas por Descubrir", color: "#94a3b8" },
+  "desconocido": { icon: "👤", badge: "La Sombra Ajena", color: "#94a3b8" },
+  "madre / figura materna": { icon: "👩‍👧", badge: "Afecto & Nutrición", color: "#f472b6" },
+  "madre": { icon: "👩‍👧", badge: "Seguridad & Raíz", color: "#f472b6" },
+  "padre / figura paterna": { icon: "👨‍👧", badge: "Ley & Orientación", color: "#3b82f6" },
+  "padre": { icon: "👨‍👧", badge: "Estructura & Decisión", color: "#3b82f6" },
+  "ex-pareja / amor del pasado": { icon: "💔", badge: "Vínculos & Duelos", color: "#f43f5e" },
+  "ex": { icon: "💔", badge: "Ciclos Pendientes", color: "#f43f5e" },
+  "nino / infancia / nino interior": { icon: "🧒", badge: "Niño Interior", color: "#f59e0b" },
+  "nino": { icon: "🧒", badge: "Inocencia & Juego", color: "#f59e0b" },
+  "bebe / nacimiento / lactancia": { icon: "👶", badge: "Nuevo Comienzo", color: "#f472b6" },
+  "bebe": { icon: "👶", badge: "Proyecto Frágil", color: "#f472b6" },
+  "multitud / masa de gente": { icon: "👥", badge: "Presión Social", color: "#818cf8" },
+  "multitud": { icon: "👥", badge: "Pertenencia o Agobio", color: "#818cf8" },
+  "anciano sabio / guia / mentor": { icon: "🧙‍♂️", badge: "Voz de la Sabiduría", color: "#a855f7" },
+  "anciano sabio": { icon: "🧙‍♂️", badge: "Consejo Íntimo", color: "#a855f7" },
+  "amigos / amistades de la infancia": { icon: "🤝", badge: "Apoyo Leal", color: "#10b981" },
+  "amigos": { icon: "🤝", badge: "Complicidad & Pasado", color: "#10b981" },
+  "fallecido / visita de ser querido": { icon: "🕊️", badge: "Consuelo & Paz", color: "#cbd5e1" },
+  "fallecido": { icon: "🕊️", badge: "Memoria Afectiva", color: "#cbd5e1" },
+  // Sensaciones y acciones
+  "perdida de voz / no poder gritar": { icon: "🔇", badge: "Bloqueo Comunicativo", color: "#f43f5e" },
+  "sin voz": { icon: "🔇", badge: "Verdades Calladas", color: "#f43f5e" },
+  "buscar algo perdido sin encontrarlo": { icon: "🧭", badge: "Búsqueda de Sentido", color: "#eab308" },
+  "buscar": { icon: "🧭", badge: "Rumbo Extraviado", color: "#eab308" },
+  "bailar / fiesta / celebracion": { icon: "💃", badge: "Celebración Vital", color: "#ec4899" },
+  "bailar": { icon: "💃", badge: "Gozo & Libertad", color: "#ec4899" }
 };
 
 function getSymbolVisual(e) {
@@ -151,6 +273,14 @@ function getSymbolVisual(e) {
     if (n.includes(key) || key.includes(n)) return val;
   }
   const cat = (e.category || "").toLowerCase();
+  if (cat === "animal") return { icon: "🐾", badge: "Fauna & Instinto", color: "#10b981" };
+  if (cat === "lugar") return { icon: "📍", badge: "Lugar & Paisaje", color: "#06b6d4" };
+  if (cat === "clima") return { icon: "⛅", badge: "Tiempo & Atmósfera", color: "#38bdf8" };
+  if (cat === "naturaleza") return { icon: "🌿", badge: "Reino Vegetal", color: "#22c55e" };
+  if (cat === "mineral") return { icon: "💎", badge: "Piedras & Tesoros", color: "#eab308" };
+  if (cat === "color") return { icon: "🎨", badge: "Cromatismo Onírico", color: "#f472b6" };
+  if (cat === "persona") return { icon: "👤", badge: "Vínculo & Encuentros", color: "#a855f7" };
+  if (cat === "sensación") return { icon: "💫", badge: "Sensación Corporal", color: "#f59e0b" };
   if (cat === "símbolo") return { icon: "✦", badge: "Símbolo Onírico", color: "#f472b6" };
   if (cat === "psicología") return { icon: "🧠", badge: "Psicología", color: "#a855f7" };
   if (cat === "ciencia") return { icon: "🔬", badge: "Ciencia de la Mente", color: "#38bdf8" };

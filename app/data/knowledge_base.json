@@ -1216,9 +1216,17 @@
       "term": "Serpiente",
       "synonyms": [
         "culebra",
-        "víbora"
+        "víbora",
+        "serpiente",
+        "serpientes",
+        "vibora",
+        "cobra",
+        "mordedura de serpiente",
+        "reptil",
+        "mudar de piel",
+        "veneno"
       ],
-      "category": "símbolo",
+      "category": "animal",
       "summary": "Ambivalencia total: amenaza, sabiduría, salud o sexualidad según cultura y emoción.",
       "detail": "Morder vs mudar piel vs observar. Preguntar por miedo real a reptiles y por cambios (muda) antes que fijar sentido.",
       "perspective": "Exploración simbólica",
@@ -1254,9 +1262,17 @@
       "synonyms": [
         "perros",
         "cachorro",
-        "ladridos"
+        "ladridos",
+        "perro",
+        "perra",
+        "perras",
+        "ladrar",
+        "mordisco de perro",
+        "perro guardián",
+        "mascota",
+        "fidelidad canina"
       ],
-      "category": "símbolo",
+      "category": "animal",
       "summary": "Lealtad, vínculo y protección; agresivo solo si hay amenaza o culpa.",
       "detail": "Perro propio vs jauría. Si hay mascota real, priorizar continuidad (paseos, salud del animal).",
       "perspective": "Exploración simbólica",
@@ -1292,9 +1308,18 @@
       "term": "Gato",
       "synonyms": [
         "gatos",
-        "gatito"
+        "gatito",
+        "gato",
+        "gata",
+        "gatas",
+        "felino",
+        "maullar",
+        "ronronear",
+        "arañazo de gato",
+        "gato negro",
+        "independencia"
       ],
-      "category": "símbolo",
+      "category": "animal",
       "summary": "Autonomía, intuición y límites; esquivo si hay desconfianza.",
       "detail": "Gato doméstico vs salvaje. Explorar necesidad de espacio propio.",
       "perspective": "Exploración simbólica",
@@ -1325,9 +1350,20 @@
         "pájaros",
         "paloma",
         "cuervo",
-        "águila"
+        "águila",
+        "pájaro",
+        "pajaro",
+        "pajaros",
+        "ave",
+        "aves",
+        "volar",
+        "canto de pájaro",
+        "nido",
+        "alas",
+        "plumas",
+        "jaula"
       ],
-      "category": "símbolo",
+      "category": "animal",
       "summary": "Mensajes, libertad o perspectiva; la especie y el canto matizan.",
       "detail": "Pájaros enjaulados vs bandadas. Golondrina/ruiseñor con lecturas clásicas opuestas según contexto.",
       "perspective": "Exploración simbólica",
@@ -1357,9 +1393,15 @@
       "synonyms": [
         "peces",
         "pescar",
-        "delfín"
+        "delfín",
+        "pez",
+        "pescado",
+        "nadar",
+        "banco de peces",
+        "agua cristalina con peces",
+        "anzuelo"
       ],
-      "category": "símbolo",
+      "category": "animal",
       "summary": "Contenidos que emergen de lo profundo; pescar como buscar respuestas.",
       "detail": "Peces vivos vs muertos, agua clara vs turbia. Delfín con valencia propia en la tradición.",
       "perspective": "Exploración simbólica",
@@ -1396,9 +1438,19 @@
       "synonyms": [
         "caballos",
         "jinete",
-        "cabalgar"
+        "cabalgar",
+        "caballo",
+        "yegua",
+        "potro",
+        "galopar",
+        "montar a caballo",
+        "crin",
+        "herradura",
+        "fuerza indómita",
+        "caballo blanco",
+        "caballo negro"
       ],
-      "category": "símbolo",
+      "category": "animal",
       "summary": "Impulso vital y trabajo: montarlo, que se desboque o cuidar de él.",
       "detail": "Montar con control vs caída. Conectar con energía, plazos y cuerpo.",
       "perspective": "Exploración simbólica",
@@ -1430,9 +1482,17 @@
         "insectos",
         "hormigas",
         "abejas",
-        "mosquitos"
+        "mosquitos",
+        "arañas",
+        "arana",
+        "telaraña",
+        "tela de araña",
+        "tejer",
+        "picadura de araña",
+        "tarántula",
+        "atrapar en la red"
       ],
-      "category": "símbolo",
+      "category": "animal",
       "summary": "Lo pequeño que invade: preocupaciones acumuladas, picores literales o paciencia tejedora.",
       "detail": "Tela que atrapa vs abeja que produce. Revisar estrés por microtareas y, si hay picor real, causa física.",
       "perspective": "Exploración simbólica",
@@ -1744,9 +1804,16 @@
         "océano",
         "playa",
         "olas",
-        "marea"
+        "marea",
+        "mar",
+        "oceano",
+        "mar abierto",
+        "profundidad del mar",
+        "agua salada",
+        "aguas profundas",
+        "horizonte marítimo"
       ],
-      "category": "símbolo",
+      "category": "lugar",
       "summary": "Inmensidad emocional: orilla segura vs mar abierto.",
       "detail": "Mirar, bañarse, naufragar. Estado del mar + tu posición = tono de la lectura.",
       "perspective": "Exploración simbólica",
@@ -1782,9 +1849,17 @@
       "synonyms": [
         "río",
         "corriente",
-        "riachuelo"
+        "riachuelo",
+        "rio",
+        "ríos",
+        "manantial",
+        "cascada",
+        "catarata",
+        "arroyo",
+        "cruzar el río",
+        "agua corriente"
       ],
-      "category": "símbolo",
+      "category": "lugar",
       "summary": "Fluir de la vida: a favor, contra o estancado.",
       "detail": "Cruzar, dejarse llevar, atascarse. Preguntar por ritmo actual.",
       "perspective": "Exploración simbólica",
@@ -1815,9 +1890,18 @@
         "lluvia",
         "tormenta",
         "rayo",
-        "granizo"
+        "granizo",
+        "llover",
+        "diluvio",
+        "llovizna",
+        "gotas de lluvia",
+        "rayos",
+        "truenos",
+        "relámpago",
+        "mojarse con la lluvia",
+        "chaparron"
       ],
-      "category": "símbolo",
+      "category": "clima",
       "summary": "Lluvia suave que limpia vs tormenta que interrumpe.",
       "detail": "Mojarse a gusto vs huir del rayo. Fenómenos atmosféricos con lecturas opuestas por daño.",
       "perspective": "Exploración simbólica",
@@ -1848,9 +1932,16 @@
       "synonyms": [
         "bosque",
         "selva",
-        "árboles"
+        "árboles",
+        "bosques",
+        "jungla",
+        "árboles densos",
+        "perderse en el bosque",
+        "arboleda",
+        "vegetación frondosa",
+        "bosque encantado"
       ],
-      "category": "símbolo",
+      "category": "lugar",
       "summary": "Lo desconocido fértil: perderse, esconderse o encontrar claro.",
       "detail": "Bosque oscuro vs luminoso. Explorar qué zona inexplorada (proyecto, emoción) representa.",
       "perspective": "Exploración simbólica",
@@ -1887,9 +1978,18 @@
         "montaña",
         "cima",
         "escalar",
-        "cumbre"
+        "cumbre",
+        "montana",
+        "montañas",
+        "subir montaña",
+        "abismo",
+        "precipicio",
+        "acantilado",
+        "cordillera",
+        "sendero escarpado",
+        "pico"
       ],
-      "category": "símbolo",
+      "category": "lugar",
       "summary": "Reto y aspiración: subida, cima, caída o contemplación.",
       "detail": "Subir con esfuerzo vs volar hasta arriba. Medir meta real y coste percibido.",
       "perspective": "Exploración simbólica",
@@ -1919,9 +2019,15 @@
       "synonyms": [
         "desierto",
         "sed",
-        "oasis"
+        "oasis",
+        "desiertos",
+        "dunas",
+        "calor sofocante",
+        "tierra árida",
+        "atravesar el desierto",
+        "tormenta de arena"
       ],
-      "category": "símbolo",
+      "category": "lugar",
       "summary": "Carencia y sequedad afectiva; el oasis como recurso inesperado.",
       "detail": "Perdido con sed vs cruzando con guía. Preguntar por apoyos y descanso.",
       "perspective": "Exploración simbólica",
@@ -2506,9 +2612,11 @@
         "camaleón",
         "camaleones",
         "gecko",
-        "saurio"
+        "saurio",
+        "sangre fría",
+        "tomar el sol como lagarto"
       ],
-      "category": "símbolo",
+      "category": "animal",
       "summary": "Instinto primario, capacidad de adaptación camaleónica y regeneración ante situaciones difíciles.",
       "detail": "El lagarto pertenece a las capas más arcaicas del cerebro (complejo reptiliano): supervivencia pura, sangre fría y observación paciente bajo el sol. Soltar la cola para escapar representa la capacidad de sacrificar algo menor para salvar lo esencial de tu vida.",
       "perspective": "Exploración simbólica",
@@ -2566,9 +2674,13 @@
         "calina",
         "nublado",
         "sin visibilidad",
-        "desorientado"
+        "desorientado",
+        "humo blanco",
+        "no ver el camino",
+        "perderse en la niebla",
+        "visibilidad nula"
       ],
-      "category": "símbolo",
+      "category": "clima",
       "summary": "Incertidumbre, confusión mental o transición antes de tomar una decisión trascendental.",
       "detail": "Caminar en la niebla refleja momentos donde el camino no es evidente a simple vista. Psicológicamente, representa un velo que te pide reducir la velocidad, confiar en tus sentidos internos y no forzar una respuesta antes de tiempo.",
       "perspective": "Exploración simbólica",
@@ -2887,9 +2999,12 @@
         "orugas",
         "crisálida",
         "capullo",
-        "metamorfosis"
+        "metamorfosis",
+        "aleteo",
+        "mariposa multicolor",
+        "transformación"
       ],
-      "category": "símbolo",
+      "category": "animal",
       "summary": "Transformación radical, renacimiento personal y ligereza tras un periodo de encierro.",
       "detail": "De oruga arrastrada a crisálida inmóvil y finalmente a criatura alada. La mariposa es el mayor símbolo universal de que los periodos difíciles de aislamiento gestan una versión más libre y auténtica de uno mismo.",
       "perspective": "Exploración simbólica",
@@ -2933,9 +3048,12 @@
         "lobas",
         "manada",
         "aullido",
-        "aullar"
+        "aullar",
+        "aullar a la luna",
+        "lobo solitario",
+        "lealtad del lobo"
       ],
-      "category": "símbolo",
+      "category": "animal",
       "summary": "Instinto leal, defensa territorial, sentido de tribu y conexión con la naturaleza salvaje.",
       "detail": "El lobo encarna tanto la lealtad feroz a la manada como la capacidad de ser un 'lobo solitario'. Si ataca, puede reflejar miedo a ser traicionado por tu círculo íntimo; si te acompaña, representa un protector interior.",
       "perspective": "Exploración simbólica",
@@ -2983,9 +3101,15 @@
         "panteras",
         "felino",
         "felinos",
-        "fiera"
+        "fiera",
+        "leon",
+        "rugido",
+        "rey de la selva",
+        "melena",
+        "fuerza solar",
+        "caza"
       ],
-      "category": "símbolo",
+      "category": "animal",
       "summary": "Poder, soberanía personal, liderazgo y dominio de los propios impulsos y pasiones.",
       "detail": "El león representa el fuego del coraje y la dignidad. Enfrentarse a un león en sueños pone a prueba tu autoestima y la capacidad de liderar tu propia vida sin doblegarte ante figuras de autoridad agresivas.",
       "perspective": "Exploración simbólica",
@@ -3028,9 +3152,13 @@
         "osos",
         "osa",
         "hibernación",
-        "cueva de oso"
+        "cueva de oso",
+        "hibernar",
+        "oso pardo",
+        "oso blanco",
+        "garra de oso"
       ],
-      "category": "símbolo",
+      "category": "animal",
       "summary": "Fuerza protectora materna, necesidad de descanso introspectivo (hibernación) y poder silencioso.",
       "detail": "El oso alterna entre la hibernación íntima y el despertar poderoso de primavera. Puede ser una invitación a retirarte del ruido exterior para reponer fuerzas vitales.",
       "perspective": "Exploración simbólica",
@@ -3067,9 +3195,14 @@
         "búhos",
         "lechuza",
         "lechuzas",
-        "ave nocturna"
+        "ave nocturna",
+        "buho",
+        "buhos",
+        "ojos de búho",
+        "ver de noche",
+        "sabiduría nocturna"
       ],
-      "category": "símbolo",
+      "category": "animal",
       "summary": "Sabiduría intuitiva, capacidad de ver en la oscuridad y lucidez en momentos confusos.",
       "detail": "El búho gira su cabeza casi por completo y ve lo que otros ignoran en la noche. Representa la intuición clara que te permite descubrir motivos ocultos o verdades no dichas.",
       "perspective": "Exploración simbólica",
@@ -3111,9 +3244,14 @@
         "tiburones",
         "escualo",
         "aleta",
-        "mordedura de tiburón"
+        "mordedura de tiburón",
+        "tiburon",
+        "aleta de tiburón",
+        "mandíbula de tiburón",
+        "peligro en el mar",
+        "depredador"
       ],
-      "category": "símbolo",
+      "category": "animal",
       "summary": "Amenazas implacables, miedo a ser atacado en un terreno emocional y depredadores sociales.",
       "detail": "El tiburón nada por debajo de la superficie del agua (inconsciente). Simboliza personas o situaciones implacables en tu entorno que no muestran compasión ni segundas oportunidades.",
       "perspective": "Exploración simbólica",
@@ -3149,9 +3287,13 @@
         "delfines",
         "ballena",
         "ballenas",
-        "cetáceo"
+        "cetáceo",
+        "delfin",
+        "jugar en el agua",
+        "salto de delfín",
+        "inteligencia marina"
       ],
-      "category": "símbolo",
+      "category": "animal",
       "summary": "Alegría, comunicación empática, salvamento emocional y armonía con las profundidades del ser.",
       "detail": "El delfín respira aire pero vive en el agua: media perfectamente entre la razón (aire) y la emoción (agua). Soñar con delfines amistosos es un augurio de sanación y ligereza afectiva.",
       "perspective": "Exploración simbólica",
@@ -3197,9 +3339,13 @@
         "glaciar",
         "congelado",
         "nevada",
-        "ventisca"
+        "ventisca",
+        "nevar",
+        "copos de nieve",
+        "frío extremo",
+        "paisaje blanco"
       ],
-      "category": "símbolo",
+      "category": "clima",
       "summary": "Distanciamiento afectivo, emociones 'congeladas', purificación o sensación de aislamiento.",
       "detail": "La nieve cubre todo con un manto blanco y silencia el entorno. Puede reflejar una etapa de 'frialdad' en una relación, o por el contrario, la belleza pacífica de una página en blanco lista para volver a empezar.",
       "perspective": "Exploración simbólica",
@@ -3243,9 +3389,12 @@
         "rayos de sol",
         "mediodía",
         "atardecer",
-        "salida del sol"
+        "salida del sol",
+        "aurora",
+        "crepúsculo",
+        "eclipse de sol"
       ],
-      "category": "símbolo",
+      "category": "clima",
       "summary": "Claridad, vitalidad, optimismo renovado, consciencia plena y éxito en tus proyectos.",
       "detail": "El sol disipa la noche y llena de energía todo lo que toca. Soñar con el sol radiante o con un amanecer marca el final de una época oscura y el inicio de una etapa de entusiasmo y buena salud.",
       "perspective": "Exploración simbólica",
@@ -3290,9 +3439,14 @@
         "luna nueva",
         "luna roja",
         "eclipse",
-        "plenilunio"
+        "plenilunio",
+        "media luna",
+        "eclipse de luna",
+        "luz de luna",
+        "noche de luna",
+        "fases de la luna"
       ],
-      "category": "símbolo",
+      "category": "clima",
       "summary": "Mundo emocional, intuición femenina, ritmos cíclicos y misterios del inconsciente.",
       "detail": "La luna ilumina la noche con luz prestada del sol. Representa la fluctuación de los estados de ánimo, la fertilidad creadora y los secretos que solo se comprenden en la intimidad del descanso.",
       "perspective": "Exploración simbólica",
@@ -3337,9 +3491,12 @@
         "constelación",
         "estrella fugaz",
         "astros",
-        "universo"
+        "universo",
+        "firmamento",
+        "cometa",
+        "noche estrellada"
       ],
-      "category": "símbolo",
+      "category": "clima",
       "summary": "Guía, anhelos elevados, esperanza inquebrantable y conexión con lo trascendente.",
       "detail": "Desde la antigüedad, las estrellas han servido a los navegantes para no extraviarse en alta mar. Soñar con estrellas brillantes refleja que mantienes una brújula moral e ideales claros a pesar de las dificultades.",
       "perspective": "Exploración simbólica",
@@ -3751,6 +3908,2593 @@
       "questions": [
         "¿Has estado durmiendo a deshoras o con sobrecarga de trabajo esta semana?",
         "¿Dónde sientes que en tu vigilia tienes las 'manos atadas' sin poder decir lo que piensas?"
+      ]
+    },
+    {
+      "id": "k-aguila",
+      "term": "Águila / Halcón / Ave Rapaz",
+      "synonyms": [
+        "águila",
+        "aguila",
+        "águilas",
+        "aguilas",
+        "halcón",
+        "halcon",
+        "halcones",
+        "ave rapaz",
+        "rapaz",
+        "volar alto",
+        "aguilucho",
+        "pájaro rapaz"
+      ],
+      "category": "animal",
+      "summary": "Visión panorámica de altura, nobleza, clarividencia y libertad frente a ataduras terrenales.",
+      "detail": "El águila vuela por encima de las tormentas y posee una agudeza visual inigualable. Simboliza la capacidad de elevarse sobre los problemas cotidianos para contemplar el cuadro completo ('visión de pájaro') con lucidez, foco y determinación.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "Arquetipo de la elevación espiritual, la nobleza y la consciencia superior que domina los instintos rastreros.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "En Roma y Grecia, el águila (ave de Júpiter/Zeus) auguraba victorias insignes, liderazgo indiscutible y éxito en empresas nobles.",
+          "sourceId": "s-artemidoro"
+        },
+        {
+          "school": "personal",
+          "text": "Pregúntate qué situación estás viendo con demasiada miopía o desde qué altura necesitas evaluar tu vida.",
+          "sourceId": "s-continuidad"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "animal",
+        "visión",
+        "liderazgo",
+        "libertad",
+        "aire"
+      ],
+      "questions": [
+        "¿El águila planeaba serena o se lanzaba en picado hacia un objetivo?",
+        "¿En qué asunto necesitas tomar distancia para no ahogarte en los detalles?"
+      ]
+    },
+    {
+      "id": "k-elefante",
+      "term": "Elefante",
+      "synonyms": [
+        "elefante",
+        "elefantes",
+        "elefanta",
+        "trompa",
+        "marfil",
+        "paquidermo",
+        "memoria de elefante",
+        "manada de elefantes"
+      ],
+      "category": "animal",
+      "summary": "Gran memoria emocional, sabiduría ancestral, paciencia inquebrantable y fuerza tranquila.",
+      "detail": "El elefante no olvida jamás. Su presencia en sueños suele relacionarse con recuerdos familiares profundos, el soporte incondicional de los seres queridos o asuntos del pasado que cargan con mucho peso pero se sobrellevan con dignidad.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "Símbolo de la fuerza telúrica y la paciencia del sabio: poder monumental que rara vez ataca sin motivo.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Tradición oriental y clásica: símbolo de buena fortuna, solidez económica duradera y remoción de obstáculos.",
+          "sourceId": "s-artemidoro"
+        },
+        {
+          "school": "personal",
+          "text": "Examina si estás cargando con un 'peso pesado' en silencio o si un recuerdo antiguo pide ser reconocido.",
+          "sourceId": "s-continuidad"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "B",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "animal",
+        "memoria",
+        "fuerza",
+        "sabiduría",
+        "familia"
+      ],
+      "questions": [
+        "¿El elefante te acompañaba con calma o caminaba abriendo camino?",
+        "¿Qué memoria o lección del pasado te está sirviendo de guía en el presente?"
+      ]
+    },
+    {
+      "id": "k-toro",
+      "term": "Toro / Vaca",
+      "synonyms": [
+        "toro",
+        "toros",
+        "vaca",
+        "vacas",
+        "ternero",
+        "embestida",
+        "cuernos",
+        "ganado",
+        "buey",
+        "leche de vaca",
+        "pastar"
+      ],
+      "category": "animal",
+      "summary": "Fuerza fertilizadora, instinto tozudo, nutrición generosa o amenaza de embestida.",
+      "detail": "El toro representa la potencia bruta y la determinación inamovible (o terquedad); si embiste, refleja miedo a una fuerza agresiva indomable. La vaca simboliza la nutrición maternal generosa, la calma nutricia y la prosperidad cotidiana.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "El toro como símbolo de las pasiones indómitas y el misterio dionisíaco; la vaca como la Gran Madre nutricia.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: vacas gordas y mansas auguran cosechas ricas y paz; toros furiosos alertan de conflictos con personas tercas.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "B",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "animal",
+        "fuerza",
+        "nutrición",
+        "fertilidad",
+        "tierra"
+      ],
+      "questions": [
+        "¿El animal era pacífico y nutricio, o sentías peligro de embestida?",
+        "¿En qué aspecto de tu vida estás siendo demasiado terco o necesitas ser más firme?"
+      ]
+    },
+    {
+      "id": "k-tortuga",
+      "term": "Tortuga",
+      "synonyms": [
+        "tortuga",
+        "tortugas",
+        "galápago",
+        "caparazón",
+        "lentitud",
+        "longevidad",
+        "paso a paso"
+      ],
+      "category": "animal",
+      "summary": "Paciencia, paso a paso seguro, protección bajo el caparazón y longevidad sabia.",
+      "detail": "La tortuga lleva su casa a cuestas y no compite en velocidad, sino en resistencia y perseverancia. Soñar con ella te recuerda que las metas duraderas no se construyen con prisas apresuradas, sino con constancia blindada.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "historica",
+          "text": "Símbolo de larga vida, prudencia y retiro sabio frente a las prisas imprudentes del mundo.",
+          "sourceId": "s-artemidoro"
+        },
+        {
+          "school": "personal",
+          "text": "Invita a esconderte en tu 'caparazón' temporalmente si el entorno está hostil o demandante.",
+          "sourceId": "s-continuidad"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-artemidoro"
+      ],
+      "evidence": "B",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "animal",
+        "paciencia",
+        "protección",
+        "resistencia"
+      ],
+      "questions": [
+        "¿La tortuga caminaba lenta y segura o se refugiaba en su caparazón?",
+        "¿En qué asunto te conviene bajar el ritmo y avanzar con calma invulnerable?"
+      ]
+    },
+    {
+      "id": "k-rana",
+      "term": "Rana / Sapo",
+      "synonyms": [
+        "rana",
+        "ranas",
+        "sapo",
+        "sapos",
+        "croar",
+        "renacuajo",
+        "charca",
+        "salto de rana"
+      ],
+      "category": "animal",
+      "summary": "Transformación vital, adaptación entre dos mundos (agua y tierra) y fertilidad.",
+      "detail": "De renacuajo a anfibio saltador, la rana vive en continua metamorfosis. Representa momentos de salto cualitativo, adaptabilidad emocional y la capacidad de encontrar belleza y sabiduría donde otros solo ven barro.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "El sapo que se convierte en príncipe: rescate del tesoro escondido bajo apariencias desagradables de la sombra.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: ranas croando anuncian charlas superfluas de vecinos o fertilidad y lluvia bienhechora para el campo.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "B",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "animal",
+        "transformación",
+        "adaptabilidad",
+        "agua"
+      ],
+      "questions": [
+        "¿La rana saltaba ágil o te causaba repulsión?",
+        "¿Qué aspecto de tu vida está a punto de dar un salto cualitativo inesperado?"
+      ]
+    },
+    {
+      "id": "k-abeja",
+      "term": "Abeja / Avispa / Colmena",
+      "synonyms": [
+        "abeja",
+        "abejas",
+        "avispa",
+        "avispas",
+        "colmena",
+        "miel",
+        "enjambre",
+        "aguijón",
+        "picadura de abeja",
+        "panal"
+      ],
+      "category": "animal",
+      "summary": "Laboriosidad compartida, orden comunitario, dulzura cosechada o miedo a ser picado.",
+      "detail": "Las abejas encarnan la cooperación infatigable y la creación del oro dulce de la miel. Si te persiguen o pican, expresan agobio social, rencillas colectivas o el pinchazo de una culpa o palabra hiriente recibida en el trabajo.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "La colmena como mandala viviente del inconsciente colectivo coordinado por un propósito superior.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: para campesinos y artesanos augura ganancias y prosperidad fruto del trabajo metódico.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "animal",
+        "trabajo",
+        "comunidad",
+        "dulzura",
+        "alerta"
+      ],
+      "questions": [
+        "¿Las abejas fabricaban miel en calma o sentías el zumbido amenazante de un enjambre?",
+        "¿Cómo es el equilibrio entre tu esfuerzo laboral y la dulzura de disfrutar sus frutos?"
+      ]
+    },
+    {
+      "id": "k-zorro",
+      "term": "Zorro",
+      "synonyms": [
+        "zorro",
+        "zorra",
+        "zorros",
+        "zorras",
+        "astuto",
+        "marrullero",
+        "cola de zorro"
+      ],
+      "category": "animal",
+      "summary": "Astucia aguda, cautela ante el engaño, capacidad de camuflaje y supervivencia inteligente.",
+      "detail": "El zorro no confronta por fuerza bruta; estudia el terreno, halla las grietas y sale airoso de cualquier emboscada. Puede sugerir que necesitas ser más pícaro y reservado con tus planes, o alertar sobre alguien cercano que oculta sus verdaderas intenciones.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "Arquetipo del embaucador (trickster) menor: el ingenio que desarma las reglas rígidas del ego.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro y fábulas tradicionales: advierte contra lisonjas engañosas de adversarios astutos.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "B",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "animal",
+        "astucia",
+        "prudencia",
+        "ingenio"
+      ],
+      "questions": [
+        "¿El zorro te observaba con inteligencia o huía sigiloso?",
+        "¿En qué asunto actual necesitas usar el ingenio fino en vez de la confrontación directa?"
+      ]
+    },
+    {
+      "id": "k-ciervo",
+      "term": "Ciervo / Venado",
+      "synonyms": [
+        "ciervo",
+        "ciervos",
+        "venado",
+        "venados",
+        "cierva",
+        "bambi",
+        "cornamenta de ciervo",
+        "gamo"
+      ],
+      "category": "animal",
+      "summary": "Gentileza, nobleza silvestre, sensibilidad espiritual e instinto despierto ante el peligro.",
+      "detail": "Animal sagrado en infinidad de mitologías, el ciervo simboliza la pureza de intención, la conexión delicada con la naturaleza y una sensibilidad que detecta vibraciones sutiles antes que nadie.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "Guía hacia lo numinoso y el misterio del bosque interior; la cornamenta renueva el vínculo con lo cósmico.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Símbolo de gracia, longevidad y escape afortunado de enemigos gracias a la velocidad prudente.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "B",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "animal",
+        "nobleza",
+        "sensibilidad",
+        "gracia"
+      ],
+      "questions": [
+        "¿El ciervo se detenía a mirarte con serenidad antes de adentrarse en la espesura?",
+        "¿Estás cuidando de tu propia inocencia y sensibilidad frente a entornos agresivos?"
+      ]
+    },
+    {
+      "id": "k-rata",
+      "term": "Rata / Ratón",
+      "synonyms": [
+        "rata",
+        "ratas",
+        "ratón",
+        "raton",
+        "ratones",
+        "roedor",
+        "roedores",
+        "mordisquear",
+        "alcantarilla"
+      ],
+      "category": "animal",
+      "summary": "Preocupaciones furtivas que corroen por dentro, instinto de supervivencia o detalles descuidados.",
+      "detail": "Los roedores aparecen en sueños cuando sentimos que 'algo nos está carcomiendo' en silencio (dudas, gastos hormiga, sospechas ocultas). No obstante, también representan la astucia para encontrar alimento donde nadie más ve recursos.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "cientifica",
+          "text": "Se asocia a rumiación mental, pensamientos intrusivos o sensación de desorden en la vida diurna.",
+          "sourceId": "s-continuidad"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: ratones mordisqueando cosas señalan pérdidas menores por descuidos domésticos.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-artemidoro"
+      ],
+      "evidence": "B",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "animal",
+        "inquietud",
+        "supervivencia",
+        "desgaste"
+      ],
+      "questions": [
+        "¿La rata huía asustada o te causaba sobresalto?",
+        "¿Qué pensamiento molesto estás dejando que carcoma tu tranquilidad diaria?"
+      ]
+    },
+    {
+      "id": "k-cuervo",
+      "term": "Cuervo",
+      "synonyms": [
+        "cuervo",
+        "cuervos",
+        "corvus",
+        "graznido",
+        "pájaro negro",
+        "plumas negras",
+        "pájaro oscuro"
+      ],
+      "category": "animal",
+      "summary": "Misterio del inconsciente, mensajero de transformaciones profundas y lúcida sabiduría oculta.",
+      "detail": "Lejos del estigma del mal agüero, el cuervo es uno de los animales más inteligentes del planeta. En el sueño actúa como explorador de las zonas oscuras de la mente, trayendo avisos sobre verdades que intentamos no ver.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "Símbolo de la fase alquímica de 'nigredo': la desintegración necesaria previa a todo renacimiento espiritual.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "En mitología nórdica (Huginn y Muninn), representan el pensamiento y la memoria que sobrevuelan el mundo.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "B",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "animal",
+        "misterio",
+        "sabiduría",
+        "transformación"
+      ],
+      "questions": [
+        "¿El cuervo te observaba en silencio o emitía un graznido de alerta?",
+        "¿Qué verdad incómoda pero lúcida estás listo para afrontar?"
+      ]
+    },
+    {
+      "id": "k-murcielago",
+      "term": "Murciélago",
+      "synonyms": [
+        "murciélago",
+        "murcielago",
+        "murciélagos",
+        "murcielagos",
+        "vampiro",
+        "cueva de murciélagos",
+        "volar de noche",
+        "ecolocalización"
+      ],
+      "category": "animal",
+      "summary": "Orientación en la oscuridad más profunda, renacimiento initiático y superación de temores.",
+      "detail": "El murciélago duerme colgado cabeza abajo y 've' con el oído en plena noche. En sueños indica que los viejos caminos ya no sirven y necesitas aguzar tus otros sentidos (intuición, empatía) para navegar un periodo de incertidumbre.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "Viaje a las profundidades del inframundo psíquico; dejar morir una faceta vieja para renacer.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "En la tradición mesoamericana y oriental simbolizaba el renacimiento desde las entrañas de la tierra.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung"
+      ],
+      "evidence": "B",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "animal",
+        "noche",
+        "intuición",
+        "renacimiento"
+      ],
+      "questions": [
+        "¿El murciélago volaba guiado por el aire o te asustaba?",
+        "¿Cómo te orientas cuando las circunstancias no te permiten ver con claridad?"
+      ]
+    },
+    {
+      "id": "k-cocodrilo",
+      "term": "Cocodrilo / Caimán",
+      "synonyms": [
+        "cocodrilo",
+        "cocodrilos",
+        "caimán",
+        "caiman",
+        "caimanes",
+        "lagarto gigante",
+        "mandíbula",
+        "reptil acuático",
+        "pantano"
+      ],
+      "category": "animal",
+      "summary": "Emociones primitivas al acecho, peligro oculto bajo la superficie y poder implacable.",
+      "detail": "El cocodrilo yace inmóvil bajo el agua turbia esperando el momento exacto para lanzar su mordisco. Soñar con él delata desconfianza hacia alguien en tu entorno o el temor a que un resentimiento antiguo estalle de forma destructiva.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "Fuerzas del inconsciente arcaico que no responden a la razón humana y exigen cautela y respeto.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: el cocodrilo en aguas turbias personifica a un enemigo silencioso y rapaz.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "B",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "animal",
+        "peligro",
+        "inconsciente",
+        "emociones"
+      ],
+      "questions": [
+        "¿El animal estaba sumergido al acecho o lograbas mantenerte a salvo en la orilla?",
+        "¿Qué emoción reprimida sientes que amenaza con devorar tu tranquilidad?"
+      ]
+    },
+    {
+      "id": "k-mono",
+      "term": "Mono / Simio",
+      "synonyms": [
+        "mono",
+        "monos",
+        "simio",
+        "simios",
+        "chimpancé",
+        "gorila",
+        "babuino",
+        "jugarretas",
+        "saltar de rama en rama"
+      ],
+      "category": "animal",
+      "summary": "Espontaneidad, travesuras desenfadadas, curiosidad juguetona o falta de seriedad.",
+      "detail": "Los monos nos recuerdan nuestra raíz biológica sin corsés sociales. Si el sueño es divertido, señala necesidad de no tomarse la vida tan en serio; si es caótico, puede reflejar falta de foco y distracciones que sabotean tus metas.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "Representa la mente no domesticada ('la mente de mono' del budismo) que salta sin cesar de pensamiento en pensamiento.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: simboliza aduladores o personas que fingen buenas intenciones pero actúan con burlas.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "B",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "animal",
+        "curiosidad",
+        "juego",
+        "espontaneidad"
+      ],
+      "questions": [
+        "¿El mono jugaba de forma simpática o te robaba algún objeto personal?",
+        "¿Te estás permitiendo reírte y ser más espontáneo en tu vida diaria?"
+      ]
+    },
+    {
+      "id": "k-hormiga",
+      "term": "Hormiga / Plaga de Insectos",
+      "synonyms": [
+        "hormiga",
+        "hormigas",
+        "hormiguero",
+        "plaga de insectos",
+        "bichos",
+        "picaduras de hormiga",
+        "hormigueo",
+        "cucarachas",
+        "chinches"
+      ],
+      "category": "animal",
+      "summary": "Atención a los pequeños detalles, trabajo de hormiguita o agobio por mil tareas pendientes.",
+      "detail": "Una hormiga solitaria simboliza disciplina férrea y persistencia. Cientos de ellas invadiendo un espacio expresan la sensación de que multitud de problemas minúsculos se están acumulando y desbordando tu paciencia.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "cientifica",
+          "text": "Suele acompañar fases de sobrecarga cognitiva donde la acumulación de microtareas genera estrés somático.",
+          "sourceId": "s-continuidad"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: para campesinos representa cosecha abundante; para enfermos advierte de agotamiento por fatiga.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "animal",
+        "disciplina",
+        "agobio",
+        "detalles"
+      ],
+      "questions": [
+        "¿Las hormigas marchaban en orden o invadían descontroladamente tu casa?",
+        "¿Qué pequeña molestia cotidiana estás dejando crecer sin resolverla a tiempo?"
+      ]
+    },
+    {
+      "id": "k-arbol",
+      "term": "Árbol / Raíces / Ramas",
+      "synonyms": [
+        "árbol",
+        "arbol",
+        "árboles",
+        "arboles",
+        "raíz",
+        "raices",
+        "raíces",
+        "ramas",
+        "tronco",
+        "savia",
+        "roble",
+        "olivo",
+        "sauce",
+        "árbol de la vida",
+        "árbol caído",
+        "planta",
+        "plantas",
+        "vegetación",
+        "vegetacion",
+        "flora"
+      ],
+      "category": "naturaleza",
+      "summary": "Estructura vital, linaje familiar, conexión entre la tierra y el cielo, y maduración sólida.",
+      "detail": "El árbol es el símbolo universal de la vida en constante crecimiento. Sus raíces te conectan con tus ancestros y valores firmes; su tronco es tu fortaleza interior presente; sus ramas y hojas se abren al futuro y a los frutos que cosecharás.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "El Arquetipo del Árbol de la Vida y del 'Sí-mismo': integración del inconsciente hondo (raíces) con la consciencia elevada (copa).",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: un árbol verde y frondoso augura salud duradera y renombre familiar; si está seco o desgajado, pide cuidar las raíces.",
+          "sourceId": "s-artemidoro"
+        },
+        {
+          "school": "personal",
+          "text": "Un árbol caído o deshojado señala agotamiento de vitalidad y necesidad urgente de regar tus propias bases.",
+          "sourceId": "s-continuidad"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "naturaleza",
+        "crecimiento",
+        "raíces",
+        "familia",
+        "vida"
+      ],
+      "questions": [
+        "¿El árbol era alto y verde, o tenía ramas secas y desgajadas?",
+        "¿Sientes tus bases y raíces lo bastante sólidas para sostener tus proyectos actuales?"
+      ]
+    },
+    {
+      "id": "k-flores",
+      "term": "Flores / Rosa / Loto / Jardín",
+      "synonyms": [
+        "flor",
+        "flores",
+        "rosa",
+        "rosas",
+        "loto",
+        "flor de loto",
+        "jardín",
+        "jardin",
+        "jardines",
+        "florecer",
+        "pétalos",
+        "bouquet",
+        "ramo de flores",
+        "flores marchitas",
+        "jazmín",
+        "plantas",
+        "planta",
+        "vegetales",
+        "flores silvestres"
+      ],
+      "category": "naturaleza",
+      "summary": "Florecimiento interior, belleza efímera, renacimiento afectivo y apertura del corazón.",
+      "detail": "Ver abrirse un capullo en el sueño refleja que algo en tu interior está madurando y desplegando sus mejores cualidades: un talento, un nuevo amor o una reconciliación íntima. Las flores marchitas señalan ciclos que concluyen con dignidad.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "La flor como mandala natural: apertura del centro espiritual. La rosa representa el amor sublime; el loto, la pureza que nace del barro.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: rosas y flores perfumadas en primavera auguran alegrías en el hogar y declaraciones sinceras.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "naturaleza",
+        "belleza",
+        "amor",
+        "renacimiento",
+        "sentimientos"
+      ],
+      "questions": [
+        "¿Las flores estaban frescas y aromáticas o empezaban a secarse?",
+        "¿Qué faceta hermosa de tu personalidad estás lista o listo para dejar florecer?"
+      ]
+    },
+    {
+      "id": "k-semillas",
+      "term": "Semilla / Cosecha / Frutos",
+      "synonyms": [
+        "semilla",
+        "semillas",
+        "sembrar",
+        "fruto",
+        "frutos",
+        "fruta",
+        "frutas",
+        "cosecha",
+        "cosechar",
+        "manzana",
+        "espiga",
+        "trigo",
+        "huerto",
+        "recolectar"
+      ],
+      "category": "naturaleza",
+      "summary": "Potencial en gestación, paciencia ante los tiempos de maduración y recompensa del esfuerzo.",
+      "detail": "Sembrar semillas simboliza una idea o proyecto embrionario que requiere fe, riego y paciencia. Comer frutos dulces y maduros anuncia que un periodo de sacrificio está listo para darte su merecida recompensa tangible.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "La semilla como metáfora del potencial latente del individuo esperando las condiciones propicias para germinar.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: recoger fruta madura del árbol augura riqueza legítima y bienestar para los hijos.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "B",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "naturaleza",
+        "potencial",
+        "esfuerzo",
+        "abundancia"
+      ],
+      "questions": [
+        "¿Enterrabas semillas en la tierra fértil o recogías frutos maduros?",
+        "¿Qué meta personal estás cultivando que requiere paciencia para dar frutos?"
+      ]
+    },
+    {
+      "id": "k-espinas",
+      "term": "Espinas / Maleza / Cactus",
+      "synonyms": [
+        "espinas",
+        "espina",
+        "zarzas",
+        "maleza",
+        "cactus",
+        "pincharse",
+        "zarzal",
+        "plantas secas",
+        "hierbajos",
+        "puntas"
+      ],
+      "category": "naturaleza",
+      "summary": "Dificultades punzantes, defensas erizadas para no ser lastimado o necesidad de podar lo tóxico.",
+      "detail": "Un camino cubierto de zarzas refleja obstáculos que provocan rasguños emocionales. Un cactus con espinas puntiagudas habla de una coraza defensiva que has levantado para que nadie se acerque demasiado a tus zonas vulnerables.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "La protección espinosa que custodia la flor sagrada: autodefensa instintiva ante heridas del pasado.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "personal",
+          "text": "Revisar si estás respondiendo con aspereza a personas que en realidad se acercan con buenas intenciones.",
+          "sourceId": "s-continuidad"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung"
+      ],
+      "evidence": "B",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "naturaleza",
+        "defensa",
+        "obstáculos",
+        "vulnerabilidad"
+      ],
+      "questions": [
+        "¿Te pinchabas al avanzar o contemplabas el zarzal desde fuera?",
+        "¿Frente a quién sientes que necesitas 'erizar tus espinas' y por qué?"
+      ]
+    },
+    {
+      "id": "k-piedra",
+      "term": "Piedras / Rocas / Peñasco",
+      "synonyms": [
+        "piedra",
+        "piedras",
+        "roca",
+        "rocas",
+        "peñasco",
+        "pedrusco",
+        "cantera",
+        "tropezar con una piedra",
+        "tirar piedras",
+        "pedregal",
+        "piedra pesada"
+      ],
+      "category": "mineral",
+      "summary": "Solidez inquebrantable, fundamentos estables, peso obstaculizador o prueba de resistencia.",
+      "detail": "Una roca firme bajo tus pies ofrece la certeza de estar bien plantado en la realidad. Pero una piedra pesada en tu camino o en tu mochila simboliza una carga que te niegas a soltar o un obstáculo tozudo que te obliga a cambiar de ruta.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "La piedra como el núcleo incorruptible de la personalidad; la materia prima de la alquimia interior.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: tropezar con piedras avisa de retrasos burocráticos; levantar rocas pesadas sin esfuerzo presagia gran tenacidad.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "mineral",
+        "firmeza",
+        "obstáculo",
+        "realidad",
+        "tierra"
+      ],
+      "questions": [
+        "¿La piedra era un firme cimiento donde pararte o un estorbo pesado?",
+        "¿Qué obstáculo aparente puede convertirse en la base sobre la que construir algo nuevo?"
+      ]
+    },
+    {
+      "id": "k-cristales",
+      "term": "Cristales / Cuarzo / Minerales",
+      "synonyms": [
+        "cristal",
+        "cristales",
+        "cuarzo",
+        "amatista",
+        "geoda",
+        "mineral",
+        "minerales",
+        "piedra brillante",
+        "cuarzo blanco",
+        "piedra de cristal"
+      ],
+      "category": "mineral",
+      "summary": "Claridad mental límpida, pureza de propósitos, curación energética y visión diáfana.",
+      "detail": "Los cristales surgen tras milenios de ordenación geométrica perfecta bajo calor y presión. Soñar con ellos indica que una etapa caótica de tu vida está decantando hacia una síntesis lúcida y hermosa, aportándote claridad sobre tu verdad.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "Símbolo de la ordenación del caos psíquico en una estructura cristalina armoniosa e incorruptible.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "personal",
+          "text": "Apunta a la necesidad de transparencia total en tus relaciones y de sanar viejas distorsiones cognitivas.",
+          "sourceId": "s-continuidad"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "mineral",
+        "claridad",
+        "luz",
+        "curación",
+        "verdad"
+      ],
+      "questions": [
+        "¿El cristal reflejaba la luz con múltiples colores o era translúcido y sereno?",
+        "¿Qué verdad personal se ha vuelto cristalina para ti en estos días?"
+      ]
+    },
+    {
+      "id": "k-joyas",
+      "term": "Joyas / Diamante / Oro / Perlas",
+      "synonyms": [
+        "joya",
+        "joyas",
+        "diamante",
+        "diamantes",
+        "oro",
+        "plata",
+        "piedra preciosa",
+        "anillo de oro",
+        "collar",
+        "perla",
+        "perlas",
+        "rubí",
+        "esmeralda",
+        "zafiro",
+        "lingote de oro"
+      ],
+      "category": "mineral",
+      "summary": "Auténtico valor interior, dones descubiertos, autoestima consolidada o vanidad material.",
+      "detail": "Las piedras preciosas y el oro no se oxidan ni se degradan con el tiempo. Encontrar una joya o un diamante en sueños simboliza reconocer tu propio valor irreductible tras haber atravesado una dura presión vital.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "El Diamante o la Perla preciosa como arquetipo del 'Sí-mismo': la totalidad psíquica cristalizada e incorruptible.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: encontrar joyas augura alianzas de gran valor y reconocimiento público merecido.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "mineral",
+        "valor",
+        "autoestima",
+        "riqueza",
+        "dones"
+      ],
+      "questions": [
+        "¿La joya brillaba en tu mano o la encontrabas oculta en la tierra?",
+        "¿Qué talento o valor tuyo estás empezando a valorar como se merece?"
+      ]
+    },
+    {
+      "id": "k-arena",
+      "term": "Arena / Dunas / Tierras Movedizas",
+      "synonyms": [
+        "arena",
+        "arena fina",
+        "duna",
+        "dunas",
+        "arena movediza",
+        "arenas movedizas",
+        "polvo",
+        "arena dorada",
+        "tierra seca",
+        "reloj de arena"
+      ],
+      "category": "mineral",
+      "summary": "Paso implacable del tiempo, falta de cimientos firmes, fluidez o sensación de hundimiento.",
+      "detail": "Caminar por arena suelta exige doble esfuerzo físico y borra las huellas con el viento. Si la arena es cálida junto al mar, ofrece placer y relajación; si son arenas movedizas, alerta del miedo a ser engullido por una situación que no logras pisar con firmeza.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "El tiempo devorador (Chronos) y la necesidad de buscar cimientos más sólidos que las meras apariencias.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "personal",
+          "text": "Muestra cansancio por avanzar en un entorno laboral o sentimental donde no te ofrecen estabilidad real.",
+          "sourceId": "s-continuidad"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung"
+      ],
+      "evidence": "B",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "mineral",
+        "tiempo",
+        "inestabilidad",
+        "descanso"
+      ],
+      "questions": [
+        "¿Sentías la arena suave y placentera bajo los pies o te hundías sin poder avanzar?",
+        "¿En qué aspecto de tu vida necesitas pisar sobre roca firme en lugar de arena inestable?"
+      ]
+    },
+    {
+      "id": "k-playa",
+      "term": "Playa / Costa / Orilla",
+      "synonyms": [
+        "playa",
+        "playas",
+        "orilla",
+        "costa",
+        "arena de playa",
+        "olas de la playa",
+        "litoral",
+        "paseo marítimo",
+        "tomar el sol",
+        "orilla del mar"
+      ],
+      "category": "lugar",
+      "summary": "Frontera entre la vigilia consciente (tierra firme) y el mundo emocional (mar); descanso y transición.",
+      "detail": "La playa es el espacio liminal por excelencia: allí donde la tierra sólida abraza el océano misterioso. Soñar con estar en la playa evoca un momento de tregua, de asimilar cambios emocionales recientes mientras escuchas el ritmo relajante del oleaje.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "La orilla como umbral donde el Ego consciente contempla pacíficamente las aguas del Inconsciente colectivo.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "cientifica",
+          "text": "Muy recurrente en personas que atraviesan épocas de alto estrés diurno y reclaman desconexión y sosiego.",
+          "sourceId": "s-continuidad"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "lugar",
+        "descanso",
+        "emociones",
+        "transición",
+        "mar"
+      ],
+      "questions": [
+        "¿El agua en la orilla era mansa y cristalina o rompía con fuerza?",
+        "¿Te estás permitiendo el descanso necesario para digerir los últimos acontecimientos de tu vida?"
+      ]
+    },
+    {
+      "id": "k-isla",
+      "term": "Isla / Aislamiento",
+      "synonyms": [
+        "isla",
+        "islas",
+        "islote",
+        "náufrago",
+        "atún",
+        "tierra aislada",
+        "mar abierto",
+        "estar solo en una isla",
+        "archipiélago"
+      ],
+      "category": "lugar",
+      "summary": "Refugio interior, autosuficiencia, necesidad de distanciamiento o dolor por aislamiento social.",
+      "detail": "Una isla es un universo contenido en sí mismo, separado del bullicio del continente. Puede ser tu santuario soñado para reencontrarte contigo mismo, o un grito de auxilio por sentirte desconectado y solo frente a la inmensidad de los demás.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "La isla como metáfora del individuo aislado que debe construir puentes con el continente humano.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "personal",
+          "text": "Evalúa si te estás encerrando en exceso por miedo a que los demás te lastimen.",
+          "sourceId": "s-continuidad"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung"
+      ],
+      "evidence": "B",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "lugar",
+        "soledad",
+        "retiro",
+        "independencia"
+      ],
+      "questions": [
+        "¿La isla era un paraíso donde disfrutabas de tu soledad o una prisión rodeada de agua?",
+        "¿Necesitas retirarte del ruido externo o es hora de tender puentes hacia tus afectos?"
+      ]
+    },
+    {
+      "id": "k-cueva",
+      "term": "Cueva / Caverna / Gruta",
+      "synonyms": [
+        "cueva",
+        "cuevas",
+        "caverna",
+        "cavernas",
+        "gruta",
+        "galería subterránea",
+        "entrar en una cueva",
+        "antro",
+        "espeleología"
+      ],
+      "category": "lugar",
+      "summary": "Vientre primordial, descenso a lo más recóndito de ti mismo, tesoros ocultos o temores soterrados.",
+      "detail": "Adentrarse en una cueva es el viaje iniciático por excelencia. En la penumbra de la roca se hallan tus memorias más íntimas, tus miedos de la infancia y, al mismo tiempo, las gemas de creatividad que no muestras al mundo exterior.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "El descenso al útero de la Madre Tierra y al inconsciente más profundo para renacer con mayor sabiduría.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: entrar en una cueva luminosa presagia secretos revelados; cueva oscura avisa de confusiones pasajeras.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "lugar",
+        "introspección",
+        "misterio",
+        "origen",
+        "inconsciente"
+      ],
+      "questions": [
+        "¿Llevabas una luz para explorar la cueva o te envolvía la penumbra?",
+        "¿Qué faceta tuya que mantienes 'oculta en la cueva' pide salir a la luz del día?"
+      ]
+    },
+    {
+      "id": "k-castillo",
+      "term": "Castillo / Fortaleza / Palacio",
+      "synonyms": [
+        "castillo",
+        "castillos",
+        "fortaleza",
+        "fortalezas",
+        "palacio",
+        "torreón",
+        "muralla",
+        "foso",
+        "almenas",
+        "fortificación"
+      ],
+      "category": "lugar",
+      "summary": "Defensas elevadas del ego, ambición de estatus, fronteras emocionales o soberanía personal.",
+      "detail": "Un castillo impone respeto con sus muros macizos y fosos defensivos. En sueños delata cómo proteges tus vulnerabilidades: ¿tienes un puente levadizo que puedes bajar para dejar entrar a personas de confianza, o te has atrincherado tras murallas impenetrables?",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "El castillo interior como imagen de la psique estructurada y el poder soberano del individuo sobre su reino vital.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: habitar un palacio o castillo presagia honores y seguridad personal si las murallas se mantienen intactas.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "B",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "lugar",
+        "defensa",
+        "poder",
+        "seguridad",
+        "límites"
+      ],
+      "questions": [
+        "¿El castillo era acogedor y luminoso o una fortaleza fría e inaccesible?",
+        "¿Tus murallas personales te están protegiendo o te están aislando del mundo?"
+      ]
+    },
+    {
+      "id": "k-sotano",
+      "term": "Sótano / Subsuelo / Bodega",
+      "synonyms": [
+        "sótano",
+        "sotano",
+        "sótanos",
+        "subsuelo",
+        "bodega",
+        "buhardilla subterránea",
+        "bajar al sótano",
+        "trastero oscuro"
+      ],
+      "category": "lugar",
+      "summary": "El inconsciente más reprimido, recuerdos arrinconados con llave, secretos familiares o cimientos olvidados.",
+      "detail": "Si la casa representa tu personalidad, el sótano guarda todo lo que no quieres exhibir en el salón: culpas antiguas, deseos censurados, trastos emocionales de relaciones pasadas. Bajar al sótano con valentía es el primer paso para limpiar y ordenar tu mundo interior.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "freudiana",
+          "text": "El almacén directo del Ello y lo reprimido inconsciente que pugna por emerger a la superficie.",
+          "sourceId": "s-freud"
+        },
+        {
+          "school": "junguiana",
+          "text": "Capa de memorias arcaicas y arquetípicas; allí descansa la energía vital aprisionada por el miedo.",
+          "sourceId": "s-jung"
+        }
+      ],
+      "sourceIds": [
+        "s-freud",
+        "s-jung",
+        "s-continuidad"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "lugar",
+        "inconsciente",
+        "secretos",
+        "sombra",
+        "memoria"
+      ],
+      "questions": [
+        "¿Qué encontrabas al descender los escalones del sótano?",
+        "¿Qué asunto guardado 'bajo llave' en tu mente necesita ser ventilado y ordenado?"
+      ]
+    },
+    {
+      "id": "k-viento",
+      "term": "Viento / Huracán / Tornado",
+      "synonyms": [
+        "viento",
+        "vientos",
+        "huracán",
+        "huracan",
+        "tornado",
+        "tornados",
+        "vendaval",
+        "torbellino",
+        "ventolera",
+        "ráfaga",
+        "aire fuerte",
+        "ciclón"
+      ],
+      "category": "clima",
+      "summary": "Fuerzas de cambio vertiginoso, turbulencia de ideas, agitación emocional y renovación radical.",
+      "detail": "El viento mueve lo inamovible y limpia el aire estancado. Una brisa agradable refresca tus pensamientos; pero un huracán o tornado que arrasa a su paso simboliza situaciones vitales (crisis de pareja, cambios de empleo) que escapan a tu control y te obligan a soltar rigideces.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "El 'Pneuma' o soplo del espíritu: dinamismo psíquico incontrolable que desbarata las estructuras del ego.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: vientos impetuosos anuncian viajes forzados, noticias agitadas o pleitos que exigen serenidad.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "clima",
+        "cambio",
+        "turbulencia",
+        "libertad",
+        "mente"
+      ],
+      "questions": [
+        "¿El viento te impulsaba hacia adelante o te hacía perder el equilibrio?",
+        "¿Qué cambio inevitable estás resistiendo en vez de dejar que el viento renueve tu panorama?"
+      ]
+    },
+    {
+      "id": "k-arcoiris",
+      "term": "Arcoíris",
+      "synonyms": [
+        "arcoíris",
+        "arcoiris",
+        "arco iris",
+        "siete colores",
+        "arco celeste",
+        "después de la tormenta"
+      ],
+      "category": "clima",
+      "summary": "Paz tras la tempestad, reconciliación profunda, esperanza renovada y armonía entre opuestos.",
+      "detail": "El arcoíris solo puede surgir cuando la lluvia y los rayos del sol coinciden en el cielo. Es el mensaje onírico más claro de que una etapa de lágrimas o conflictos ha terminado y da paso a un periodo de armonía, claridad y gozo.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "Puente entre el cielo y la tierra: integración armoniosa de todos los matices de la psique.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Desde el relato bíblico del diluvio hasta los mitos griegos (la mensajera Iris), augura concordia, bendición y sosiego.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "clima",
+        "esperanza",
+        "paz",
+        "alegría",
+        "luz"
+      ],
+      "questions": [
+        "¿Veías el arcoíris brillar nítido en el cielo tras una gran lluvia?",
+        "¿Qué tormenta reciente de tu vida está lista para transformarse en serenidad y aprendizaje?"
+      ]
+    },
+    {
+      "id": "k-terremoto",
+      "term": "Terremoto / Temblor / Sismo",
+      "synonyms": [
+        "terremoto",
+        "terremotos",
+        "temblor",
+        "temblores",
+        "sismo",
+        "seísmo",
+        "grieta en el suelo",
+        "caerse el edificio",
+        "derrumbe",
+        "sacudida de tierra"
+      ],
+      "category": "clima",
+      "summary": "Sacudida existencial, colapso de viejas certezas, pérdida de suelo firme y renacimiento inevitable.",
+      "detail": "Cuando la tierra tiembla en sueños, lo que se tambalea no es el planeta, sino tus supuestos intocables: una verdad que creías eterna, una relación que dabas por sentada o una seguridad profesional. Tras el seísmo, queda el espacio limpio para construir cimientos más auténticos.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "cientifica",
+          "text": "Frecuente en momentos de ruptura amorosa, mudanza forzada o giros inesperados en la trayectoria vital.",
+          "sourceId": "s-continuidad"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: terremotos anuncian transformaciones políticas o cambios de domicilio y costumbres.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "clima",
+        "crisis",
+        "transformación",
+        "cambio",
+        "alerta"
+      ],
+      "questions": [
+        "¿Lograbas mantenerte en pie o buscabas refugio en lugar seguro?",
+        "¿Qué cimiento que creías inamovible te pide ahora flexibilidad y adaptación?"
+      ]
+    },
+    {
+      "id": "k-inundacion",
+      "term": "Inundación / Tsunami / Marea Alta",
+      "synonyms": [
+        "inundación",
+        "inundacion",
+        "inundaciones",
+        "tsunami",
+        "ola gigante",
+        "marea alta",
+        "agua desbordada",
+        "casa inundada",
+        "riada",
+        "desbordamiento"
+      ],
+      "category": "clima",
+      "summary": "Desbordamiento de emociones reprimidas, llanto contenido, agobio por exceso de exigencias.",
+      "detail": "El agua simboliza la vida afectiva. Si se desborda y anega habitaciones o ciudades, es señal inequívoca de que has estado conteniendo el llanto, la rabia o la ternura durante demasiado tiempo y tu psique ya no tolera más diques artificiales.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "Invasión del consciente por los contenidos del inconsciente; llamada a reconocer y validar lo que sientes.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "cientifica",
+          "text": "Muy correlacionado con periodos de agotamiento emocional ('burnout') y saturación de responsabilidades.",
+          "sourceId": "s-continuidad"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "clima",
+        "emociones",
+        "desbordamiento",
+        "agua",
+        "catarsis"
+      ],
+      "questions": [
+        "¿El agua subía lentamente o te sorprendía en una ola gigantesca?",
+        "¿Qué emoción has intentado callar para no incomodar a los demás?"
+      ]
+    },
+    {
+      "id": "k-color-rojo",
+      "term": "Color Rojo",
+      "synonyms": [
+        "rojo",
+        "color rojo",
+        "roja",
+        "rojos",
+        "carmesí",
+        "escarlata",
+        "rubí",
+        "sangre viva",
+        "ropa roja",
+        "luz roja"
+      ],
+      "category": "color",
+      "summary": "Pasión ardiente, energía vital desbordante, ira, valentía o señal de alerta urgente.",
+      "detail": "El rojo es el color del corazón latiendo y del fuego primitivo. En sueños nunca pasa desapercibido: si te transmite calor y poder, habla de entusiasmo y vigor erótico o creativo; si es estridente y amenazante, advierte de impulsividad ciega o conflictos al límite.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "La fase alquímica del 'Rubedo': la culminación de la vida encarnada con plenitud, deseo y pasión consciente.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "personal",
+          "text": "Evalúa si una situación te está provocando una ira visceral o si necesitas apasionarte más con lo que haces.",
+          "sourceId": "s-continuidad"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "color",
+        "pasión",
+        "ira",
+        "vitalidad",
+        "fuego"
+      ],
+      "questions": [
+        "¿El color rojo te inspiraba fuerza y deseo o sobresalto y advertencia?",
+        "¿En qué área de tu vida necesitas poner más pasión o enfriar una rabia acumulada?"
+      ]
+    },
+    {
+      "id": "k-color-azul",
+      "term": "Color Azul",
+      "synonyms": [
+        "azul",
+        "color azul",
+        "azules",
+        "añil",
+        "azul marino",
+        "celeste",
+        "azul cielo",
+        "turquesa",
+        "mar azul",
+        "luz azul"
+      ],
+      "category": "color",
+      "summary": "Serenidad espiritual, profundidad mental, verdad sincera, devoción o melancolía reflexiva.",
+      "detail": "El azul abarca la inmensidad del cielo diurno y las profundidades serenas del mar calmo. Soñar con azul suele llegar como una ola de calma balsámica tras etapas de ansiedad, invitando a la reflexión reposada y a la lealtad hacia tus convicciones.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "El color del pensamiento lúcido y del plano espiritual trascendente; sosiega el ardor de los instintos.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "personal",
+          "text": "Refleja la necesidad de expresarte con honestidad y de encontrar un remanso de paz mental.",
+          "sourceId": "s-continuidad"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "color",
+        "paz",
+        "espiritualidad",
+        "mente",
+        "calma"
+      ],
+      "questions": [
+        "¿Era un azul luminoso y reconfortante o un azul oscuro y nostálgico?",
+        "¿Qué verdad necesitas contemplar con la mente fría y el corazón en paz?"
+      ]
+    },
+    {
+      "id": "k-color-verde",
+      "term": "Color Verde",
+      "synonyms": [
+        "verde",
+        "color verde",
+        "verdes",
+        "esmeralda",
+        "verde esperanza",
+        "hierba verde",
+        "hojas verdes",
+        "luz verde"
+      ],
+      "category": "color",
+      "summary": "Sanación física y emocional, renuevo de esperanza, fertilidad, equilibrio y vitalidad sana.",
+      "detail": "El verde es el color de la naturaleza primaveral que siempre revive tras el invierno más duro. Indica que tus heridas emocionales están cicatrizando adecuadamente y que estás listo para abrirte a nuevos comienzos con frescura y optimismo.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "El color de la regeneración celular y psíquica; armonía entre el cuerpo y el entorno.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Tradicionalmente asociado a la buena salud, la fortuna en los campos y la esperanza incombustible.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "color",
+        "sanación",
+        "esperanza",
+        "crecimiento",
+        "naturaleza"
+      ],
+      "questions": [
+        "¿El verde se manifestaba en campos frondosos o en destellos luminosos?",
+        "¿Qué herida o preocupación reciente está empezando a sanar en tu vida?"
+      ]
+    },
+    {
+      "id": "k-color-blanco",
+      "term": "Color Blanco",
+      "synonyms": [
+        "blanco",
+        "color blanco",
+        "blancos",
+        "blanca",
+        "pureza",
+        "luz blanca",
+        "vestido blanco",
+        "nieve blanca",
+        "papel en blanco",
+        "resplandor blanco"
+      ],
+      "category": "color",
+      "summary": "Pureza de intenciones, inicio desde cero (hoja en blanco), iluminación lúcida o desconexión emocional.",
+      "detail": "El blanco contiene todas las frecuencias de la luz. En sueños suele señalar un lienzo en blanco para reescribir tu historia sin lastres del pasado. Si es demasiado frío o aséptico (como una sala de hospital vacía), puede advertir de aislamiento afectivo o exceso de racionalización.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "La fase alquímica del 'Albedo': purificación de los conflictos de la sombra y surgimiento de la lucidez.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: vestir de blanco con alegría augura bodas, prosperidad y reconciliaciones con amigos.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "color",
+        "pureza",
+        "claridad",
+        "comienzo",
+        "luz"
+      ],
+      "questions": [
+        "¿El blanco te transmitía frescura y paz o una sensación de frialdad distante?",
+        "¿Qué aspecto de tu vida está listo para empezar desde cero, con la hoja en blanco?"
+      ]
+    },
+    {
+      "id": "k-color-negro",
+      "term": "Color Negro / Oscuridad",
+      "synonyms": [
+        "negro",
+        "color negro",
+        "negra",
+        "negros",
+        "oscuridad",
+        "tinieblas",
+        "ropa negra",
+        "noche cerrada",
+        "sombra negra",
+        "fondo negro"
+      ],
+      "category": "color",
+      "summary": "El misterio fecundo del inconsciente, la sombra no revelada, duelo necesario o descanso regenerador.",
+      "detail": "En nuestra cultura el negro suele temerse, pero en el sueño es la noche fértil donde la semilla germina antes de ver la luz. El color negro te pide no temer tus propias profundidades, honrar un ciclo de despedida o permitirte una pausa silenciosa lejos del escrutinio ajeno.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "La fase del 'Nigredo' y el encuentro con la Sombra: imprescindible para integrar lo desconocido de uno mismo.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "personal",
+          "text": "Examina si estás atravesando un proceso de duelo afectivo o si temes adentrarte en tus verdaderos deseos.",
+          "sourceId": "s-continuidad"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "color",
+        "misterio",
+        "sombra",
+        "duelo",
+        "origen"
+      ],
+      "questions": [
+        "¿La oscuridad te envolvía de forma protectora y calma o te infundía temor?",
+        "¿Qué faceta tuya tienes relegada a la sombra por miedo al juicio ajeno?"
+      ]
+    },
+    {
+      "id": "k-color-amarillo",
+      "term": "Color Amarillo / Dorado",
+      "synonyms": [
+        "amarillo",
+        "color amarillo",
+        "dorado",
+        "oro líquido",
+        "ocre",
+        "ámbar",
+        "luz solar amarilla",
+        "flor amarilla"
+      ],
+      "category": "color",
+      "summary": "Lucidez intelectual, optimismo radiante, creatividad solar o advertencia de desconfianza.",
+      "detail": "El amarillo y el dorado son los colores del sol y de la mente despierta. Transmiten entusiasmo, ganas de aprender y confianza en el futuro. Si el tono es turbio o enfermizo, puede reflejar sospechas, celos o fatiga nerviosa.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "La 'Citrinitas' alquímica: el despertar de la consciencia solar y la maduración del intelecto sabio.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "El dorado siempre representó nobleza inalterable y abundancia de espíritu en todas las culturas clásicas.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "color",
+        "alegría",
+        "sol",
+        "creatividad",
+        "mente"
+      ],
+      "questions": [
+        "¿El amarillo brillaba cálido y vital como el mediodía?",
+        "¿Qué idea creativa o proyecto te está llenando de entusiasmo en estos momentos?"
+      ]
+    },
+    {
+      "id": "k-color-violeta",
+      "term": "Color Violeta / Morado / Púrpura",
+      "synonyms": [
+        "violeta",
+        "color violeta",
+        "morado",
+        "púrpura",
+        "purpura",
+        "lila",
+        "magenta",
+        "amatista violeta",
+        "luz morada"
+      ],
+      "category": "color",
+      "summary": "Transformación espiritual, refinamiento intuitivo, dignidad soberana y transmutación de penas.",
+      "detail": "El violeta resulta de mezclar la pasión del rojo con la serenidad del azul. En sueños aparece cuando estamos aprendiendo a gestionar un dolor con sabiduría, transmutando una experiencia difícil en madurez y autocompasión.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "Arquetipo de la individuación y la elevación espiritual que sintetiza los contrarios instintivos y mentales.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Color tradicional de emperadores y sabios; denota nobleza de espíritu y búsqueda de trascendencia.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "color",
+        "intuición",
+        "misterio",
+        "sabiduría",
+        "cambio"
+      ],
+      "questions": [
+        "¿El violeta envolvía el ambiente como una atmósfera de ensoñación sagrada?",
+        "¿Qué dolor o conflicto reciente has logrado entender desde un punto de vista más sabio?"
+      ]
+    },
+    {
+      "id": "k-desconocido",
+      "term": "Personas Desconocidas / Extraños",
+      "synonyms": [
+        "desconocido",
+        "desconocidos",
+        "extraño",
+        "extraños",
+        "persona sin cara",
+        "silueta misteriosa",
+        "hombre desconocido",
+        "mujer desconocida",
+        "rostro borroso",
+        "forastero"
+      ],
+      "category": "persona",
+      "summary": "Facetas propias aún no reconocidas, potencial latente, miedos proyectados o intuiciones nuevas.",
+      "detail": "En el teatro del sueño, los extraños no son realmente ajenos: casi siempre encarnan partes de tu propia psique que el ego diurno no identifica como suyas. Un extraño amable refleja cualidades que posees pero aún no te reconoces; una figura amenazante representa aspectos de tu sombra que piden ser integrados.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "Manifestación clásica del 'Ánima', 'Ánimus' o la 'Sombra': facetas no integradas del inconsciente proyectadas en un rostro nuevo.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "cientifica",
+          "text": "El sistema Hall & Van de Castle muestra que la proporción de personajes desconocidos aumenta con la tensión emocional.",
+          "sourceId": "s-hall"
+        }
+      ],
+      "sourceIds": [
+        "s-jung",
+        "s-hall",
+        "s-continuidad"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "persona",
+        "arquetipo",
+        "sombra",
+        "identidad",
+        "proyección"
+      ],
+      "questions": [
+        "¿El desconocido te inspiraba curiosidad o desconfianza y recelo?",
+        "¿Qué cualidad de esa persona desconocida desearías tener tú o te molesta ver en ti?"
+      ]
+    },
+    {
+      "id": "k-madre",
+      "term": "Madre / Figura Materna",
+      "synonyms": [
+        "madre",
+        "madres",
+        "mamá",
+        "mama",
+        "mami",
+        "figura materna",
+        "anciana nutricia",
+        "suegra",
+        "maternidad"
+      ],
+      "category": "persona",
+      "summary": "El arquetipo del cuidado nutricio, protección incondicional, apego o necesidad de independencia.",
+      "detail": "Soñar con tu propia madre o con una mujer nutricia conecta directamente con tus necesidades de seguridad, afecto y auto-cuidado. Si la relación es tensa en el sueño, puede señalar un conflicto de límites o la necesidad de 'maternarte' a ti mismo con más compasión.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "El arquetipo de la Gran Madre: la fuente dadora de vida, contención y raíces afectivas.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "freudiana",
+          "text": "Centro de las dinámicas primarias de afecto, deseo de aprobación y primeras vinculaciones infantiles.",
+          "sourceId": "s-freud"
+        },
+        {
+          "school": "personal",
+          "text": "Pregúntate cómo te estás cuidando físicamente y qué apoyo emocional estás necesitando en tu vigilia.",
+          "sourceId": "s-continuidad"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-freud"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "persona",
+        "familia",
+        "apego",
+        "cuidado",
+        "afecto"
+      ],
+      "questions": [
+        "¿Tu madre te acogía con cariño o te hacía reproches en el sueño?",
+        "¿En qué faceta de tu vida necesitas brindarte más cuidado y ternura a ti mismo?"
+      ]
+    },
+    {
+      "id": "k-padre",
+      "term": "Padre / Figura Paterna",
+      "synonyms": [
+        "padre",
+        "padres",
+        "papá",
+        "papa",
+        "papi",
+        "figura paterna",
+        "autoridad",
+        "jefe paterno",
+        "paternidad"
+      ],
+      "category": "persona",
+      "summary": "La ley interior, estructura de vida, guía en el mundo exterior, disciplina o necesidad de aprobación.",
+      "detail": "El padre en sueños suele representar el orden, la toma de decisiones, la relación con la autoridad y la capacidad de salir al mundo a defender tus proyectos. Si el padre en el sueño aprueba tus pasos, refleja seguridad en tus decisiones; si juzga, denota un crítico interior severo.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "El arquetipo del Padre y del Senex: logos, ley, estructura social y sabiduría directiva.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "freudiana",
+          "text": "Superyó internalizado: la voz de las normas, el deber y la exigencia de logro.",
+          "sourceId": "s-freud"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-freud"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "persona",
+        "familia",
+        "autoridad",
+        "guía",
+        "decisión"
+      ],
+      "questions": [
+        "¿Tu padre te aconsejaba con calma o te exigía cuentas de tus actos?",
+        "¿Qué decisión importante estás dudando en tomar por miedo a decepcionar expectativas ajenas?"
+      ]
+    },
+    {
+      "id": "k-expareja",
+      "term": "Ex-pareja / Amor del Pasado",
+      "synonyms": [
+        "ex",
+        "expareja",
+        "ex pareja",
+        "ex novio",
+        "ex novia",
+        "antiguo amor",
+        "ex marido",
+        "ex mujer",
+        "antiguo novio",
+        "volver con mi ex",
+        "primer amor"
+      ],
+      "category": "persona",
+      "summary": "Resolución de asuntos pendientes, heridas no cicatrizadas, comparación con tu presente o nostalgia.",
+      "detail": "Soñar con un ex no significa necesariamente que desees volver con esa persona. Con frecuencia, tu mente recurre a ella para procesar una emoción similar que estás experimentando hoy: miedo al abandono, reproches no dichos o el deseo de recuperar una ilusión perdida.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "cientifica",
+          "text": "Hipótesis de continuidad: reactivación de patrones de apego del pasado ante estresores relacionales presentes.",
+          "sourceId": "s-continuidad"
+        },
+        {
+          "school": "junguiana",
+          "text": "La figura del ex encarna aspectos del Ánima/Ánimus propio que fueron proyectados en esa persona durante la relación.",
+          "sourceId": "s-jung"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "persona",
+        "relaciones",
+        "duelo",
+        "apego",
+        "amor"
+      ],
+      "questions": [
+        "¿En el sueño discutían, se despedían con paz o intentaban retomar la relación?",
+        "¿Qué emoción sentida en aquella relación se parece a lo que vives o temes en tu vida actual?"
+      ]
+    },
+    {
+      "id": "k-nino",
+      "term": "Niño / Infancia / Niño Interior",
+      "synonyms": [
+        "niño",
+        "niña",
+        "niños",
+        "niñas",
+        "infancia",
+        "jugar como niño",
+        "niño interior",
+        "yo de pequeño",
+        "hijo pequeño",
+        "hija pequeña"
+      ],
+      "category": "persona",
+      "summary": "Inocencia originaria, vulnerabilidad, necesidad de juego libre, asombro y el estado del niño interior.",
+      "detail": "Un niño en sueños refleja tu parte más pura, sensible y creativa: aquella que no está contaminada por el cinismo adulto. Si el niño está triste, descuidado o perdido, es un aviso urgente de que estás desatendiendo tus necesidades emocionales más básicas.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "El arquetipo del 'Puer Aeternus' y el Niño Divino: símbolo de futuro, renovación y potencial no corrompido.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "personal",
+          "text": "Una invitación directa a abrazar a tu niño interior, rescatar tu capacidad de juego y perdonarte viejos errores.",
+          "sourceId": "s-continuidad"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "persona",
+        "inocencia",
+        "creatividad",
+        "vulnerabilidad",
+        "afecto"
+      ],
+      "questions": [
+        "¿El niño reía jugando con libertad o lloraba buscando atención y protección?",
+        "¿Cuánto hace que no juegas o te diviertes sin pensar en la productividad y la obligación?"
+      ]
+    },
+    {
+      "id": "k-bebe",
+      "term": "Bebé / Nacimiento / Lactancia",
+      "synonyms": [
+        "bebé",
+        "bebe",
+        "bebés",
+        "bebes",
+        "recién nacido",
+        "dar el pecho",
+        "mecer a un bebé",
+        "cuna",
+        "amamantar",
+        "en brazos"
+      ],
+      "category": "persona",
+      "summary": "Nacimiento de una nueva etapa de vida, proyectos que necesitan cuidados diarios y máxima vulnerabilidad.",
+      "detail": "Sostener a un bebé en brazos simboliza la llegada de algo sumamente valioso pero frágil a tu vida: una nueva pasión, un proyecto creativo o una transformación personal incipiente que requiere tu dedicación amorosa y constante para crecer sano.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "El nacimiento del nuevo ego o de una actitud vital renovada que debe ser protegida de las agresiones del entorno.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: cuidar un bebé hermoso presagia alegrías familiares y ganancias que florecen paso a paso.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "persona",
+        "comienzo",
+        "cuidado",
+        "proyectos",
+        "vida"
+      ],
+      "questions": [
+        "¿El bebé estaba tranquilo y saludable o lloraba reclamando cuidados urgentes?",
+        "¿Qué nuevo plan o faceta tuya necesita tu atención amorosa y diaria para consolidarse?"
+      ]
+    },
+    {
+      "id": "k-multitud",
+      "term": "Multitud / Masa de Gente",
+      "synonyms": [
+        "multitud",
+        "gentío",
+        "masa de gente",
+        "aglomeración",
+        "mucha gente",
+        "muchedumbre",
+        "público",
+        "concierto",
+        "plaza llena de gente"
+      ],
+      "category": "persona",
+      "summary": "Presión de la opinión social, pérdida de identidad individual o sensación de pertenencia comunitaria.",
+      "detail": "Estar inmerso en una masa humana revela cómo gestionas la presión colectiva. Si te asfixia, refleja temor a ser fagocitado por el qué dirán o por las exigencias de tu entorno; si te contagia entusiasmo festivo, muestra tu anhelo de conexión y pertenencia solidaria.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "Riesgo de sumergirse en la consciencia de masa colectiva con pérdida de la individualidad propia (desindividuación).",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "cientifica",
+          "text": "Se activa con frecuencia antes de exposiciones públicas, exámenes o eventos sociales de alta exigencia.",
+          "sourceId": "s-continuidad"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "persona",
+        "sociedad",
+        "presión",
+        "identidad",
+        "comunidad"
+      ],
+      "questions": [
+        "¿Te sentías arropado por la gente o asfixiado entre empujones?",
+        "¿Hasta qué punto tus decisiones recientes están condicionadas por agradar a la multitud?"
+      ]
+    },
+    {
+      "id": "k-anciano-sabio",
+      "term": "Anciano Sabio / Guía / Mentor",
+      "synonyms": [
+        "anciano sabio",
+        "anciana sabia",
+        "abuelo sabio",
+        "maestro",
+        "maestra",
+        "guía espiritual",
+        "profesor",
+        "consejero",
+        "mentor",
+        "sabio de barba blanca"
+      ],
+      "category": "persona",
+      "summary": "La voz de la sabiduría interior profunda, discernimiento ético y orientación en encrucijadas vitales.",
+      "detail": "Cuando una figura anciana y venerada te habla o te entrega un objeto en el sueño, tu psique está recurriendo a su reserva más honda de sensatez. Escucha con atención lo que te dice: suele condensar la respuesta intuitiva que ya conoces pero te daba miedo asumir.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "El Arquetipo del Anciano Sabio (Senex / Mana): personificación del conocimiento arquetípico y la guía espiritual del Sí-mismo.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: consejos dados por ancianos rectos o figuras reverenciadas en sueños deben ser seguidos al pie de la letra.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "persona",
+        "sabiduría",
+        "guía",
+        "arquetipo",
+        "consejo"
+      ],
+      "questions": [
+        "¿Qué palabra, advertencia o regalo te ofrecía el anciano?",
+        "¿Qué camino te indica tu sabiduría interior cuando dejas a un lado las dudas superficiales?"
+      ]
+    },
+    {
+      "id": "k-amigos",
+      "term": "Amigos / Amistades de la Infancia",
+      "synonyms": [
+        "amigo",
+        "amiga",
+        "amigos",
+        "amigas",
+        "amistad",
+        "amigo de la infancia",
+        "reunión de amigos",
+        "compañero de clase",
+        "viejos amigos"
+      ],
+      "category": "persona",
+      "summary": "Complicidad sincera, nostalgia de etapas compartidas, apoyo afectivo leal o lecciones no aprendidas.",
+      "detail": "Soñar con amigos de la infancia suele transportarte a la etapa vital en que los conociste: ¿qué valores, sueños o frescura tenías entonces que has dejado de lado hoy? Si el amigo está en apuros, puede ser un reflejo de tu propia necesidad de pedir ayuda.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "cientifica",
+          "text": "Los amigos en sueños sirven de anclajes de seguridad emocional y facilitan el procesamiento de vivencias diurnas.",
+          "sourceId": "s-continuidad"
+        },
+        {
+          "school": "junguiana",
+          "text": "A menudo funcionan como 'dobles' del propio soñante, actuando con conductas que uno desearía atreverse a tener.",
+          "sourceId": "s-jung"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "persona",
+        "amistad",
+        "lealtad",
+        "recuerdos",
+        "apoyo"
+      ],
+      "questions": [
+        "¿Compartían risas y confidencias como en los viejos tiempos?",
+        "¿Qué amigo leal de tu vida merece hoy una llamada o mensaje de agradecimiento?"
+      ]
+    },
+    {
+      "id": "k-difunto-visita",
+      "term": "Fallecido / Visita de Ser Querido",
+      "synonyms": [
+        "fallecido",
+        "fallecida",
+        "muerto que habla",
+        "difunto",
+        "difunta",
+        "abuelo muerto",
+        "abuela fallecida",
+        "padre fallecido",
+        "madre fallecida",
+        "visita de un difunto",
+        "hablar con un muerto",
+        "soñar con alguien que ya murió"
+      ],
+      "category": "persona",
+      "summary": "Duelo y asimilación de la pérdida, reconciliación pendiente, consuelo afectivo o mensaje de paz.",
+      "detail": "Soñar con seres queridos que han fallecido es una de las experiencias oníricas más universales y conmovedoras. Lejos de ser algo tétrico, suele tratarse de un mecanismo natural del cerebro para digerir la ausencia, integrar el legado de esa persona o recibir una sensación profunda de sosiego y bendición.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "cientifica",
+          "text": "Procesamiento del duelo en la memoria autobiográfica: el cerebro reorganiza el mapa vincular tras la pérdida física.",
+          "sourceId": "s-continuidad"
+        },
+        {
+          "school": "junguiana",
+          "text": "Encuentro con las figuras ancestrales interiorizadas que siguen vivas como guías morales y afectivos dentro de ti.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: los muertos que se presentan sonrientes y en paz auguran solución de pleitos y tranquilidad en el alma.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "persona",
+        "duelo",
+        "paz",
+        "ancestros",
+        "memoria"
+      ],
+      "questions": [
+        "¿El ser querido te transmitía calma, una sonrisa serena o un abrazo cálido?",
+        "¿Qué legado o lección hermosa te dejó esa persona que puedes aplicar en tu presente?"
+      ]
+    },
+    {
+      "id": "k-sin-voz",
+      "term": "Pérdida de Voz / No Poder Gritar",
+      "synonyms": [
+        "no poder hablar",
+        "sin voz",
+        "no me sale la voz",
+        "intentar gritar y no poder",
+        "mudo en el sueño",
+        "garganta cerrada",
+        "nadie me oye",
+        "afónico"
+      ],
+      "category": "sensación",
+      "summary": "Impotencia comunicativa, sensación de no ser escuchado o miedo a expresar una verdad incómoda.",
+      "detail": "Querer gritar para pedir auxilio o decir 'basta' y comprobar con angustia que de la garganta solo sale un hilo de aire. Refleja situaciones de vigilia donde sientes que tu opinión no es tenida en cuenta, o donde te autocensuras por miedo a las consecuencias.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "cientifica",
+          "text": "Correlación directa con la atonía muscular de la fase REM: el cerebro bloquea la vocalización física real mientras sueña.",
+          "sourceId": "s-continuidad"
+        },
+        {
+          "school": "personal",
+          "text": "Invita a examinar en qué relación o entorno profesional estás callando lo que realmente piensas.",
+          "sourceId": "s-continuidad"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "sensación",
+        "comunicación",
+        "bloqueo",
+        "impotencia",
+        "voz"
+      ],
+      "questions": [
+        "¿A quién intentabas gritar o qué querías decir desesperadamente?",
+        "¿Qué verdad importante estás reteniendo en tu garganta sin atreverte a expresarla?"
+      ]
+    },
+    {
+      "id": "k-buscar",
+      "term": "Buscar Algo Perdido sin Encontrarlo",
+      "synonyms": [
+        "buscar",
+        "buscar algo",
+        "no encontrar",
+        "perder las llaves",
+        "perder el bolso",
+        "perder el móvil",
+        "extraviado",
+        "perder documentos",
+        "perder billete",
+        "desesperación por buscar"
+      ],
+      "category": "sensación",
+      "summary": "Búsqueda de identidad o propósito, sensación de vacío o miedo a descuidar algo valioso.",
+      "detail": "Revolver cajones, registrar habitaciones y correr angustiado buscando un objeto vital (el teléfono, el billete, las llaves, el dinero). El objeto perdido simboliza una parte de tu propia seguridad o conexión que sientes extraviada en el torbellino cotidiano.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "cientifica",
+          "text": "Típico en etapas de dispersión, multitarea extrema o fatiga mental donde la memoria inmediata falla.",
+          "sourceId": "s-continuidad"
+        },
+        {
+          "school": "junguiana",
+          "text": "La búsqueda del tesoro difícil de alcanzar: el ser humano buscando su centro y sentido de vida.",
+          "sourceId": "s-jung"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "sensación",
+        "ansiedad",
+        "búsqueda",
+        "propósito",
+        "pérdida"
+      ],
+      "questions": [
+        "¿Qué objeto buscabas con tanta desesperación en el sueño?",
+        "¿Qué prioridad íntima sientes que has descuidado entre tantas urgencias diarias?"
+      ]
+    },
+    {
+      "id": "k-bailar",
+      "term": "Bailar / Fiesta / Celebración",
+      "synonyms": [
+        "bailar",
+        "baile",
+        "danzar",
+        "fiesta",
+        "celebración",
+        "música alegre",
+        "festejo",
+        "discoteca",
+        "pista de baile",
+        "bailar con alguien"
+      ],
+      "category": "sensación",
+      "summary": "Alegría de vivir, armonía corporal, conexión social dichosa y liberación de rigideces mentales.",
+      "detail": "Moverse al compás de la música sin vergüenza es la celebración del cuerpo y del presente. Refleja que estás permitiéndote disfrutar de los placeres sanos de la vida, soltando el control excesivo y celebrando tus pequeños o grandes triunfos.",
+      "perspective": "Exploración simbólica",
+      "interpretations": [
+        {
+          "school": "junguiana",
+          "text": "La danza como integración gozosa de los opuestos y celebración de la energía de la vida.",
+          "sourceId": "s-jung"
+        },
+        {
+          "school": "historica",
+          "text": "Artemidoro: bailar con alegría en familia o con amigos augura armonía doméstica y buenas noticias.",
+          "sourceId": "s-artemidoro"
+        }
+      ],
+      "sourceIds": [
+        "s-continuidad",
+        "s-jung",
+        "s-artemidoro"
+      ],
+      "evidence": "A",
+      "version": 1,
+      "review": "curado",
+      "tags": [
+        "sensación",
+        "alegría",
+        "cuerpo",
+        "celebración",
+        "libertad"
+      ],
+      "questions": [
+        "¿Bailabas solo con gozo o en compañía de alguien especial?",
+        "¿Qué logro o aspecto de tu presente merece que hoy lo celebres con alegría?"
       ]
     }
   ]
